@@ -162,11 +162,29 @@
       <option name="presentableId" value="Default" />
       <updated>1611824298304</updated>
       <workItem from="1611824299454" duration="2207000" />
-      <workItem from="1611826847067" duration="3823000" />
+      <workItem from="1611826847067" duration="7324000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="312" y="81" key="#Deployment" timestamp="1611903286568">
+      <screen x="0" y="23" width="1440" height="785" />
+    </state>
+    <state x="312" y="81" key="#Deployment/0.23.1440.785@0.23.1440.785" timestamp="1611903286568" />
+    <state x="296" y="68" key="#SSH_Configurations" timestamp="1611903277482">
+      <screen x="0" y="23" width="1440" height="785" />
+    </state>
+    <state x="296" y="68" key="#SSH_Configurations/0.23.1440.785@0.23.1440.785" timestamp="1611903277482" />
+    <state x="619" y="153" key="ftp.server.browser" timestamp="1611903285058">
+      <screen x="0" y="23" width="1440" height="785" />
+    </state>
+    <state x="619" y="153" key="ftp.server.browser/0.23.1440.785@0.23.1440.785" timestamp="1611903285058" />
+    <state x="377" y="132" width="670" height="676" key="search.everywhere.popup" timestamp="1611840128739">
+      <screen x="0" y="23" width="1440" height="785" />
+    </state>
+    <state x="377" y="132" width="670" height="676" key="search.everywhere.popup/0.23.1440.785@0.23.1440.785" timestamp="1611840128739" />
   </component>
 </project>
