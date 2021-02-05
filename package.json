@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "axios": "^0.21",
-        "bootstrap": "^4.0.0",
+        "bootstrap": "^4.6.0",
         "jquery": "^3.2",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
@@ -20,5 +20,14 @@
         "resolve-url-loader": "^3.1.2",
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0"
+    },
+    "optionalDependencies": {
+        "resolve-url": "^0.2.1",
+        "urix": "^0.1.0"
+    },
+    "dependencies": {
+        "admin-lte": "^3.1.0-rc",
+        "resolve-url": "^0.2.1",
+        "urix": "^0.1.0"
     }
 }
