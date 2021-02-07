@@ -1,30 +1,19 @@
-@extends('layouts.app')
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Praktikabaasid</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- FontAwesome -->
-    <script src="https://kit.fontawesome.com/a8018f10c4.js" crossorigin="anonymous"></script>
-</head>
-<style>
-    .form-group {
-        padding-top: 2px;
-        padding-bottom: 2px;
-    }
-</style>
-<body>
-<section style="padding-top:60px">
+@extends('layouts.master')
+@section('title', 'Praktikabaasid')
+@section('content')
+
+<section style="padding-top:20px">
     <div class="container-fluid m-0">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <h3 class="m-4" style="color: #E60011">PRAKTIKABAASID</h3>
-                <a href="/add-practice-base" class="btn btn-danger ml-4">Lisa uus praktikabaas</a>
+                <div>
+                    <a href="/add-practice-base" class="btn btn-outline-danger ml-4 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-plus-square-fill mb-1" viewBox="0 0 16 16">
+                            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+                        </svg> Lisa uus praktikabaas</a>
+                </div>
+
                 <div class="card" style="border: none;">
                     <div class="card-body">
 
@@ -67,13 +56,14 @@
                                     <td>{{$practiceBase->lepinguLopp}}</td>
                                     <td>{{$practiceBase->allkirjastaja}}</td>
                                     <td>{{$practiceBase->tunniHind}}</td>
-                                    <td>{{$practiceBase->kontaktBaasis}}</td>
-                                    <td>{{$practiceBase->markused}}</td>
+                                    <td style="max-width: 100px">{{$practiceBase->kontaktBaasis}}</td>
+                                    <td style="max-width: 100px">{{$practiceBase->markused}}</td>
                                     <td>
 
-                                        <a href="/practiceBases/{{ $practiceBase->id }}" class="btn btn-info mb-2">Vaata</a>
-                                        <a href="/edit-practice-base/{{ $practiceBase->id }}" class="btn btn-success mb-2">Muuda</a>
-                                        <a href="/delete-practice-base/{{ $practiceBase->id }}" class="btn btn-danger">Kustuta</a>
+                                        <a class="mr-2" style="color: darkorange" href="/practiceBases/{{ $practiceBase->id }}"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Vaata lähemalt"></i></a>
+                                        <a class="mr-2" style="color: forestgreen" href="/edit-practice-base/{{ $practiceBase->id }}"><i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Muuda"></i></a>
+                                        <a style="color: red" href="/delete-practice-base/{{ $practiceBase->id }}"><i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Kustuta"></i></a>
+
                                     </td>
                                 </tr>
                                 @endforeach
@@ -87,19 +77,6 @@
         </div>
     </div>
 </section>
-<!-- Include jQuery -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-<!-- Include Date Range Picker -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+@endsection
 
-
-
-
-
-<!-- Option 1: Bootstrap Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
-</body>
-</html>

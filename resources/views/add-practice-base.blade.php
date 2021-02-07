@@ -1,32 +1,8 @@
-@extends('layouts.app')
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lisa praktikabaas</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js" ></script>
-    <!-- FontAwesome -->
-    <script src="https://kit.fontawesome.com/a8018f10c4.js" crossorigin="anonymous"></script>
-</head>
-<style>
-    .form-group {
-        padding-top: 2px;
-        padding-bottom: 2px;
-    }
-    .required-field::after {
-        content: "*";
-        color: red;
-        margin-left:2px
-    }
+@extends('layouts.master')
+@section('title', 'Lisa praktikabaas')
+@section('content')
 
-</style>
-<body>
-<section style="padding-top:60px">
+<section style="padding-top:40px">
      <div class="container">
          <div class="row justify-content-center">
              <div class="col-md-10">
@@ -35,7 +11,7 @@
                          <h3 class="ml-4" style="color: #E60011">LISA PRAKTIKABAAS</h3>
                      </div>
                     <div class="col-2">
-                        <a href="/practiceBases" class="btn btn-danger mr-4">Praktikabaasid</a>
+                        <a href="/practiceBases" class="btn btn-outline-danger mr-4">Praktikabaasid</a>
                     </div>
                  </div>
                  <div class="card" style="border: 1px solid #EDEDED; background-color: #F5F5F5">
@@ -214,6 +190,8 @@
          </div>
      </div>
 </section>
+    <!--layouts.app-->
+
 <!-- Include jQuery -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
@@ -234,8 +212,6 @@
     })
 </script>
 <script>
-
-
     $(document).ready(function(){
         var date_input=$('input[name="lepinguLopp"]'); //our date input has the name "date"
         var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
@@ -267,7 +243,7 @@
         $('[data-toggle="tooltip"]').tooltip()
     })
 </script>
-<script src="bootstrap-validate.js"></script>
+
 <script>
     bootstrapValidate('#nimi', 'required:Sisesta praktikabaasi nimi')
     bootstrapValidate('#lepinguNr', 'required:Sisesta lepingu number')
@@ -281,9 +257,6 @@
 
 
 </script>
+@endsection
 
-<!-- Option 1: Bootstrap Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
-</body>
-</html>

@@ -32955,7 +32955,7 @@ a.text-muted:hover {
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Crimson Text", serif;
+  --font-family-sans-serif: "Crimson Text", sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -32978,7 +32978,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "Crimson Text", serif;
+  font-family: "Crimson Text", sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
@@ -38507,7 +38507,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Crimson Text", serif;
+  font-family: "Crimson Text", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -38609,7 +38609,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Crimson Text", serif;
+  font-family: "Crimson Text", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -49036,15 +49036,4 @@ readers do not read off random characters that represent icons */
 .fab {
   font-family: "Font Awesome 5 Brands";
   font-weight: 400;
-}
-
-body {
-  margin: 0;
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  text-align: left;
-  background-color: #fff;
 }
