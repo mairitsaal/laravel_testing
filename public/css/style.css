@@ -8,10 +8,10 @@
     margin-left:2px
 }
 .footer {
-
+    position: absolute;
+    bottom: 0;
     background: #E60011;
     color: #fff;
-    font-size: 14px;
     text-align: center;
     vertical-align: middle;
     line-height: 50px;
@@ -26,11 +26,55 @@
 }
 
 .shadow-sm{
-/*    box-shadow: 0px 0.125rem 0.25rem  #E60011 !important;
-    -moz-box-shadow: 0px 0.125rem 0.25rem  #E60011 !important;
-    -webkit-box-shadow: 0px 0.125rem 0.25rem  #E60011 !important;
-    -khtml-box-shadow: 0px 0.125rem 0.25rem  #E60011 !important;*/
+    /*    box-shadow: 0px 0.125rem 0.25rem  #E60011 !important;
+        -moz-box-shadow: 0px 0.125rem 0.25rem  #E60011 !important;
+        -webkit-box-shadow: 0px 0.125rem 0.25rem  #E60011 !important;
+        -khtml-box-shadow: 0px 0.125rem 0.25rem  #E60011 !important;*/
     border-bottom: 1px solid rgba(255, 0, 0, .3);
 
+}
+html{
+    font-size: 0.9rem !important;
+    position: relative;
+    min-height: 100%;
+}
+table{
+    text-align: center;
+
+}
+
+.red{
+    background: #E60011;
+    border-left: 1px solid #fff;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+}
+
+.darkerRed{
+    background: #CA000E;
+    border-left: 1px solid #fff;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: #f8f9fa !important;
+}
+
+.navbar-light .navbar-nav .nav-link:hover{
+    color: #dee2e6 !important;
+}
+
+#p2 {
+    background-color: hsla(120, 100%, 75%, 0.3);
+}  /* light green with opacity */
+ {
+    background-image: url('public/svg/heart.svg');
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 70% 70%;
+    background-attachment: fixed;
 }
 

@@ -2,8 +2,8 @@
 @section('title', 'Lisa praktikabaas')
 @section('content')
 
-<section style="padding-top:40px">
-     <div class="container">
+<section>
+     <div class="container ">
          <div class="row justify-content-center">
              <div class="col-md-10">
                  <div class="row d-flex mb-2">
@@ -36,7 +36,7 @@
                                                <i class="fas fa-envelope-open-text fa-sm" style="color: #E60011;"></i>
                                            </span>
                                        </div>
-                                       <input type="text" name="nimi" id="nimi" class="form-control" aria-label="Praktikabaasi nimi" aria-describedby="basic-addon1" style="border: 1px solid #888888;" required data-toggle="tooltip" data-placement="top" title="Praktikabaasi nimi">
+                                       <input type="text" name="nimi" id="nimi" class="form-control" aria-label="Praktikabaasi nimi" aria-describedby="basic-addon1" style="border: 1px solid #888888;" required data-toggle="tooltip" rel="tooltip" data-placement="top" title="Praktikabaasi nimi">
 
                                    </div>
 
@@ -238,10 +238,10 @@
     })
 </script>
 
-<script>
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
+<script >
+    $(document).ready(function(){
+        $("[rel=tooltip]").tooltip({ placement: 'top'});
+    });
 </script>
 
 <script>
@@ -257,6 +257,7 @@
 
 
 </script>
+
 @endsection
 
 

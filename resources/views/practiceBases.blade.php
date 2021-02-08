@@ -26,20 +26,20 @@
                         <table class="table table-striped">
                             <thead style="text-align:center;">
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Nimi</th>
-                                    <th>Lep. nr</th>
-                                    <th>Reg. nr</th>
-                                    <th>Aadress</th>
-                                    <th>Telefon</th>
-                                    <th>Email</th>
-                                    <th>Lepingu algus</th>
-                                    <th>Lepingu lõpp</th>
-                                    <th>Allkirjastaja</th>
-                                    <th>Tunni hind</th>
-                                    <th>Kontakt baasis</th>
-                                    <th>Märkused</th>
-                                    <th>Muuda</th>
+                                    <th class="red">Id</th>
+                                    <th class="darkerRed">Nimi</th>
+                                    <th class="red">Lep. nr</th>
+                                    <th class="darkerRed">Reg. nr</th>
+                                    <th class="red">Aadress</th>
+                                    <th class="darkerRed">Telefon</th>
+                                    <th class="red">Email</th>
+                                    <th class="darkerRed">Lepingu algus</th>
+                                    <th class="red">Lepingu lõpp</th>
+                                    <th class="darkerRed">Allkirjastaja</th>
+                                    <th class="red">Tunni hind</th>
+                                    <th class="darkerRed">Kontakt baasis</th>
+                                    <th class="red">Märkused</th>
+                                    <th class="darkerRed">Muuda</th>
                                 </tr>
                             </thead>
                             <tbody>

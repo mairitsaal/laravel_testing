@@ -2,51 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PracticeUnit;
 use Illuminate\Http\Request;
+use App\Models\PracticeUnit;
 
 class PracticeUnitController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function addPracticeUnit()
     {
-        //
+        return view('add-practice-unit');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function createPracticeUnit(Request $request)
     {
-        //
+        $practiceUnit = new PracticeUnit();
+        $practiceUnit->nimi = $request->nimi;
+        $practiceUnit->save();
+        return back()->with('practiceUnit_created', 'Praktikaüksus on lisatud andmebaasi');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function getPracticeUnit()
     {
-        //
+        $practiceUnits = PracticeUnit::orderBy('id', 'ASC')->get();
+        return view('practiceUnits', compact('practiceUnits'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\PracticeUnit  $practiceUnit
-     * @return \Illuminate\Http\Response
-     */
-    public function show(PracticeUnit $practiceUnit)
+    public function getPracticeUnitById($id)
     {
-        //
+        $practiceUnit = PracticeUnit::where('id', $id)->first();
+        return view('singlePracticeUnit', compact('practiceUnit'));
+    }
+
+    public function deletePracticeUnit($id)
+    {
+        PracticeUnit::where('id', $id)->delete();
+        return back()->with('practiceUnit_deleted', 'Praktikaüksus on andmebaasist kustutatud');
     }
 
     /**
@@ -55,9 +44,10 @@ class PracticeUnitController extends Controller
      * @param  \App\Models\PracticeUnit  $practiceUnit
      * @return \Illuminate\Http\Response
      */
-    public function edit(PracticeUnit $practiceUnit)
+    public function editPracticeUnit($id)
     {
-        //
+        $practiceUnit = PracticeUnit::find($id);
+        return view('edit-practice-unit', compact('practiceUnit'));
     }
 
     /**
@@ -67,9 +57,12 @@ class PracticeUnitController extends Controller
      * @param  \App\Models\PracticeUnit  $practiceUnit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PracticeUnit $practiceUnit)
+    public function updatePracticeUnit(Request $request)
     {
-        //
+        $practiceUnit = PracticeUnit::find($request->id);
+        $practiceUnit->nimi = $request->nimi;
+        $practiceUnit->save();
+        return back()->with('practiceUnit_updated', 'Praktikaüksus on edukalt uuendatud');
     }
 
     /**
