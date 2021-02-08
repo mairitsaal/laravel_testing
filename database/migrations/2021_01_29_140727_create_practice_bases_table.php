@@ -14,7 +14,9 @@ class CreatePracticeBasesTable extends Migration
     public function up()
     {
         Schema::create('practice_bases', function (Blueprint $table) {
+
             $table->increments('id');
+
             $table->char('nimi', 255);
             $table->string('lepinguNr');
             $table->integer('registriNr');

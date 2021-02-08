@@ -42,3 +42,14 @@ Route::get('/practiceUnits/{id}', [PracticeUnitController::class, 'getPracticeUn
 Route::get('/delete-practice-unit/{id}', [PracticeUnitController::class, 'deletePracticeUnit']);
 Route::get('/edit-practice-unit/{id}', [PracticeUnitController::class, 'editPracticeUnit']);
 Route::post('/update-practice-unit', [PracticeUnitController::class, 'updatePracticeUnit'])->name('practiceUnit.update');
+
+// User admin to AdminPanel
+Route::group(['middleware' => ['auth', 'admin']], function () {
+
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
+
+});
+
+

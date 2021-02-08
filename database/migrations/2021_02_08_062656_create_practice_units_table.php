@@ -14,7 +14,12 @@ class CreatePracticeUnitsTable extends Migration
     public function up()
     {
         Schema::create('practice_units', function (Blueprint $table) {
-            $table->id();
+            $table->id('id');
+
+            // WORRKS
+            //$table->integer('practice_base_id')->unsigned();
+            //$table->foreign('practice_base_id')->references('id')->on('practice_bases');
+
             $table->char('nimi', 255);
             $table->timestamps();
         });

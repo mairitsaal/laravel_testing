@@ -11,4 +11,9 @@ class PracticeUnit extends Model
     use HasFactory;
 
     protected $table = "practice_units";
+
+    //public function Unit()
+    //{
+    //    return $this->belongsTo(BaseAndUnit::class);
+    //}
 }

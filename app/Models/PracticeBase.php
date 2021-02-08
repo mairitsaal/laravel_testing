@@ -10,4 +10,9 @@ class PracticeBase extends Model
     use HasFactory;
 
     protected $table ="practice_bases";
+
+    //public function BaseAndUnits()
+    //{
+    //    return $this->hasMany(BaseAndUnit::class);
+    //}
 }
