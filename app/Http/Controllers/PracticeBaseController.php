@@ -10,7 +10,7 @@ class PracticeBaseController extends Controller
 {
     public function addPracticeBase()
     {
-        return view('add-practice-base');
+        return view('practiceBase.add-practice-base');
     }
 
     public function createPracticeBase(Request $request)
@@ -35,13 +35,13 @@ class PracticeBaseController extends Controller
     public function getPracticeBases()
     {
         $practiceBases = PracticeBase::orderBy('id', 'ASC')->get();
-        return view('practiceBases', compact('practiceBases'));
+        return view('practiceBase.practiceBases', compact('practiceBases'));
     }
 
     public function getPracticeBaseById($id)
     {
         $practiceBase = PracticeBase::where('id', $id)->first();
-        return view('singlePracticeBase', compact('practiceBase'));
+        return view('practiceBase.singlePracticeBase', compact('practiceBase'));
     }
 
     public function deletePracticeBase($id)
@@ -53,7 +53,7 @@ class PracticeBaseController extends Controller
     public function editPracticeBase($id)
     {
         $practiceBase = PracticeBase::find($id);
-        return view('edit-practice-base', compact('practiceBase'));
+        return view('practiceBase.edit-practice-base', compact('practiceBase'));
     }
 
     public function updatePracticeBase(Request $request)

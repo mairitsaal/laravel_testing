@@ -32,8 +32,16 @@
     <!-- CSS Files -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/a8018f10c4.js" crossorigin="anonymous"></script>
+    <script src="bootstrap-validate.js"></script>
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="../assets/demo/demo.css" rel="stylesheet" />
+
+    <!--Style
+    <link rel="stylesheet" type="text/css" href="/css/app.css?<?php echo time(); ?>" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css?<?php echo time(); ?>" />-->
+
 </head>
 
 <body class="">
@@ -50,8 +58,8 @@
         </div>
         <div class="sidebar-wrapper" id="sidebar-wrapper">
             <ul class="nav">
-                <li>
-                    <a href="dashboard.html">
+                <li class="{{ 'dashboard' == request()->path() ? 'active' : ''}}">
+                    <a href="/dashboard">
                         <i class="now-ui-icons design_app"></i>
                         <p>Dashboard</p>
                     </a>
@@ -74,13 +82,13 @@
                         <p>Notifications</p>
                     </a>
                 </li>
-                <li>
-                    <a href="user.html">
+                <li class="{{ 'role-register' == request()->path() ? 'active' : ''}}">
+                    <a href="/role-register">
                         <i class="now-ui-icons users_single-02"></i>
-                        <p>User Profile</p>
+                        <p>Kasutajad</p>
                     </a>
                 </li>
-                <li class="active ">
+                <li>
                     <a href="./tables.html">
                         <i class="now-ui-icons design_bullet-list-67"></i>
                         <p>Table List</p>
@@ -131,15 +139,27 @@
                             </div>
                         </div>
                     </form>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#pablo">
-                                <i class="now-ui-icons media-2_sound-wave"></i>
-                                <p>
-                                    <span class="d-lg-none d-md-block">Stats</span>
-                                </p>
+
+                        <!-- New logout from home.blade.php-->
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
                             </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
                         </li>
+
+                        <!--Old navbar </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="now-ui-icons location_world"></i>
@@ -152,7 +172,7 @@
                                 <a class="dropdown-item" href="#">Another action</a>
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div>
-                        </li>
+                        </li>-->
                         <li class="nav-item">
                             <a class="nav-link" href="#pablo">
                                 <i class="now-ui-icons users_single-02"></i>

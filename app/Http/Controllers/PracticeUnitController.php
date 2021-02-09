@@ -9,7 +9,7 @@ class PracticeUnitController extends Controller
 {
     public function addPracticeUnit()
     {
-        return view('add-practice-unit');
+        return view('practiceUnit.add-practice-unit');
     }
 
     public function createPracticeUnit(Request $request)
@@ -23,13 +23,13 @@ class PracticeUnitController extends Controller
     public function getPracticeUnit()
     {
         $practiceUnits = PracticeUnit::orderBy('id', 'ASC')->get();
-        return view('practiceUnits', compact('practiceUnits'));
+        return view('practiceUnit.practiceUnits', compact('practiceUnits'));
     }
 
     public function getPracticeUnitById($id)
     {
         $practiceUnit = PracticeUnit::where('id', $id)->first();
-        return view('singlePracticeUnit', compact('practiceUnit'));
+        return view('practiceUnit.singlePracticeUnit', compact('practiceUnit'));
     }
 
     public function deletePracticeUnit($id)
@@ -47,7 +47,7 @@ class PracticeUnitController extends Controller
     public function editPracticeUnit($id)
     {
         $practiceUnit = PracticeUnit::find($id);
-        return view('edit-practice-unit', compact('practiceUnit'));
+        return view('practiceUnit.edit-practice-unit', compact('practiceUnit'));
     }
 
     /**

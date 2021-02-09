@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\PracticeBaseController;
 use App\Http\Controllers\PracticeUnitController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,6 +52,15 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
         return view('admin.dashboard');
     });
 
+    Route::get('/role-register','App\Http\Controllers\Admin\DashboardController@registeredUser');
+    Route::get('/edit-register-user/{id}', 'App\Http\Controllers\Admin\DashboardController@editRegisterUser');
+    Route::post('/update-role-register/{id}', 'App\Http\Controllers\Admin\DashboardController@updateRegisterUser');
+    Route::delete('/delete-role-register/{id}', 'App\Http\Controllers\Admin\DashboardController@deleteRegisterUser');
+
 });
 
 
+
+// User
+Route::get('/add-user', [UserController::class, 'addUser']);
+Route::post('/create-user', [UserController::class, 'createUser'])->name('user.create');

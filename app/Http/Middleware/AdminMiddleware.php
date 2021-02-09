@@ -22,7 +22,7 @@ class AdminMiddleware
             return $next($request);
         }
         else
-        {
+        {   // status is from home.blade.php @if code
             return redirect('/home')->with('status', 'You are Not Allowed to Admin Dashboard');
         }
 

@@ -7,11 +7,13 @@
          <div class="row justify-content-center">
              <div class="col-md-10">
                  <div class="row d-flex mb-2">
-                     <div class="col-10">
+                     <div class="col-6">
                          <h3 class="ml-4" style="color: #E60011">LISA PRAKTIKABAAS</h3>
                      </div>
-                    <div class="col-2">
+                    <div class="col-6">
                         <a href="/practiceBases" class="btn btn-outline-danger mr-4">Praktikabaasid</a>
+                        <a href="/practiceUnits" class="btn btn-outline-danger mr-4">Praktikaüksused</a>
+                        <a href="/users" class="btn btn-outline-danger mr-4">Kasutajad</a>
                     </div>
                  </div>
                  <div class="card" style="border: 1px solid #EDEDED; background-color: #F5F5F5">
