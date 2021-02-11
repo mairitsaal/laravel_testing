@@ -8,6 +8,11 @@ use App\Models\PracticeUnit;
 
 class PracticeBaseController extends Controller
 {
+    public function oneToManyExample()
+    {
+        return PracticeBase::find(1)->BaseAndUnit;
+    }
+
     public function addPracticeBase()
     {
         return view('practiceBase.add-practice-base');

@@ -28,18 +28,35 @@ class LoginController extends Controller
      * @var string
      */
     //protected $redirectTo = RouteServiceProvider::HOME;
+
     protected function redirectTo()
     {
-        if(Auth::user()->usertype == 'admin')
-        {
-           return 'dashboard';
-        }
-        else
-            {
-            return 'home';
-        }
-
+        $usertype = Auth::user()->usertype;
+            switch ($usertype) {
+                case 'admin':
+                    return '/dashboard';
+                    break;
+                case 'student':
+                    return '/home-student';
+                    break;
+                case 'practiceBaseInstructor':
+                    return '/home-practiceBase-instructor';
+                    break;
+                case 'schoolInstructor':
+                    return '/home-school-instructor';
+                    break;
+                case 'practiceBase':
+                    return '/home-practiceBase';
+                    break;
+                case 'school':
+                    return '/home-school';
+                    break;
+                default:
+                    return '/home';
+                    break;
+            }
     }
+
     /**
      * Create a new controller instance.
      *

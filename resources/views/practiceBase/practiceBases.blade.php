@@ -4,6 +4,10 @@
 
 <section style="padding-top:20px">
     <div class="container-fluid m-0">
+
+
+
+
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <h3 class="m-4" style="color: #E60011">PRAKTIKABAASID</h3>
@@ -23,23 +27,23 @@
                             </div>
                         @endif
 
-                        <table class="table table-striped">
+                        <table id="dataTable" class="table table-striped">
                             <thead style="text-align:center;">
                                 <tr>
-                                    <th class="red">Id</th>
-                                    <th class="darkerRed">Nimi</th>
-                                    <th class="red">Lep. nr</th>
-                                    <th class="darkerRed">Reg. nr</th>
-                                    <th class="red">Aadress</th>
-                                    <th class="darkerRed">Telefon</th>
-                                    <th class="red">Email</th>
-                                    <th class="darkerRed">Lepingu algus</th>
-                                    <th class="red">Lepingu lõpp</th>
-                                    <th class="darkerRed">Allkirjastaja</th>
-                                    <th class="red">Tunni hind</th>
-                                    <th class="darkerRed">Kontakt baasis</th>
-                                    <th class="red">Märkused</th>
-                                    <th class="darkerRed">Muuda</th>
+                                    <th class="red font-weight-light">Id</th>
+                                    <th class="darkerRed font-weight-light">Nimi</th>
+                                    <th class="red font-weight-light">Lep. nr</th>
+                                    <th class="darkerRed font-weight-light">Reg. nr</th>
+                                    <th class="red font-weight-light">Aadress</th>
+                                    <th class="darkerRed font-weight-light">Telefon</th>
+                                    <th class="red font-weight-light">Email</th>
+                                    <th class="darkerRed font-weight-light">Lepingu algus</th>
+                                    <th class="red font-weight-light">Lepingu lõpp</th>
+                                    <th class="darkerRed font-weight-light">Allkirjastaja</th>
+                                    <th class="red font-weight-light">Tunni hind</th>
+                                    <th class="darkerRed font-weight-light">Kontakt baasis</th>
+                                    <th class="red font-weight-light">Märkused</th>
+                                    <th class="darkerRed font-weight-light">Muuda</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -79,4 +83,30 @@
 </section>
 
 @endsection
+
+@section('scripts')
+    <script>
+        $(document).ready( function () {
+            $('#dataTable').DataTable();
+        } );
+    </script>
+    <script>
+    //    $(document).ready(function() {
+    //        $('#dataTable').DataTable( {
+    //            scrollX:        '50vh',
+    //            scrollCollapse: true,
+    //            paging:         false
+    //        } );
+    //    } );
+
+    </script>
+    <script>
+     //   var table = $('#example').DataTable();
+
+     //   table
+     //       .columns( '.status' )
+     //       .order( 'desc' )
+     //       .draw();
+    </script>
+    @endsection
 

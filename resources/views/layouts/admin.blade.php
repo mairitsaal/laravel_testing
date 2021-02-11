@@ -38,15 +38,18 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="../assets/demo/demo.css" rel="stylesheet" />
 
+
     <!--Style
     <link rel="stylesheet" type="text/css" href="/css/app.css?<?php echo time(); ?>" />
     <link rel="stylesheet" type="text/css" href="/css/style.css?<?php echo time(); ?>" />-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/js/dataTables.min.css') }}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
 </head>
 
 <body class="">
 <div class="wrapper ">
-    <div class="sidebar" data-color="orange">
+    <div class="sidebar" data-color="red">
         <!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"-->
         <div class="logo">
             <a href="http://www.creative-tim.com" class="simple-text logo-mini">
@@ -71,12 +74,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href="map.html">
-                        <i class="now-ui-icons location_map-big"></i>
-                        <p>Maps</p>
-                    </a>
-                </li>
-                <li>
                     <a href="notifications.html">
                         <i class="now-ui-icons ui-1_bell-53"></i>
                         <p>Notifications</p>
@@ -86,6 +83,13 @@
                     <a href="/role-register">
                         <i class="now-ui-icons users_single-02"></i>
                         <p>Kasutajad</p>
+                    </a>
+                </li>
+                <!--Practice Bases-->
+                <li class="{{ 'practiceBases' == request()->path() ? 'active' : ''}}">
+                    <a href="/practiceBases">
+                        <i class="now-ui-icons design_bullet-list-67"></i>
+                        <p>Praktikabaasid</p>
                     </a>
                 </li>
                 <li>
@@ -197,7 +201,7 @@
 
         </div>
 
-        <footer class="footer">
+        <!--<footer class="footer">
             <div class=" container-fluid ">
                 <nav>
                     <ul>
@@ -225,12 +229,15 @@
                 </div>
             </div>
         </footer>
-    </div>
+    </div>-->
 </div>
 <!--   Core JS Files   -->
 <script src="../assets/js/core/jquery.min.js"></script>
 <script src="../assets/js/core/popper.min.js"></script>
 <script src="../assets/js/core/bootstrap.min.js"></script>
+    <script src="{{ asset('assets/js/dataTables.min.js') }}"></script>
+
+
 <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
 <!--  Google Maps Plugin    -->
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>

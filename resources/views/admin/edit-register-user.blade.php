@@ -64,6 +64,10 @@
                                 <select name="usertype" class="form-control">
                                     <option value="admin">Admin</option>
                                     <option value="student">Student</option>
+                                    <option value="practiceBaseInstructor">Practice Base Instructor</option>
+                                    <option value="schoolInstructor">School Instructor</option>
+                                    <option value="school">School</option>
+                                    <option value="practiceBase">Practice Base</option>
                                     <option value=""></option>
                                 </select>
                             </div>

@@ -14,11 +14,15 @@ class CreatePracticeUnitsTable extends Migration
     public function up()
     {
         Schema::create('practice_units', function (Blueprint $table) {
-            $table->id('id');
+            $table->bigIncrements('id');
 
             // WORRKS
-            //$table->integer('practice_base_id')->unsigned();
-            //$table->foreign('practice_base_id')->references('id')->on('practice_bases');
+            //$table->bigInteger('practiceBase_id')->unsigned();
+            //$table->foreign('practiceBase_id')->references('id')->on('practice_bases')
+            //    ->onDelete('cascade');
+
+            //$table->integer('practiceBase_id')->unsigned();
+            //$table->foreign('practiceBase_id')->references('id')->on('practice_bases');
 
             $table->char('nimi', 255);
             $table->timestamps();

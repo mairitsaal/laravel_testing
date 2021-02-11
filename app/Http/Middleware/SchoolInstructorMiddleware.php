@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AdminMiddleware
+class SchoolInstructorMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,13 +17,13 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()->usertype == 'admin')
+        if(Auth::user()->usertype == 'schoolInstructor')
         {
             return $next($request);
         }
         else
-        {   // status is from home.blade.php @if code
-            return redirect('/home')->with('status', 'Õigused admin vaatele puuduvad');
+        {
+            return redirect('/home')->with('status', 'Õigused koolipoolse juhendaja vaatele puuduvad');
         }
 
     }
