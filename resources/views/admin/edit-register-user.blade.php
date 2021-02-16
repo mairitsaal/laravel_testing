@@ -73,7 +73,7 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-danger">Muuda kasutajat</button>
-                        <a href="/role-register" class="btn btn-warning">Tühista</a>
+                        <a href="/role-register" class="btn btn-success">Tühista</a>
                     </form>
                 </div>
             </div>

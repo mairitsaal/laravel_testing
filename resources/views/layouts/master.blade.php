@@ -51,7 +51,7 @@
         <div class="container">
             <a class="navbar-brand d-flex align-content-center" href="{{ url('/') }}">
                 <div><img src="/svg/heartWhite.svg" style="height:50px;" class="pr-3 pb-2"></div>
-                <div style="color: #fff; font-size: 1.0rem; border-left: 1px solid #fff; height: 50%; margin-top: 10px;" class="pl-3">Praktika korraldussüsteem</div>
+                <div style="color: #fff; font-size: 1.0rem; border-left: 1px solid #fff; height: 50%; margin-top: 10px;" class="pl-3 font-weight-light">Praktika korraldussüsteem</div>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -80,7 +80,7 @@
                         @endif
                     @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle font-weight-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
@@ -103,6 +103,7 @@
     </nav>
 
     <main class="py-4">
+
 
         @yield('content')
     </main>
@@ -128,6 +129,11 @@
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
+</script>
+<script>
+    $(document).ready( function () {
+        $('#dataTable').DataTable();
+    } );
 </script>
 
 @yield('scripts')

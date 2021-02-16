@@ -66,15 +66,10 @@ table{
     color: #dee2e6 !important;
 }
 
-#p2 {
-    background-color: hsla(120, 100%, 75%, 0.3);
-}  /* light green with opacity */
- {
-    background-image: url('public/svg/heart.svg');
-
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-size: 70% 70%;
-    background-attachment: fixed;
+table.dataTable.no-footer {
+    border-bottom: 1px solid #e9ecef !important;
 }
 
+table.dataTable thead th, table.dataTable thead td {
+    border-bottom: 1px solid #e9ecef !important;
+}

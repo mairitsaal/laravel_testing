@@ -14,12 +14,10 @@ class CreatePracticeBasesTable extends Migration
     public function up()
     {
         Schema::create('practice_bases', function (Blueprint $table) {
-
             $table->bigIncrements('id');
 
             $table->char('nimi', 100);
             $table->string('lepinguNr', 25);
-           // $table->string('lepinguNr');
             $table->integer('registriNr');
             $table->string('aadress');
             $table->integer('telefon');
@@ -31,8 +29,8 @@ class CreatePracticeBasesTable extends Migration
             $table->text('kontaktBaasis')-> nullable();
             $table->text('markused')-> nullable();
 
-            //$table->bigInteger('practiceUnit_id')->unsigned();
-            //$table->foreign('practiceUnit_id')->references('id')->on('practice_units')
+            //$table->bigInteger('practice_unit_id')->unsigned();
+            //$table->foreign('practice_unit_id')->references('id')->on('practice_units')
             //    ->onDelete('cascade');
 
             $table->timestamps();

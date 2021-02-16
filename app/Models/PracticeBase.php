@@ -11,8 +11,9 @@ class PracticeBase extends Model
 
     protected $table ="practice_bases";
 
-    public function BaseAndUnit()
+    public function practiceUnits()
     {
-        return $this->hasMany('App\Models\PracticeUnit', 'practiceUnit_id', 'id');
+        return $this->hasMany(PracticeUnit::class, 'practice_unit_id', 'id')->withDefault();
+
     }
 }

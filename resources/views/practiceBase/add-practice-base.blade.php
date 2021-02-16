@@ -184,7 +184,11 @@
                                    <textarea name="markused" id="markused" class="form-control" rows="3" style="border: 1px solid #888888;" data-toggle="tooltip" data-placement="top" title="Vajalikud märkused"></textarea>
                                 </div>
 
+
+
+
                                <button type="submit" class="btn btn-danger">Lisa praktikabaas</button>
+                               <a href="/dashboard" class="btn btn-success">Tühista</a>
                            </form>
                        </div>
                  </div>

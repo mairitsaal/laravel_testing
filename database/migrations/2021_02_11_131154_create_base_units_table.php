@@ -16,7 +16,7 @@ class CreateBaseUnitsTable extends Migration
         Schema::create('base_units', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('practice_base_id')->unsigned();
-            $table->bigInteger('practice_unit_id')->unsigned();;
+            $table->bigInteger('practice_unit_id')->unsigned();
             $table->timestamps();
         });
     }

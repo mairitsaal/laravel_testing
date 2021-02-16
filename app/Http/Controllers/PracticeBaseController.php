@@ -5,13 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PracticeBase;
 use App\Models\PracticeUnit;
+use App\Models\BaseUnits;
 
 class PracticeBaseController extends Controller
 {
-    public function oneToManyExample()
-    {
-        return PracticeBase::find(1)->BaseAndUnit;
-    }
 
     public function addPracticeBase()
     {
@@ -80,19 +77,5 @@ class PracticeBaseController extends Controller
         return back()->with('practiceBase_updated', 'Praktikabaas edukalt uuendatud');
 
     }
-        // One to Many
-    //public function addPracticeUnit($id)
-    //{
-    //    $practiceBase = PracticeBase($id);
-    //    $practiceUnit = new PracticeUnit();
-    //    $practiceUnit->nimi;
-    //    $practiceBase->practice_units()->save('$practiceUnit');
-    //    return "Praktikaüksus on lisatud praktikabaasi";
-    //}
-//
-    //public function getpracticeUnitByBase($id)
-    //{
-    //    $practiceUnits = PracticeBase::find($id)->practiceUnits;
-    //    return $practiceUnits;
-    //}
+
 }

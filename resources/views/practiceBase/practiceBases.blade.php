@@ -10,7 +10,7 @@
 
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <h3 class="m-4" style="color: #E60011">PRAKTIKABAASID</h3>
+                <h3 class="m-4 " style="color: #E60011">PRAKTIKABAASID</h3>
                 <div>
                     <a href="/add-practice-base" class="btn btn-outline-danger ml-4 mb-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-plus-square-fill mb-1" viewBox="0 0 16 16">
@@ -50,7 +50,7 @@
                             @foreach ($practiceBases as $practiceBase)
                                 <tr>
                                     <td>{{$practiceBase->id}}</td>
-                                    <td>{{$practiceBase->nimi}}</td>
+                                    <td class="text-left">{{$practiceBase->nimi}}</td>
                                     <td>{{$practiceBase->lepinguNr}}</td>
                                     <td>{{$practiceBase->registriNr}}</td>
                                     <td>{{$practiceBase->aadress}}</td>
@@ -85,28 +85,6 @@
 @endsection
 
 @section('scripts')
-    <script>
-        $(document).ready( function () {
-            $('#dataTable').DataTable();
-        } );
-    </script>
-    <script>
-    //    $(document).ready(function() {
-    //        $('#dataTable').DataTable( {
-    //            scrollX:        '50vh',
-    //            scrollCollapse: true,
-    //            paging:         false
-    //        } );
-    //    } );
 
-    </script>
-    <script>
-     //   var table = $('#example').DataTable();
-
-     //   table
-     //       .columns( '.status' )
-     //       .order( 'desc' )
-     //       .draw();
-    </script>
     @endsection
 

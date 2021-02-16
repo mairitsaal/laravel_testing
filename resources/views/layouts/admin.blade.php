@@ -53,10 +53,10 @@
         <!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"-->
         <div class="logo">
             <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-                CT
+                Pr
             </a>
             <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-                Creative Tim
+                Praktika
             </a>
         </div>
         <div class="sidebar-wrapper" id="sidebar-wrapper">
@@ -64,19 +64,14 @@
                 <li class="{{ 'dashboard' == request()->path() ? 'active' : ''}}">
                     <a href="/dashboard">
                         <i class="now-ui-icons design_app"></i>
-                        <p>Dashboard</p>
+                        <p>Infolaud</p>
                     </a>
                 </li>
-                <li>
-                    <a href="icons.html">
-                        <i class="now-ui-icons education_atom"></i>
-                        <p>Icons</p>
-                    </a>
-                </li>
+
                 <li>
                     <a href="notifications.html">
                         <i class="now-ui-icons ui-1_bell-53"></i>
-                        <p>Notifications</p>
+                        <p></p>Teated</p>
                     </a>
                 </li>
                 <li class="{{ 'role-register' == request()->path() ? 'active' : ''}}">
@@ -85,31 +80,92 @@
                         <p>Kasutajad</p>
                     </a>
                 </li>
+
                 <!--Practice Bases-->
-                <li class="{{ 'practiceBases' == request()->path() ? 'active' : ''}}">
-                    <a href="/practiceBases">
-                        <i class="now-ui-icons design_bullet-list-67"></i>
-                        <p>Praktikabaasid</p>
-                    </a>
-                </li>
                 <li>
-                    <a href="./tables.html">
+
+
+                    <a data-toggle="collapse" href="#practiceBases" >
+
                         <i class="now-ui-icons design_bullet-list-67"></i>
-                        <p>Table List</p>
+
+                        <p>
+                            Praktikabaas <b class="caret"></b>
+                        </p>
                     </a>
+
+                    <div class="collapse " id="practiceBases">
+                        <ul class="nav">
+
+                            <li >
+                                <a href="/practiceBases">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal align-center"> Praktikabaasid </span>
+                                </a>
+
+                            </li>
+
+                            <li >
+                                <a href="/add-practice-base">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal"> Lisa praktikabaas </span>
+                                </a>
+                            </li>
+
+                            <li >
+                                <a href="/add-unit-to-base">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal"> Lisa praktikaüksus </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+
                 </li>
-                <li>
-                    <a href="typography.html">
-                        <i class="now-ui-icons text_caps-small"></i>
-                        <p>Typography</p>
+                <!--Practice Units-->
+                <li  >
+                    <a data-toggle="collapse" href="#practiceUnits" >
+
+                        <i class="now-ui-icons design_bullet-list-67"></i>
+
+                        <p>
+                            Praktikaüksus <b class="caret"></b>
+                        </p>
                     </a>
+
+                    <div class="collapse " id="practiceUnits">
+                        <ul class="nav">
+
+                            <li >
+                                <a href="/practiceUnits">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal align-center"> Praktikaüksused </span>
+                                </a>
+
+                            </li>
+
+                            <li >
+                                <a href="/add-practice-unit">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal"> Lisa praktikaüksus </span>
+                                </a>
+                            </li>
+
+                            <li >
+                                <a href="/add-department-to-unit">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal"> Lisa praktikaosakond </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+
                 </li>
-                <li class="active-pro">
-                    <a href="upgrade.html">
-                        <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-                        <p>Upgrade to PRO</p>
-                    </a>
-                </li>
+
             </ul>
         </div>
     </div>
@@ -231,6 +287,7 @@
         </footer>
     </div>-->
 </div>
+
 <!--   Core JS Files   -->
 <script src="../assets/js/core/jquery.min.js"></script>
 <script src="../assets/js/core/popper.min.js"></script>

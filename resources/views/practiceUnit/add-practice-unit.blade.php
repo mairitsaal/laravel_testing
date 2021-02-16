@@ -41,6 +41,7 @@
                                    </div>
                                </div>
                                <button type="submit" class="btn btn-danger">Lisa praktikaüksus</button>
+                               <a href="/dashboard" class="btn btn-success">Tühista</a>
                            </form>
                        </div>
                  </div>

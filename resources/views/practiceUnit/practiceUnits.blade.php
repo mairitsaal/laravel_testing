@@ -23,7 +23,7 @@
                             </div>
                         @endif
 
-                        <table class="table table-striped">
+                        <table id="dataTable" class="table table-striped">
                             <thead style="text-align:center;">
                                 <tr>
                                     <th class="red">Id</th>

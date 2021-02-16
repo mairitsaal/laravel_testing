@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PracticeBaseController;
 use App\Http\Controllers\PracticeUnitController;
+use App\Http\Controllers\BaseUnitsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
 
 Auth::routes();
 
@@ -58,6 +60,19 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/delete-practice-unit/{id}', [PracticeUnitController::class, 'deletePracticeUnit']);
     Route::get('/edit-practice-unit/{id}', [PracticeUnitController::class, 'editPracticeUnit']);
     Route::post('/update-practice-unit', [PracticeUnitController::class, 'updatePracticeUnit'])->name('practiceUnit.update');
+
+// oneToManyExample
+    //Route::get('/add-unit-to-base', [PracticeBaseController::class, 'dropDownBase']);
+
+    Route::get('/add-unit-to-base', 'App\Http\Controllers\BaseUnitsController@dropDownBase');
+    Route::post('/create-unit-to-base', [BaseUnitsController::class,'createBaseUnit'])->name('baseUnit.created');
+    //Route::post('/create-unit-to-base', 'App\Http\Controllers\BaseUnitsController@createBaseUnit')->name('baseUnit.created');
+
+
+    Route::get('/baseUnits', [BaseUnitsController::class, 'getBaseUnits']);
+
+
+
 });
 
 // Student access
@@ -101,9 +116,9 @@ Route::group(['middleware' => ['auth', 'school']], function () {
 });
 
 
-// oneToManyExample
-Route::get('/oneToManyExample', [PracticeBaseController::class, 'oneToManyExample']);
+
+
 
 // User
-Route::get('/add-user', [UserController::class, 'addUser']);
-Route::post('/create-user', [UserController::class, 'createUser'])->name('user.create');
+//Route::get('/add-user', [UserController::class, 'addUser']);
+//Route::post('/create-user', [UserController::class, 'createUser'])->name('user.create');
