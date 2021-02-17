@@ -29,9 +29,9 @@ class BaseUnitsController extends Controller
         $baseUnit = new BaseUnits();
         $baseUnit->id = $request->id;
         $baseUnit->practice_base_id = $request->practice_base_id;
-        $baseUnit->practice_base_id->nimi = $request->practice_base_id->nimi;
+        //$baseUnit->practice_base_id->nimi = $request->practice_base_id->nimi;
         $baseUnit->practice_unit_id = $request->practice_unit_id;
-        $baseUnit->practice_unit_id->nimi = $request->practice_unit_id->nimi;
+        //$baseUnit->practice_unit_id->nimi = $request->practice_unit_id->nimi;
         $baseUnit->save();
 
         return back()->with('baseUnit_created', 'Üksus lisatud praktikabaasile');

@@ -27,19 +27,21 @@
                             <thead style="text-align:center;">
                                 <tr>
                                     <th class="red">Id</th>
-                                    <th class="darkerRed">Nimi</th>
+                                    <th class="darkerRed">Praktikabaas</th>
+                                    <th class="red">Praktikaüksus</th>
 
-                                    <th class="red">Muuda</th>
+                                    <th class="darkerRed">Muuda</th>
                                 </tr>
                             </thead>
                             <tbody>
                             @foreach ($practiceUnits as $practiceUnit)
                                 <tr>
                                     <td>{{$practiceUnit->id}}</td>
+                                    <td class="text-left">{{$practiceUnit->practiceBase->nimi}}</td>
                                     <td class="text-left">{{$practiceUnit->nimi}}</td>
                                     <td>
 
-                                        <a class="mr-2" style="color: darkorange" href="/practiceUnits/{{ $practiceUnit->id }}"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Vaata lähemalt"></i></a>
+                                        <!--<a class="mr-2" style="color: darkorange" href="/practiceUnits/{{ $practiceUnit->id }}"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Vaata lähemalt"></i></a>-->
                                         <a class="mr-2" style="color: forestgreen" href="/edit-practice-unit/{{ $practiceUnit->id }}"><i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Muuda"></i></a>
                                         <a style="color: red" href="/delete-practice-unit/{{ $practiceUnit->id }}"><i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Kustuta"></i></a>
 

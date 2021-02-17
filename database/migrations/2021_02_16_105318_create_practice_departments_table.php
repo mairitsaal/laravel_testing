@@ -16,10 +16,12 @@ class CreatePracticeDepartmentsTable extends Migration
         Schema::create('practice_departments', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            //$table->bigInteger('practice_unit_id')->unsigned();
-            //$table->foreign('practice_unit_id')->references('id')->on('practice_units')
-            //    ->onDelete('cascade');
+            // Practice unit foreign key
+            $table->bigInteger('practice_unit_id')->unsigned();
+            $table->foreign('practice_unit_id')->references('id')->on('practice_units')
+                ->onDelete('cascade');
 
+            // Instructor foreign key
             //$table->bigInteger('practice_instructor_id')->unsigned();
             //$table->foreign('practice_instructor_id')->references('id')->on('practice_instructors')
             //    ->onDelete('cascade');

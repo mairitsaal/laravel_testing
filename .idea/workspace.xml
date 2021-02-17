@@ -2,32 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="476fc6f8-db5a-4630-b3a0-370d82bfe2f8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/BaseUnits/edit-unit-to-base.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/BaseUnits/edit-unit-to-base2.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/BaseUnits/singleBaseUnit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/practiceDepartment/add-practice-department.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/practiceDepartment/edit-practice-department.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/practiceDepartment/practiceDepartments.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/practiceDepartment/singlePracticeDepartment.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/practiceInstructor/add-practice-instructor.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../techworld-js-docker-demo-app/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BaseUnitsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BaseUnitsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PracticeDepartmentController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PracticeInstructorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PracticeInstructorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/BaseUnits.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/BaseUnits.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/PracticeDepartment.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/PracticeInstructor.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/PracticeInstructor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PracticeUnitController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PracticeUnitController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/PracticeInstructor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/PracticeUnit.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/PracticeUnit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_29_140727_create_practice_bases_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_29_140727_create_practice_bases_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_08_062656_create_practice_units_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_08_062656_create_practice_units_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_15_213407_create_practice_departments_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/BaseUnits/add-unit-to-base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/BaseUnits/add-unit-to-base.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/BaseUnits/baseUnits.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/BaseUnits/baseUnits.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/practiceBase/add-practice-base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/practiceBase/add-practice-base.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/practiceUnit/add-practice-unit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/practiceUnit/add-practice-unit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_16_091452_create_practice_instructors_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_16_105318_create_practice_departments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_16_105318_create_practice_departments_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/practiceUnit/edit-practice-unit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/practiceUnit/edit-practice-unit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/practiceUnit/practiceUnits.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/practiceUnit/practiceUnits.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +194,7 @@
       <workItem from="1612176724916" duration="7965000" />
       <workItem from="1612253516744" duration="111487000" />
       <workItem from="1612850845604" duration="93959000" />
-      <workItem from="1613424174538" duration="28559000" />
+      <workItem from="1613424174538" duration="34594000" />
     </task>
     <servers />
   </component>

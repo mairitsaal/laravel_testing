@@ -27,6 +27,30 @@
 
                         <form method="POST" action="{{route('practiceUnit.update')}}">
                         @csrf
+
+                            <!-- Seo praktikabaasiga-->
+
+                                <div class="col-6">
+                                    <h6 class="ml-2" style="color: #E60011">Vali praktikabaas</h6>
+                                    <select for="dropdown" class="form-control input-sm mb-4" name="practice_base_id">
+
+                                        <option>Praktikabaas</option>
+
+                                        @foreach ($practiceBaseList as $practiceBase)
+                                            <option value="{{ $practiceBase->id }}">
+                                                {{ $practiceBase->nimi }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+
+                                    @if ($errors->has('dropdown'))
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('dropdown') }}</strong>
+                                        </span>
+                                    @endif
+
+
+
                             <input type="hidden" name="id" value="{{$practiceUnit->id}}" />
 
                             <!--Praktikabaasi nimi-->
@@ -42,7 +66,7 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-danger">Muuda</button>
-                        </form>
+
 
 
                     </div>

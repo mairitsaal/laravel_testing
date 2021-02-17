@@ -14,7 +14,8 @@ class PracticeUnit extends Model
 
     public function practiceBase()
     {
-        return $this->belongsTo(PracticeBase::class, 'practice_base_id', 'id')->withDefault();
+        return $this->belongsTo(PracticeBase::class, 'practice_base_id', 'id')
+            ->withDefault();
     }
 
 }

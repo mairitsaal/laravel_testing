@@ -23,7 +23,7 @@ class PracticeUnitController extends Controller
 
     public function getPracticeUnit()
     {
-        $practiceUnits = PracticeUnit::orderBy('id', 'ASC')->get();
+        $practiceUnits = PracticeUnit::with('practiceBase')->orderBy('id', 'ASC')->get();
         return view('practiceUnit.practiceUnits', compact('practiceUnits'));
     }
 
@@ -48,7 +48,8 @@ class PracticeUnitController extends Controller
     public function editPracticeUnit($id)
     {
         $practiceUnit = PracticeUnit::find($id);
-        return view('practiceUnit.edit-practice-unit', compact('practiceUnit'));
+        $practiceBaseList = PracticeBase::select('id', 'nimi')->get();
+        return view('practiceUnit.edit-practice-unit', compact('practiceUnit', 'practiceBaseList'));
     }
 
     /**
@@ -60,8 +61,9 @@ class PracticeUnitController extends Controller
      */
     public function updatePracticeUnit(Request $request)
     {
-        $practiceUnit = PracticeUnit::find($request->id);
+        $practiceUnit = PracticeUnit::with('practiceBase')->find($request->id);
         $practiceUnit->nimi = $request->nimi;
+        $practiceUnit->practice_base_id = $request->practice_base_id;
         $practiceUnit->save();
         return back()->with('practiceUnit_updated', 'Praktikaüksus on edukalt uuendatud');
     }

@@ -29,8 +29,9 @@ class CreatePracticeBasesTable extends Migration
             $table->text('kontaktBaasis')-> nullable();
             $table->text('markused')-> nullable();
 
-            //$table->bigInteger('practice_unit_id')->unsigned();
-            //$table->foreign('practice_unit_id')->references('id')->on('practice_units')
+            // Instructor foreign key
+            //$table->bigInteger('practice_instructor_id')->unsigned();
+            //$table->foreign('practice_instructor_id')->references('id')->on('practice_instructors')
             //    ->onDelete('cascade');
 
             $table->timestamps();
