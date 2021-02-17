@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\PracticeBaseController;
 use App\Http\Controllers\PracticeUnitController;
+use App\Http\Controllers\PracticeDepartmentController;
+use App\Http\Controllers\PracticeInstructorController;
 use App\Http\Controllers\BaseUnitsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\UserController;
@@ -61,15 +63,29 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/edit-practice-unit/{id}', [PracticeUnitController::class, 'editPracticeUnit']);
     Route::post('/update-practice-unit', [PracticeUnitController::class, 'updatePracticeUnit'])->name('practiceUnit.update');
 
-// oneToManyExample
-    //Route::get('/add-unit-to-base', [PracticeBaseController::class, 'dropDownBase']);
+    // Practice Department
 
+    Route::get('/add-practice-department', [PracticeDepartmentController::class, 'addPracticeDepartment']);
+    Route::post('/create-practice-department', [PracticeDepartmentController::class, 'createPracticeDepartment'])->name('practiceDepartment.create');
+    Route::get('/practiceDepartments', [PracticeDepartmentController::class, 'getPracticeDepartment']);
+    Route::get('/practiceDepartments/{id}', [PracticeDepartmentController::class, 'getPracticeDepartmentById']);
+    Route::get('/delete-practice-department/{id}', [PracticeDepartmentController::class, 'deletePracticeDepartment']);
+    Route::get('/edit-practice-department/{id}', [PracticeDepartmentController::class, 'editPracticeDepartment']);
+    Route::post('/update-practice-department', [PracticeDepartmentController::class, 'updatePracticeDepartment'])->name('practiceDepartment.update');
+
+    // Practice Instructor
+
+    // BaseUnits (mixed table, base and unit)
     Route::get('/add-unit-to-base', 'App\Http\Controllers\BaseUnitsController@dropDownBase');
-    Route::post('/create-unit-to-base', [BaseUnitsController::class,'createBaseUnit'])->name('baseUnit.created');
-    //Route::post('/create-unit-to-base', 'App\Http\Controllers\BaseUnitsController@createBaseUnit')->name('baseUnit.created');
-
-
+    Route::post('/create-unit-to-base', [BaseUnitsController::class,'createBaseUnit'])->name('baseUnit.create');
     Route::get('/baseUnits', [BaseUnitsController::class, 'getBaseUnits']);
+    Route::get('/baseUnits/{id}', [BaseUnitsController::class, 'getBaseUnitById']);
+    Route::get('/delete-unit-to-base/{id}', [BaseUnitsController::class, 'deleteBaseUnits']);
+    Route::get('/edit-unit-to-base/{id}', [BaseUnitsController::class, 'editBaseUnits']);
+    Route::post('/update-unit-to-base', [BaseUnitsController::class, 'updateBaseUnits'])->name('baseUnits.update');
+
+
+
 
 
 

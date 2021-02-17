@@ -24,8 +24,12 @@ class CreatePracticeDepartmentsTable extends Migration
             //$table->foreign('practice_instructor_id')->references('id')->on('practice_instructors')
             //    ->onDelete('cascade');
 
+            //$table->unsignedInteger('type_id');
+            //$table->foreign('type_id')->references('type_id')->on('types');
+
             $table->char('nimi', 255);
             $table->timestamps();
+
         });
     }
 

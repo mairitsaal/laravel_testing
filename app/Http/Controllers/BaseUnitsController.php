@@ -24,14 +24,14 @@ class BaseUnitsController extends Controller
         return view('BaseUnits.add-unit-to-base', compact('practiceBaseList', 'practiceUnits'));
     }
 
-
-
     public function createBaseUnit(Request $request)
     {
         $baseUnit = new BaseUnits();
         $baseUnit->id = $request->id;
         $baseUnit->practice_base_id = $request->practice_base_id;
+        $baseUnit->practice_base_id->nimi = $request->practice_base_id->nimi;
         $baseUnit->practice_unit_id = $request->practice_unit_id;
+        $baseUnit->practice_unit_id->nimi = $request->practice_unit_id->nimi;
         $baseUnit->save();
 
         return back()->with('baseUnit_created', 'Üksus lisatud praktikabaasile');
@@ -39,7 +39,8 @@ class BaseUnitsController extends Controller
 
     public function getBaseUnits()
     {
-        $baseUnits = BaseUnits::orderBy('id', 'ASC')->get();
+        //$baseUnits = BaseUnits::orderBy('id', 'ASC')->get();
+        $baseUnits = BaseUnits::all();
         //$practiceBases = PracticeBase::find('nimi');
         //$practiceUnits = PracticeUnit::find('nimi');
 
@@ -58,30 +59,37 @@ class BaseUnitsController extends Controller
 
     }
 
-    public function store(Request $request)
+    public function getBaseUnitById($id)
     {
-        //
+        $baseUnits = BaseUnits::where('id', $id)->first();
+        return view('BaseUnits.singleBaseUnit', compact('baseUnits'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\BaseUnits  $baseUnits
-     * @return \Illuminate\Http\Response
-     */
-    public function showData()
+
+    public function deleteBaseUnits($id)
     {
-        //DB::table('base_units')->get();
-
-
+        BaseUnits::where('id', $id)->delete();
+        return back()->with('BaseUnits_deleted', 'Praktika osakond on andmebaasist kustutatud');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\BaseUnits  $baseUnits
-     * @return \Illuminate\Http\Response
-     */
+    public function editBaseUnits($id)
+    {
+        $baseUnits = BaseUnits::find($id);
+        return view('BaseUnits.edit-unit-to-base', compact('baseUnits'));
+    }
+
+    public function updateBaseUnits(Request $request)
+    {
+
+
+
+        //$baseUnit = BaseUnits::find($request->id);
+        //$baseUnit->id = $request->id;
+        //$baseUnit->nimi = $request->nimi;
+        //$baseUnit->practice_base_id = $request->practice_base_id;
+        //$baseUnit->practice_unit_id = $request->practice_unit_id;
+        return back()->with('baseUnits_updated', 'Praktikaüksus on edukalt uuendatud');
+    }
     public function edit(BaseUnits $baseUnits)
     {
         //

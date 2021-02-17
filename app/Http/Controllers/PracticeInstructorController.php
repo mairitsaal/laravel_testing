@@ -12,9 +12,9 @@ class PracticeInstructorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function addPracticeInstructor()
     {
-        //
+        return view('practiceInstructor.add-practice-instructor');
     }
 
     /**

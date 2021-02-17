@@ -13,7 +13,7 @@
                     <div class="col-6">
                         <a href="/practiceBases" class="btn btn-outline-danger mr-4">Praktikabaasid</a>
                         <a href="/practiceUnits" class="btn btn-outline-danger mr-4">Praktikaüksused</a>
-                        <a href="/users" class="btn btn-outline-danger mr-4">Kasutajad</a>
+                        <a href="/practiceDepartments" class="btn btn-outline-danger mr-4">Praktika osakonnad</a>
                     </div>
                  </div>
                  <div class="card" style="border: 1px solid #EDEDED; background-color: #F5F5F5">

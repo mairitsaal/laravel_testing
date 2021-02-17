@@ -7,12 +7,12 @@
             <div class="row justify-content-center">
                 <div class="col-md-10">
                     <div class="row d-flex mb-2">
-                        <div class="col-6">
-                            <h3 class="ml-4" style="color: #E60011">LISA PRAKTIKAÜKSUS BAASILE</h3>
+                        <div class="col-12">
+                            <h3 class="m-2" style="color: #E60011">LISA PRAKTIKAÜKSUS BAASILE</h3>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12 m-2 text-right">
                             <a href="/practiceBases" class="btn btn-outline-danger mr-4">Praktikabaasid</a>
-                            <!--<a href="/practiceUnits" class="btn btn-outline-danger mr-4">Praktikaüksused</a>-->
+                            <a href="/practiceUnits" class="btn btn-outline-danger mr-4">Praktikaüksused</a>
                             <a href="/baseUnits" class="btn btn-outline-danger mr-4">Üksused ühendatud baasiga</a>
 
                         </div>
@@ -27,7 +27,7 @@
                                 </div>
                             @endif
 
-                            <form method="POST" action="{{ route('baseUnit.created') }}" ><!--class="was-validated" novalidate-->
+                            <form method="POST" action="{{ route('baseUnit.create') }}" ><!--class="was-validated" novalidate-->
                             @csrf
 
                             <!--Dropdown menu getting list from db-->

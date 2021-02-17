@@ -43,16 +43,16 @@
 
                                     <!-- Name from primary table-->
 
-                                    <td class="text-left"></td>
+                                    <td class="text-left">{{$baseUnit->practice_base_id->nimi}}</td>
                                     <!-- Id from base_units table-->
 
 
                                     <td class="text-left">{{$baseUnit->practice_unit_id}}</td>
                                     <!-- Unit name from practice_units table-->
 
-                                    <td class="text-left">nimi</td>
+                                    <td class="text-left"> {{$baseUnit->practice_unit_id->nimi}}</td>
                                     <td>
-                                        <!--<a class="mr-2" style="color: darkorange" href="/baseUnits/{{ $baseUnit->id }}"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Vaata lähemalt"></i></a>-->
+                                        <a class="mr-2" style="color: darkorange" href="/baseUnits/{{ $baseUnit->id }}"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Vaata lähemalt"></i></a>
                                         <a class="mr-2" style="color: forestgreen" href="/edit-unit-to-base/{{ $baseUnit->id }}"><i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Muuda"></i></a>
                                         <a style="color: red" href="/delete-unit-to-base/{{ $baseUnit->id }}"><i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Kustuta"></i></a>
 

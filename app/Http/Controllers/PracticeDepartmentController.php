@@ -3,83 +3,49 @@
 namespace App\Http\Controllers;
 
 use App\Models\PracticeDepartment;
+use App\Models\PracticeUnit;
 use Illuminate\Http\Request;
 
 class PracticeDepartmentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function addPracticeDepartment()
     {
-        //
+        return view('practiceDepartment.add-practice-department');
+    }
+    public function createPracticeDepartment(Request $request)
+    {
+        $practiceDepartment = new PracticeDepartment();
+        $practiceDepartment->nimi = $request->nimi;
+        $practiceDepartment->save();
+        return back()->with('practiceDepartment_created', 'Praktika osakond on lisatud andmebaasi');
+    }
+    public function getPracticeDepartment()
+    {
+        $practiceDepartments = PracticeDepartment::orderBy('id', 'ASC')->get();
+        return view('practiceDepartment.practiceDepartments', compact('practiceDepartments'));
+    }
+    public function getPracticeDepartmentById($id)
+    {
+        $practiceDepartment = PracticeDepartment::where('id', $id)->first();
+        return view('practiceDepartment.singlePracticeDepartment', compact('practiceDepartment'));
+    }
+    public function deletePracticeDepartment($id)
+    {
+        PracticeDepartment::where('id', $id)->delete();
+        return back()->with('practiceDepartment_deleted', 'Praktika osakond on andmebaasist kustutatud');
+    }
+    public function editPracticeDepartment($id)
+    {
+        $practiceDepartment = PracticeDepartment::find($id);
+        return view('practiceDepartment.edit-practice-department', compact('practiceDepartment'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function updatePracticeDepartment(Request $request)
     {
-        //
+        $practiceDepartment = PracticeDepartment::find($request->id);
+        $practiceDepartment->nimi = $request->nimi;
+        $practiceDepartment->save();
+        return back()->with('practiceDepartment_updated', 'Praktika osakond on edukalt uuendatud');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\PracticeDepartment  $practiceDepartment
-     * @return \Illuminate\Http\Response
-     */
-    public function show(PracticeDepartment $practiceDepartment)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\PracticeDepartment  $practiceDepartment
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(PracticeDepartment $practiceDepartment)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PracticeDepartment  $practiceDepartment
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, PracticeDepartment $practiceDepartment)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\PracticeDepartment  $practiceDepartment
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(PracticeDepartment $practiceDepartment)
-    {
-        //
-    }
 }

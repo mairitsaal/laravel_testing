@@ -73,3 +73,7 @@ table.dataTable.no-footer {
 table.dataTable thead th, table.dataTable thead td {
     border-bottom: 1px solid #e9ecef !important;
 }
+
+.sorting .sorting_desc .sorting_asc{
+    color: white !important;
+}

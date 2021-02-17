@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Lisa praktikaüksus')
+@section('title', 'Lisa praktikajuhendaja')
 @section('content')
 
 <section>
@@ -8,11 +8,13 @@
              <div class="col-md-10">
                  <div class="row d-flex mb-2">
                      <div class="col-8">
-                         <h3 class="ml-4" style="color: #E60011">LISA PRAKTIKAÜKSUS</h3>
+                         <h3 class="ml-4" style="color: #E60011">LISA PRAKTIKAJUHENDAJA</h3>
                      </div>
                     <div class="col-4">
                         <a href="/practiceBases" class="btn btn-outline-danger mr-4">Praktikabaasid</a>
                         <a href="/practiceUnits" class="btn btn-outline-danger mr-4">Praktikaüksused</a>
+                        <a href="/practiceUnits" class="btn btn-outline-danger mr-4">Praktika osakonnad</a>
+                        <a href="/practiceUnits" class="btn btn-outline-danger mr-4">Praktikajuhendajad</a>
                     </div>
                  </div>
                  <div class="card" style="border: 1px solid #EDEDED; background-color: #F5F5F5">
@@ -30,7 +32,7 @@
 
                                <!--Praktikaüksuse nimi-->
                                <div class="form-group">
-                                   <label for="nimi" class="required-field">Praktikaüksuse nimi</label>
+                                   <label for="nimi" class="required-field">Praktikajuhendaja nimi</label>
                                    <div class="input-group">
                                        <div class="input-group-prepend">
                                            <span class="input-group-text" style="background-color:#fff; border: 1px solid #888888;" id="basic-addon1">
@@ -43,7 +45,6 @@
                                <button type="submit" class="btn btn-danger">Lisa praktikaüksus</button>
                                <a href="/dashboard" class="btn btn-success">Tühista</a>
                            </form>
-
                        </div>
                  </div>
              </div>
