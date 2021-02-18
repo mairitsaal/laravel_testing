@@ -10,11 +10,11 @@
                      <div class="col-8">
                          <h3 class="ml-4" style="color: #E60011">LISA PRAKTIKAJUHENDAJA</h3>
                      </div>
-                    <div class="col-4">
+                    <div class="col-12 m-2 text-right">
                         <a href="/practiceBases" class="btn btn-outline-danger mr-4">Praktikabaasid</a>
                         <a href="/practiceUnits" class="btn btn-outline-danger mr-4">Praktikaüksused</a>
                         <a href="/practiceUnits" class="btn btn-outline-danger mr-4">Praktika osakonnad</a>
-                        <a href="/practiceUnits" class="btn btn-outline-danger mr-4">Praktikajuhendajad</a>
+                        <a href="/practiceInstructors" class="btn btn-outline-danger mr-4">Praktikajuhendajad</a>
                     </div>
                  </div>
                  <div class="card" style="border: 1px solid #EDEDED; background-color: #F5F5F5">
@@ -39,10 +39,36 @@
                                                <i class="fas fa-envelope-open-text fa-sm" style="color: #E60011;"></i>
                                            </span>
                                        </div>
-                                       <input type="text" name="nimi" id="nimi" class="form-control" aria-label="Praktikaüksuse nimi" aria-describedby="basic-addon1" style="border: 1px solid #888888;" required data-toggle="tooltip" rel="tooltip" data-placement="top" title="Praktikaüksuse nimi">
+                                       <input type="text" name="nimi" id="nimi" class="form-control" aria-label="Praktikaüksuse nimi" aria-describedby="basic-addon1" style="border: 1px solid #888888;" required data-toggle="tooltip" rel="tooltip" data-placement="top" title="Praktikajuhendaja nimi">
                                    </div>
                                </div>
-                               <button type="submit" class="btn btn-danger">Lisa praktikaüksus</button>
+                               <!--Amet-->
+                               <div class="row">
+                               <div class="form-group col-md-6">
+                                   <label for="amet" class="required-field">Amet</label>
+                                   <div class="input-group">
+                                       <div class="input-group-prepend">
+                                           <span class="input-group-text" style="background-color:#fff; border: 1px solid #888888;" id="basic-addon1">
+                                               <i class="fas fa-envelope-open-text fa-sm" style="color: #E60011;"></i>
+                                           </span>
+                                       </div>
+                                       <input type="text" name="amet" id="amet" class="form-control" aria-label="Praktikaüksuse nimi" aria-describedby="basic-addon1" style="border: 1px solid #888888;" required data-toggle="tooltip" rel="tooltip" data-placement="top" title="Praktikajuhendaja amet">
+                                   </div>
+                               </div>
+                               <!--Email-->
+                               <div class="form-group col-md-6">
+                                   <label for="email" class="required-field">Email</label>
+                                   <div class="input-group">
+                                       <div class="input-group-prepend">
+                                               <span class="input-group-text" style="background-color:#ffffff; border: 1px solid #888888;" id="basic-addon1">
+                                                   <i class="fas fa-envelope-open-text fa-sm" style="color: #E60011;"></i>
+                                               </span>
+                                       </div>
+                                       <input id="email" type="email" name="email" class="form-control" aria-label="Email" aria-describedby="basic-addon1" style="border: 1px solid #888888;" required data-toggle="tooltip" data-placement="top" title="TPraktikajuhendaja email">
+                                   </div>
+                               </div>
+                               </div>
+                               <button type="submit" class="btn btn-danger">Lisa praktikajuhendaja</button>
                                <a href="/dashboard" class="btn btn-success">Tühista</a>
                            </form>
                        </div>

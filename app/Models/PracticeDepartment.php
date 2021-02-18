@@ -10,4 +10,15 @@ class PracticeDepartment extends Model
     use HasFactory;
 
     protected $table = "practice_departments";
+
+    public function practiceUnit()
+    {
+        return $this->belongsTo(PracticeUnit::class, 'practice_unit_id', 'id')
+            ->withDefault();
+    }
+    public function practiceInstructors()
+    {
+        return $this->hasMany(PracticeInstructor::class, 'practice_instructor_id', 'id')->withDefault();
+
+    }
 }

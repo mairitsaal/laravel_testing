@@ -37,7 +37,7 @@
    <link rel="stylesheet" type="text/css" href="/css/style.css?<?php echo time(); ?>" />
    <link rel="stylesheet" type="text/css" href="/assets/css/dataTables.min.css?<?php echo time(); ?>" />
 
-
+    <link  rel="stylesheet" href="/assets/demo/demo.css?<?php echo time(); ?>" />
 
 
 </head>

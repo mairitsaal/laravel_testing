@@ -27,15 +27,17 @@
                             <thead style="text-align:center;">
                                 <tr>
                                     <th class="red">Id</th>
-                                    <th class="darkerRed">Nimi</th>
+                                    <th class="darkerRed">Praktikaüksus</th>
+                                    <th class="red">Praktika osakond</th>
 
-                                    <th class="red">Muuda</th>
+                                    <th class="darkerRed">Muuda</th>
                                 </tr>
                             </thead>
                             <tbody>
                             @foreach ($practiceDepartments as $practiceDepartment)
                                 <tr>
                                     <td>{{$practiceDepartment->id}}</td>
+                                    <td>{{$practiceDepartment->practiceUnit->nimi}}</td>
                                     <td class="text-left">{{$practiceDepartment->nimi}}</td>
                                     <td>
 

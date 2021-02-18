@@ -6,13 +6,13 @@
 
 
 @section('content')
+
     <div class="row">
-        <div class="col-12 ">
-            <div class="card" style="border: 1px solid #EDEDED; background-color: #F5F5F5">
-                <h3 class="ml-4 mt-2 mb-0" style="color: #E60011">MUUDA KASUTAJAT</h3>
-                <div class="card-body p-4">
-
-
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title"> MUUDA KASUTAJAT</h4>
+                <div class="card-body">
 
                     <form method="POST" action="/update-role-register/{{ $users->id }}" ><!--class="was-validated" novalidate-->
 
@@ -61,7 +61,7 @@
                         <div class="row d-flex">
                             <div class="form-group col-md-6">
                                 <label for="roll">Kasutaja roll</label>
-                                <select name="usertype" class="form-control">
+                                <select name="usertype" class="form-control label-control">
                                     <option value="admin">Admin</option>
                                     <option value="student">Student</option>
                                     <option value="practiceBaseInstructor">Practice Base Instructor</option>
@@ -73,7 +73,7 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-danger">Muuda kasutajat</button>
-                        <a href="/role-register" class="btn btn-success">Tühista</a>
+                        <a href="/role-register" class="btn btn-success" style="margin-top:30px;">Tühista</a>
                     </form>
                 </div>
             </div>

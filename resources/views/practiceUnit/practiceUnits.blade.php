@@ -1,20 +1,17 @@
-@extends('layouts.master')
+@extends('layouts.admin')
 @section('title', 'Praktikaüksused')
 @section('content')
 
-<section style="padding-top:20px">
-    <div class="container-fluid m-0">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <h3 class="m-4" style="color: #E60011">PRAKTIKAÜKSUSED</h3>
-                <div>
-                    <a href="/add-practice-unit" class="btn btn-outline-danger ml-4 mb-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-plus-square-fill mb-1" viewBox="0 0 16 16">
-                            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
-                        </svg> Lisa uus praktikaüksus</a>
-                </div>
-
-                <div class="card" style="border: none;">
+    <div class="row">
+        <div class="card col-sm-8">
+            <div class="card-header">
+                <h4 class="card-title"> PRAKTIKAÜKSUSED</h4>
+                <div class="card-body p-4">
+                        <a href="/add-practice-unit" class="btn btn-outline-danger ml-4 mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-plus-square-fill mb-1" viewBox="0 0 16 16">
+                                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+                            </svg> Lisa uus praktikaüksus</a>
+                    </div>
                     <div class="card-body">
 
                         @if(Session::has('practiceUnit_deleted'))
@@ -23,8 +20,8 @@
                             </div>
                         @endif
 
-                        <table id="dataTable" class="table table-striped">
-                            <thead style="text-align:center;">
+                        <table id="dataTable" class="table table-striped" style="text-align:center;">
+                            <thead>
                                 <tr>
                                     <th class="red">Id</th>
                                     <th class="darkerRed">Praktikabaas</th>

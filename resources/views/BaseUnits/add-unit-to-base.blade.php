@@ -1,24 +1,12 @@
-@extends('layouts.master')
+@extends('layouts.admin')
 @section('title', 'Lisa praktikaüksus baasile')
 @section('content')
 
-    <section>
-        <div class="container ">
-            <div class="row justify-content-center">
-                <div class="col-md-10">
-                    <div class="row d-flex mb-2">
-                        <div class="col-12">
-                            <h3 class="m-2" style="color: #E60011">LISA PRAKTIKAÜKSUS BAASILE</h3>
-                        </div>
-                        <div class="col-12 m-2 text-right">
-                            <a href="/practiceBases" class="btn btn-outline-danger mr-4">Praktikabaasid</a>
-                            <a href="/practiceUnits" class="btn btn-outline-danger mr-4">Praktikaüksused</a>
-                            <a href="/baseUnits" class="btn btn-outline-danger mr-4">Üksused ühendatud baasiga</a>
-
-                        </div>
-                    </div>
-                    <div class="card" style="border: 1px solid #EDEDED; background-color: #F5F5F5">
-                        <div class="card-body p-4">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Lisa praktikaüksus baasile</h4>
 
                             <!--Controlleri ja route lisamine-->
                             @if(Session::has('baseUnit_created'))
@@ -31,10 +19,10 @@
                             @csrf
 
                             <!--Dropdown menu getting list from db-->
-                            <row class="col-10 d-flex">
+                            <row class="col-10 d-flex mt-4">
                                 <div class="col-6">
-                                    <h6 class="ml-2" style="color: #E60011">Vali praktikabaas</h6>
-                                    <select for="dropdown" class="form-control input-sm mb-4" name="practice_base_id">
+                                    <h6 class="ml-2" style="color: #000">Vali praktikabaas</h6>
+                                    <select for="dropdown" class="form-control input-sm" name="practice_base_id">
 
                                         <option>Praktikabaas</option>
 
@@ -52,8 +40,8 @@
                                     @endif
                                 </div>
                                 <div class="col-6">
-                                    <h6 class="ml-2" style="color: #E60011">Vali praktikaüksus</h6>
-                                    <select class="form-control input-sm mb-4" name="practice_unit_id">
+                                    <h6 class="ml-2" style="color: #000">Vali praktikaüksus</h6>
+                                    <select class="form-control input-sm" name="practice_unit_id">
 
                                         <option>Praktikaüksus</option>
 
@@ -66,19 +54,23 @@
                                 </div>
                             </row>
 
+                            <div class="mb-3">
 
+                                <button type="submit" class="btn btn-danger">Lisa üksus praktikabaasile</button>
+                                <a href="/dashboard" class="btn btn-success" style="margin-top:30px;">Tühista</a>
+                                <a href="/practiceUnits" class="btn btn-info" style="margin-top:30px;">Vaata tabelit</a>
+                            </div>
 
-                            <button type="submit" class="btn btn-danger ml-4">Lisa üksus praktikabaasile</button>
-                            <a href="/dashboard" class="btn btn-success">Tühista</a>
                             </form>
                         </div>
+
+                <!-- New card for table-->
+
                     </div>
-                </div>
-            </div>
         </div>
-    </section>
 
 @endsection
+
 
 @section('scripts')
 

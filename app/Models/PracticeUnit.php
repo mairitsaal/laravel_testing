@@ -18,4 +18,15 @@ class PracticeUnit extends Model
             ->withDefault();
     }
 
+    public function practiceDepartments()
+    {
+        return $this->hasMany(PracticeDepartment::class, 'practice_department_id', 'id')->withDefault();
+
+    }
+
+    public function practiceInstructors()
+    {
+        return $this->hasMany(PracticeInstructor::class, 'practice_instructor_id', 'id')->withDefault();
+
+    }
 }

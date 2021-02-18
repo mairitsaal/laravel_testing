@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BaseUnits;
 use App\Models\PracticeBase;
+use App\Models\PracticeDepartment;
 use App\Models\PracticeUnit;
 use Illuminate\Http\Request;
 use DB;
@@ -80,14 +81,11 @@ class BaseUnitsController extends Controller
 
     public function updateBaseUnits(Request $request)
     {
-
-
-
-        //$baseUnit = BaseUnits::find($request->id);
-        //$baseUnit->id = $request->id;
-        //$baseUnit->nimi = $request->nimi;
-        //$baseUnit->practice_base_id = $request->practice_base_id;
-        //$baseUnit->practice_unit_id = $request->practice_unit_id;
+        $baseUnit = BaseUnits::with('practiceUnit', 'practiceBase')->find($request->id);
+        $baseUnit->nimi = $request->nimi;
+        $baseUnit->practice_unit_id = $request->practice_unit_id;
+        $baseUnit->practice_base_id = $request->practice_base_id;
+        $baseUnit->save();
         return back()->with('baseUnits_updated', 'Praktikaüksus on edukalt uuendatud');
     }
     public function edit(BaseUnits $baseUnits)

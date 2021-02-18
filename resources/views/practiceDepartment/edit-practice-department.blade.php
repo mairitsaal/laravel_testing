@@ -28,6 +28,20 @@
 
                         <form method="POST" action="{{route('practiceDepartment.update')}}">
                         @csrf
+
+                            <!-- Practice unit-->
+                            <h6 class="ml-2" style="color: #E60011">Vali praktikaüksus</h6>
+                            <select class="form-control input-sm mb-4" name="practice_unit_id">
+
+                                <option>Praktikaüksus</option>
+
+                                @foreach ($practiceUnits as $practiceUnit)
+                                    <option value="{{ $practiceUnit->id }}">
+                                        {{ $practiceUnit->nimi }}
+                                    </option>
+                                @endforeach
+                            </select>
+
                             <input type="hidden" name="id" value="{{$practiceDepartment->id}}" />
 
                             <!--Praktikabaasi nimi-->

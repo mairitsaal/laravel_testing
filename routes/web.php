@@ -74,6 +74,8 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::post('/update-practice-department', [PracticeDepartmentController::class, 'updatePracticeDepartment'])->name('practiceDepartment.update');
 
     // Practice Instructor
+    Route::get('/add-practice-instructor', [PracticeInstructorController::class, 'addPracticeInstructor']);
+
 
     // BaseUnits (mixed table, base and unit)
     Route::get('/add-unit-to-base', 'App\Http\Controllers\BaseUnitsController@dropDownBase');

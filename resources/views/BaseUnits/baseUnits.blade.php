@@ -43,7 +43,7 @@
 
                                     <!-- Name from primary table-->
 
-                                    <td class="text-left"></td>
+                                    <td class="text-left">nimi</td>
                                     <!-- Id from base_units table-->
 
 

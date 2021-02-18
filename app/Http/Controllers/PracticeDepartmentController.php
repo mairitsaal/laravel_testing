@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PracticeBase;
 use App\Models\PracticeDepartment;
 use App\Models\PracticeUnit;
 use Illuminate\Http\Request;
@@ -37,13 +38,15 @@ class PracticeDepartmentController extends Controller
     public function editPracticeDepartment($id)
     {
         $practiceDepartment = PracticeDepartment::find($id);
-        return view('practiceDepartment.edit-practice-department', compact('practiceDepartment'));
+        $practiceUnits = PracticeUnit::select('id', 'nimi')->get();
+        return view('practiceDepartment.edit-practice-department', compact('practiceDepartment', 'practiceUnits'));
     }
 
     public function updatePracticeDepartment(Request $request)
     {
-        $practiceDepartment = PracticeDepartment::find($request->id);
+        $practiceDepartment = PracticeDepartment::with('practiceUnit')->find($request->id);
         $practiceDepartment->nimi = $request->nimi;
+        $practiceDepartment->practice_unit_id = $request->practice_unit_id;
         $practiceDepartment->save();
         return back()->with('practiceDepartment_updated', 'Praktika osakond on edukalt uuendatud');
     }

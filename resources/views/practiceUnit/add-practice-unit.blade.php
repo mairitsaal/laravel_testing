@@ -1,21 +1,13 @@
-@extends('layouts.master')
+@extends('layouts.admin')
 @section('title', 'Lisa praktikaüksus')
 @section('content')
 
-<section>
-     <div class="container ">
-         <div class="row justify-content-center">
-             <div class="col-md-10">
-                 <div class="row d-flex mb-2">
-                     <div class="col-8">
-                         <h3 class="ml-4" style="color: #E60011">LISA PRAKTIKAÜKSUS</h3>
-                     </div>
-                    <div class="col-4">
-                        <a href="/practiceBases" class="btn btn-outline-danger mr-4">Praktikabaasid</a>
-                        <a href="/practiceUnits" class="btn btn-outline-danger mr-4">Praktikaüksused</a>
-                    </div>
-                 </div>
-                 <div class="card" style="border: 1px solid #EDEDED; background-color: #F5F5F5">
+    <div class="row">
+
+
+        <div class="card col-sm-8">
+            <div class="card-header">
+                <h4 class="card-title"> Lisa uus praktikaüksus</h4>
                        <div class="card-body p-4">
 
                            <!--Controlleri ja route lisamine-->
@@ -29,7 +21,7 @@
                                @csrf
 
                                <!--Praktikaüksuse nimi-->
-                               <div class="form-group">
+                               <div class="form-group col-sm-6">
                                    <label for="nimi" class="required-field">Praktikaüksuse nimi</label>
                                    <div class="input-group">
                                        <div class="input-group-prepend">
@@ -41,29 +33,15 @@
                                    </div>
                                </div>
                                <button type="submit" class="btn btn-danger">Lisa praktikaüksus</button>
-                               <a href="/dashboard" class="btn btn-success">Tühista</a>
+                               <a href="/dashboard" class="btn btn-success" style="margin-top:30px;">Tühista</a>
+                               <a href="/practiceUnits" class="btn btn-info" style="margin-top:30px;">Vaata tabelit</a>
                            </form>
 
                        </div>
                  </div>
-             </div>
-         </div>
-     </div>
-</section>
-    <!--layouts.app-->
+        </div>
+    </div>
 
-<!-- Include jQuery -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-<!-- Include Date Range Picker -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-
-<script >
-    $(document).ready(function(){
-        $("[rel=tooltip]").tooltip({ placement: 'top'});
-    });
-</script>
 
 <script>
     bootstrapValidate('#nimi', 'required:Sisesta praktikaüksuse nimi')
