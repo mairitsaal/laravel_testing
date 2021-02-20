@@ -2,8 +2,8 @@
 @section('title', 'Lisa praktikabaas')
 @section('content')
 
-<<div class="row">
-    <div class="card col-sm-8">
+
+    <div class="card col-md-12">
         <div class="card-header">
             <h4 class="card-title">LISA PRAKTIKABAAS</h4>
             <div class="card-body p-4">
@@ -28,9 +28,7 @@
                                            </span>
                                        </div>
                                        <input type="text" name="nimi" id="nimi" class="form-control" aria-label="Praktikabaasi nimi" aria-describedby="basic-addon1" style="border: 1px solid #888888;" required data-toggle="tooltip" rel="tooltip" data-placement="top" title="Praktikabaasi nimi">
-
                                    </div>
-
                                </div>
 
                                    <!--Lepingu number ja registri number-->
@@ -46,6 +44,7 @@
                                                 <input type="text" name="lepinguNr" id="lepinguNr" class="form-control" aria-label="Lepingu number" aria-describedby="basic-addon1" style="border: 1px solid #888888;" required data-toggle="tooltip" data-placement="top" title="Lepingu number">
                                             </div>
                                     </div>
+
                                     <div class="form-group col-md-6">
                                            <label for="registriNr" class="required-field">Registri number</label>
                                            <div class="input-group">
@@ -159,7 +158,6 @@
                                <div class="form-group">
                                    <label for="kontaktBaasis">Kontakt baasis</label>
                                    <div class="input-group">
-
                                        <textarea type="text" name="kontaktBaasis" id="kontaktBaasis" class="form-control" aria-label="Kontakt baasis" rows="1" style="border: 1px solid #888888; margin-left: 40px !important;" data-toggle="tooltip" data-placement="top" title="Kontakt baasis"></textarea>
                                    </div>
                                </div>
@@ -170,18 +168,18 @@
                                    <textarea type="text" name="markused" id="markused" class="form-control" rows="3" style="border: 1px solid #888888; margin-left: 40px !important;" data-toggle="tooltip" data-placement="top" title="Vajalikud märkused"></textarea>
                                 </div>
 
-
-
-
-                               <button type="submit" class="btn btn-danger">Lisa praktikabaas</button>
-                               <a href="/dashboard" class="btn btn-success" style="margin-top:30px;">Tühista</a>
+                               <div>
+                                   <button type="submit" class="btn btn-danger">Lisa praktikabaas</button>
+                                   <a href="/dashboard" class="btn btn-success" style="margin-top:30px;">Tühista</a>
+                                   <a href="/practiceBases" class="btn btn-info" style="margin-top:30px;">Vaata tabelit</a>
+                               </div>
                            </form>
                        </div>
                  </div>
              </div>
          </div>
      </div>
-</section>
+
     <!--layouts.app-->
 
 

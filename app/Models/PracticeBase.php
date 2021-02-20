@@ -21,4 +21,14 @@ class PracticeBase extends Model
         return $this->hasMany(PracticeInstructor::class, 'practice_instructor_id', 'id')->withDefault();
 
     }
+    public function baseUnits()
+    {
+        return $this->hasMany(baseUnits::class, 'base_units_id', 'id')->withDefault();
+
+    }
+    public function baseUnitDepartment()
+    {
+        return $this->hasMany(baseUnits::class, 'base_unit_department_id', 'id')->withDefault();
+
+    }
 }

@@ -49,3 +49,6 @@ table{
 thead{
     color: #E60011 !important;
 }
+.alert .alert-success{
+    color: #30a64a !important;
+}

@@ -1,22 +1,12 @@
-@extends('layouts.master')
+@extends('layouts.admin')
 @section('title', 'Muuda praktikabaasi')
 @section('content')
 
-<section style="padding-top:60px">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10">
-                <div class="row d-flex mb-2">
-                    <div class="col-10">
-                        <h3 class="ml-4" style="color: #E60011">MUUDA PRAKTIKABAASI</h3>
-                    </div>
-                    <div class="col-2">
-                        <a href="/practiceBases" class="btn btn-outline-danger">Praktikabaasid</a>
-                    </div>
-                </div>
-                <div class="card" style="border: 1px solid #EDEDED; background-color: #F5F5F5">
-                    <div class="card-body p-4">
-
+    <div class="card col-md-12">
+        <div class="card-header">
+            <h4 class="card-title">MUUDA PRAKTIKABAASI</h4>
+            <div class="card-body p-4">
+                <div>
                         <!--Controlleri ja route lisamine-->
                         @if(Session::has('practiceBase_updated'))
                             <div class="alert alert-success" role="alert">
@@ -112,18 +102,19 @@
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label class="control-label required-field" for="date">Lepingu algus</label>
-                                            <div class="input-group">
+                                            <div class="input-group d-flex">
                                                 <div class="input-group-prepend">
-                                                       <span class="input-group-text" style="background-color:#ffffff; border: 1px solid #888888;" id="basic-addon1">
-                                                           <i class="fas fa-calendar-week fa-sm" style="color: #E60011;"></i>
+                                                       <span class="input-group-text" style="background-color:#ffffff; border: 1px solid #888;" id="basic-addon1">
+                                                           <i class="fas fa-calendar-week fa-sm"></i>
                                                        </span>
                                                 </div>
-                                                <input class="form-control" id="date" name="lepinguAlgus" placeholder="yyyy-mm-dd" type="text" style="border: 1px solid #888888;" data-toggle="tooltip" data-placement="top" title="Lepingu algus kuupäev" value="{{$practiceBase->lepinguAlgus}}" />
+                                                <input class="form-control" id="date" name="lepinguAlgus" placeholder="yyyy-mm-dd" type="text" style="border: 1px solid #888;" data-toggle="tooltip" data-placement="top" title="Lepingu algus kuupäev" value="{{$practiceBase->lepinguAlgus}}"/>
                                             </div>
                                         </div>
+
                                         <div class="form-group col-md-6">
                                             <label class="control-label required-field" for="date">Lepingu lõpp</label>
-                                            <div class="input-group">
+                                            <div class="input-group d-flex">
                                                 <div class="input-group-prepend">
                                                        <span class="input-group-text" style="background-color:#ffffff; border: 1px solid #888888;" id="basic-addon1">
                                                            <i class="fas fa-calendar-week fa-sm" style="color: #E60011;"></i>
@@ -135,6 +126,7 @@
                                     </div>
                                 </div>
                             </div>
+
 
                             <!--Lepingu allkirjastaja ja tunnihind-->
                             <div class="row d-flex">
@@ -166,35 +158,37 @@
                             <div class="form-group">
                                 <label for="kontaktBaasis">Kontakt baasis</label>
                                 <div class="input-group">
-                                    <div class="input-group-prepend">
-                                           <span class="input-group-text" style="background-color:#ffffff; border: 1px solid #888888;" id="basic-addon1">
-                                               <i class="far fa-id-card fa-sm" style="color: #E60011;"></i>
-                                           </span>
-                                    </div>
-                                    <textarea type="text" name="kontaktBaasis" id="kontaktBaasis" class="form-control" aria-label="Kontakt baasis" rows="1" style="border: 1px solid #888888;" data-toggle="tooltip" data-placement="top" title="Kontakt baasis" >{{$practiceBase->kontaktBaasis}}</textarea>
+                                    <textarea type="text" name="kontaktBaasis" id="kontaktBaasis" class="form-control" aria-label="Kontakt baasis" rows="1" style="border: 1px solid #888888; margin-left: 40px !important;" data-toggle="tooltip" data-placement="top" title="Kontakt baasis">{{$practiceBase->kontaktBaasis}}</textarea>
                                 </div>
                             </div>
 
                             <!--Märkused-->
-                            <div class="form-group">
+                            <div class="form-group pr-5">
                                 <label for="markused">Märkused</label>
-                                <textarea name="markused" id="markused" class="form-control" rows="3" style="border: 1px solid #888888;" data-toggle="tooltip" data-placement="top" title="Vajalikud märkused">{{$practiceBase->markused}}</textarea>
+                                <textarea type="text" name="markused" id="markused" class="form-control" rows="3" style="border: 1px solid #888888; margin-left: 40px !important;" data-toggle="tooltip" data-placement="top" title="Vajalikud märkused">{{$practiceBase->markused}}</textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-danger">Muuda</button>
+                            <div>
+                                <button type="submit" class="btn btn-danger">Muuda</button>
+                                <a href="/dashboard" class="btn btn-success" style="margin-top:30px;">Tühista</a>
+                                <a href="/practiceBases" class="btn btn-info" style="margin-top:30px;">Vaata tabelit</a>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+
 <!-- Include jQuery -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 <!-- Include Date Range Picker -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
 <script>
     $(document).ready(function(){
@@ -240,8 +234,5 @@
 
 </script>
 
-
-<!-- Option 1: Bootstrap Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
 @endsection

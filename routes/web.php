@@ -5,6 +5,7 @@ use App\Http\Controllers\PracticeUnitController;
 use App\Http\Controllers\PracticeDepartmentController;
 use App\Http\Controllers\PracticeInstructorController;
 use App\Http\Controllers\BaseUnitsController;
+use App\Http\Controllers\BaseUnitDepartmentController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -74,7 +75,10 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::post('/update-practice-department', [PracticeDepartmentController::class, 'updatePracticeDepartment'])->name('practiceDepartment.update');
 
     // Practice Instructor
+
     Route::get('/add-practice-instructor', [PracticeInstructorController::class, 'addPracticeInstructor']);
+    Route::post('/create-practice-instructor', [PracticeInstructorController::class, 'createPracticeInstructor'])->name('practiceInstructor.create');
+    Route::get('/practiceInstructors', [PracticeInstructorController::class, 'getPracticeInstructor']);
 
 
     // BaseUnits (mixed table, base and unit)
@@ -86,11 +90,13 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/edit-unit-to-base/{id}', [BaseUnitsController::class, 'editBaseUnits']);
     Route::post('/update-unit-to-base', [BaseUnitsController::class, 'updateBaseUnits'])->name('baseUnits.update');
 
-
-
-
-
-
+    // BaseUnitDepartment (mixed table, base and unit and department)
+    Route::get('/add-unit-dep-to-base', 'App\Http\Controllers\BaseUnitDepartmentController@addBaseUnitDep');
+    Route::post('/create-unit-dep-to-base', [BaseUnitDepartmentController::class,'createBaseUnitDep'])->name('baseUnitDep.create');
+    Route::get('/baseUnitsDeps', [BaseUnitDepartmentController::class, 'getBaseUnitsDeps']);
+    Route::get('/delete-unit-dep-to-base/{id}', [BaseUnitDepartmentController::class, 'deleteBaseUnitsDeps']);
+    Route::get('/edit-unit-dep-to-base/{id}', [BaseUnitDepartmentController::class, 'editBaseUnitsDeps']);
+    Route::post('/update-unit-dep-to-base', [BaseUnitDepartmentController::class, 'updateBaseUnitsDeps'])->name('baseUnitDep.update');
 });
 
 // Student access

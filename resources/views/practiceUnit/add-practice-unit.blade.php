@@ -2,10 +2,7 @@
 @section('title', 'Lisa praktikaüksus')
 @section('content')
 
-    <div class="row">
-
-
-        <div class="card col-sm-8">
+        <div class="card col-md-12">
             <div class="card-header">
                 <h4 class="card-title"> Lisa uus praktikaüksus</h4>
                        <div class="card-body p-4">
@@ -21,7 +18,7 @@
                                @csrf
 
                                <!--Praktikaüksuse nimi-->
-                               <div class="form-group col-sm-6">
+                               <div class="form-group col-md-6">
                                    <label for="nimi" class="required-field">Praktikaüksuse nimi</label>
                                    <div class="input-group">
                                        <div class="input-group-prepend">
@@ -32,9 +29,11 @@
                                        <input type="text" name="nimi" id="nimi" class="form-control" aria-label="Praktikaüksuse nimi" aria-describedby="basic-addon1" style="border: 1px solid #888888;" required data-toggle="tooltip" rel="tooltip" data-placement="top" title="Praktikaüksuse nimi">
                                    </div>
                                </div>
-                               <button type="submit" class="btn btn-danger">Lisa praktikaüksus</button>
-                               <a href="/dashboard" class="btn btn-success" style="margin-top:30px;">Tühista</a>
-                               <a href="/practiceUnits" class="btn btn-info" style="margin-top:30px;">Vaata tabelit</a>
+                               <div>
+                                   <button type="submit" class="btn btn-danger">Lisa praktikaüksus</button>
+                                   <a href="/dashboard" class="btn btn-success" style="margin-top:30px;">Tühista</a>
+                                   <a href="/practiceUnits" class="btn btn-info" style="margin-top:30px;">Vaata tabelit</a>
+                               </div>
                            </form>
 
                        </div>

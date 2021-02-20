@@ -642,10 +642,10 @@ fieldset[disabled] .btn-primary.active {
 .show>.btn-success.dropdown-toggle,
 .show>.btn-success.dropdown-toggle:focus,
 .show>.btn-success.dropdown-toggle:hover {
-  background-color: #1beb11;
+  background-color: #30a64a;
   color: #FFFFFF;
   box-shadow: none;
-  border-color: #1beb11;
+  border-color: #30a64a;
 }
 
 .btn-success:not([data-action]):not([class*="btn-outline-"]):hover {
@@ -2866,11 +2866,11 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 }
 
 .dropdown-menu.dropdown-success {
-  background-color: #16c00e;
+  background-color: #30a64a;
 }
 
 .dropdown-menu.dropdown-success:before {
-  color: #16c00e;
+  color: #30a64a;
 }
 
 .dropdown-menu.dropdown-success .dropdown-header:not([href]):not([tabindex]) {
@@ -3008,7 +3008,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 }
 
 .alert.alert-success {
-  background-color: #1be611;
+  background-color: #30a64a;
 }
 
 .alert.alert-danger {

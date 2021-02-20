@@ -1,33 +1,21 @@
-@extends('layouts.master')
+@extends('layouts.admin')
 @section('title', 'Lisa praktikajuhendaja')
 @section('content')
 
-<section>
-     <div class="container ">
-         <div class="row justify-content-center">
-             <div class="col-md-10">
-                 <div class="row d-flex mb-2">
-                     <div class="col-8">
-                         <h3 class="ml-4" style="color: #E60011">LISA PRAKTIKAJUHENDAJA</h3>
-                     </div>
-                    <div class="col-12 m-2 text-right">
-                        <a href="/practiceBases" class="btn btn-outline-danger mr-4">Praktikabaasid</a>
-                        <a href="/practiceUnits" class="btn btn-outline-danger mr-4">Praktikaüksused</a>
-                        <a href="/practiceUnits" class="btn btn-outline-danger mr-4">Praktika osakonnad</a>
-                        <a href="/practiceInstructors" class="btn btn-outline-danger mr-4">Praktikajuhendajad</a>
-                    </div>
-                 </div>
-                 <div class="card" style="border: 1px solid #EDEDED; background-color: #F5F5F5">
-                       <div class="card-body p-4">
+    <div class="card col-md-12">
+        <div class="card-header">
+            <h4 class="card-title">LISA PRAKTIKAJUHENDAJAD</h4>
+            <div class="card-body">
+
 
                            <!--Controlleri ja route lisamine-->
-                           @if(Session::has('practiceUnit_created'))
+                           @if(Session::has('practiceInstructor_created'))
                             <div class="alert alert-success" role="alert">
-                                {{ Session::get('practiceUnit_created') }}
+                                {{ Session::get('practiceInstructor_created') }}
                             </div>
                            @endif
 
-                           <form method="POST" action="{{ route('practiceUnit.create') }}" ><!--class="was-validated" novalidate-->
+                           <form method="POST" action="{{ route('practiceInstructor.create') }}" ><!--class="was-validated" novalidate-->
                                @csrf
 
                                <!--Praktikaüksuse nimi-->
@@ -68,34 +56,32 @@
                                    </div>
                                </div>
                                </div>
-                               <button type="submit" class="btn btn-danger">Lisa praktikajuhendaja</button>
-                               <a href="/dashboard" class="btn btn-success">Tühista</a>
+                               <div>
+                                   <button type="submit" class="btn btn-danger">Lisa praktikajuhendaja</button>
+                                   <a href="/dashboard" class="btn btn-success"style="margin-top:30px;">Tühista</a>
+                                   <a href="/practiceInstructors" class="btn btn-info" style="margin-top:30px;">Vaata tabelit</a>
+                               </div>
                            </form>
-                       </div>
                  </div>
              </div>
          </div>
-     </div>
-</section>
+
+    <!-- Include jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+
+    <script>
+        bootstrapValidate('#nimi', 'required:Sisesta juhendaja nimi')
+        bootstrapValidate('#amet', 'required:Sisesta praktikabaasi juhendaja amet')
+        bootstrapValidate('#email', 'email:Sisesta korrektne email, näiteks mari.roos@nooruse.ee')
+    </script>
     <!--layouts.app-->
 
-<!-- Include jQuery -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-<!-- Include Date Range Picker -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-
-<script >
-    $(document).ready(function(){
-        $("[rel=tooltip]").tooltip({ placement: 'top'});
-    });
-</script>
-
-<script>
-    bootstrapValidate('#nimi', 'required:Sisesta praktikaüksuse nimi')
-
-</script>
 
 @endsection
 

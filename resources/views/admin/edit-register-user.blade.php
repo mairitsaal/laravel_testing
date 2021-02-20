@@ -4,18 +4,15 @@
     Muuda kasutajat | Praktika
 @endsection
 
-
 @section('content')
 
-    <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title"> MUUDA KASUTAJAT</h4>
                 <div class="card-body">
 
                     <form method="POST" action="/update-role-register/{{ $users->id }}" ><!--class="was-validated" novalidate-->
-
                     @csrf
 
                     <!--Kasutaja nimi-->
@@ -62,18 +59,21 @@
                             <div class="form-group col-md-6">
                                 <label for="roll">Kasutaja roll</label>
                                 <select name="usertype" class="form-control label-control">
-                                    <option value="admin">Admin</option>
-                                    <option value="student">Student</option>
-                                    <option value="practiceBaseInstructor">Practice Base Instructor</option>
-                                    <option value="schoolInstructor">School Instructor</option>
-                                    <option value="school">School</option>
-                                    <option value="practiceBase">Practice Base</option>
+                                    <option value="admin">Administraator</option>
+                                    <option value="student">Õpilane</option>
+                                    <option value="practiceBaseInstructor">Praktikajuhendaja</option>
+                                    <option value="schoolInstructor">Koolijuhendaja</option>
+                                    <option value="school">Kool</option>
+                                    <option value="practiceBase">Praktikabaas</option>
                                     <option value=""></option>
                                 </select>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-danger">Muuda kasutajat</button>
-                        <a href="/role-register" class="btn btn-success" style="margin-top:30px;">Tühista</a>
+                        <div>
+                            <button type="submit" class="btn btn-danger">Muuda</button>
+                            <a href="/dashboard" class="btn btn-success" style="margin-top:30px;">Tühista</a>
+                            <a href="/role-register" class="btn btn-info" style="margin-top:30px;">Vaata tabelit</a>
+                        </div>
                     </form>
                 </div>
             </div>

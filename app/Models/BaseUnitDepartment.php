@@ -5,22 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BaseUnits extends Model
+class BaseUnitDepartment extends Model
 {
     use HasFactory;
 
-    protected $table ="base_units";
-
-    //public function baseUnits()
-    //{
-    //    return $this->belongsTo(\App\Models\BaseUnits::class, 'base_units_id');
-    //}
-
-    public function practiceDepartments()
-    {
-        return $this->hasMany(PracticeDepartment::class, 'practice_department_id', 'id')->withDefault();
-
-    }
+    protected $tabe= "base_unit_departments";
 
     public function practiceBase()
     {
@@ -30,6 +19,11 @@ class BaseUnits extends Model
     public function practiceUnit()
     {
         return $this->belongsTo(PracticeUnit::class, 'practice_unit_id', 'id')
+            ->withDefault();
+    }
+    public function practiceDepartment()
+    {
+        return $this->belongsTo(PracticeDepartment::class, 'practice_department_id', 'id')
             ->withDefault();
     }
 }

@@ -29,10 +29,11 @@
 
     <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js" ></script>
 
-    <!-- FontAwesome -->
+    <!-- FontAwesome for collapse-->
     <script src="https://kit.fontawesome.com/a8018f10c4.js" crossorigin="anonymous"></script>
     <script src="bootstrap-validate.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <!--Style
     <link rel="stylesheet" type="text/css" href="/css/app.css?<?php echo time(); ?>" />
     <link rel="stylesheet" type="text/css" href="/css/style.css?<?php echo time(); ?>" />
@@ -41,8 +42,8 @@
 </head>
 
 <body class="">
-<div class="wrapper ">
-    <div class="sidebar" data-color="red">
+<div class="wrapper " >
+    <div class="sidebar" data-color="orange">
         <div class="logo">
             <a href="/dashboard" class="simple-text logo-mini">
                 <img src="/svg/heartWhite.svg">
@@ -66,6 +67,8 @@
                         <p style="font-size: 14px;">Teated</p>
                     </a>
                 </li>
+
+                <!--Kasutajad-->
                 <li class="{{ 'role-register' == request()->path() ? 'active' : ''}}">
                     <a href="/role-register">
                         <i class="now-ui-icons users_single-02"></i>
@@ -98,20 +101,18 @@
                                     <span class="sidebar-normal" style="font-size: 12px;"> Lisa praktikabaas </span>
                                 </a>
                             </li>
-
-                            <li class="{{ 'add-unit-to-base' == request()->path() ? 'active' : ''}}">
-                                <a href="/add-unit-to-base">
+                            <li class="{{ 'add-unit-dep-to-base' == request()->path() ? 'active' : ''}}">
+                                <a href="/add-unit-dep-to-base">
                                     <span class="sidebar-mini-icon ml-5"></span>
-                                    <span class="sidebar-normal" style="font-size: 12px;">baas + üksus </span>
+                                    <span class="sidebar-normal" style="font-size: 12px;"> Lisa alamüksused </span>
                                 </a>
                             </li>
-
-
                         </ul>
                     </div>
                 </li>
+
                 <!--Practice Units-->
-                <li  >
+                <li>
                     <a data-toggle="collapse" href="#practiceUnits">
 
                         <i class="now-ui-icons design_bullet-list-67"></i>
@@ -133,12 +134,6 @@
                                 <a href="/add-practice-unit">
                                     <span class="sidebar-mini-icon ml-5"></span>
                                     <span class="sidebar-normal" style="font-size: 12px;"> Lisa praktikaüksus </span>
-                                </a>
-                            </li>
-                            <li class="{{ 'add-department-to-unit' == request()->path() ? 'active' : ''}}">
-                                <a href="/add-department-to-unit">
-                                    <span class="sidebar-mini-icon ml-5"></span>
-                                    <span class="sidebar-normal" style="font-size: 12px;"> Lisa praktikaosakond </span>
                                 </a>
                             </li>
                         </ul>
@@ -187,8 +182,8 @@
                 </li>
 
                 <!--Practice Instructor-->
-                <li  >
-                    <a data-toggle="collapse" href="#practiceInstructor">
+                <li >
+                    <a data-toggle="collapse" href="#practiceInstructor" >
 
                         <i class="now-ui-icons design_bullet-list-67"></i>
 
@@ -198,7 +193,7 @@
                     </a>
 
                     <div id="practiceInstructor" class="collapse">
-                        <ul class="nav ">
+                        <ul class="nav navbarDropdown">
                             <li class="{{ 'practiceInstructors' == request()->path() ? 'active' : ''}}">
                                 <a href="/practiceInstructors">
                                     <span class="sidebar-mini-icon ml-5"></span>
@@ -211,31 +206,18 @@
                                     <span class="sidebar-normal" style="font-size: 12px;"> Lisa praktika juhendaja </span>
                                 </a>
                             </li>
-                            <li class="{{ 'add-practice-instructor-to-base' == request()->path() ? 'active' : ''}}">
-                                <a href="/add-practice-instructor-to-base">
-                                    <span class="sidebar-mini-icon ml-5"></span>
-                                    <span class="sidebar-normal" style="font-size: 12px;">baas + pr.juhe </span>
-                                </a>
-                            </li>
-                            <li class="{{ 'add-instructor-to-unit' == request()->path() ? 'active' : ''}}">
-                                <a href="/add-instructor-to-unit">
-                                    <span class="sidebar-mini-icon ml-5"></span>
-                                    <span class="sidebar-normal" style="font-size: 12px;"> pr.juh + osakond </span>
-                                </a>
-                            </li>
-                            <li class="{{ 'add-practice-instructor-to-department' == request()->path() ? 'active' : ''}}">
-                                <a href="/add-practice-instructor-to-department">
-                                    <span class="sidebar-mini-icon ml-5"></span>
-                                    <span class="sidebar-normal" style="font-size: 12px;"> Osakond + pr.juh </span>
-                                </a>
-                            </li>
                         </ul>
                     </div>
                 </li>
+                <!--Example-->
+
+
 
             </ul>
         </div>
     </div>
+    <!--End of Sidebar-->
+
     <div class="main-panel" id="main-panel">
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
@@ -312,6 +294,7 @@
                 </div>
             </div>
         </nav>
+
         <!-- End Navbar -->
 
 
@@ -323,6 +306,7 @@
             @yield('content')
 
         </div>
+    </div>
 
 </div>
 
@@ -392,7 +376,6 @@
 
         })
     </script>
-
 
 
 @yield('scripts')

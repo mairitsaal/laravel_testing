@@ -6,11 +6,18 @@
 
 
 @section('content')
-    <div class="row">
-        <div class="col-md-8">
+
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title"> Registreeritud kasutajad</h4>
+
+                    <div>
+                        <a href="/register" class="btn btn-danger ml-5 mb-3">
+                            Registreeri uus kasutaja
+                        </a>
+                    </div>
+
                     <!--Controlleri ja route lisamine-->
                     @if(Session::has('user_updated'))
                         <div class="alert alert-success" role="alert">
@@ -21,11 +28,11 @@
                 <div class="card-body">
                     <table id="dataTable" class="table table-striped">
 
-                            <thead class=" text-primary">
+                            <thead class="text-primary">
                             <th>Id</th>
-                            <th>Nimi</th>
-                            <th>Telefon</th>
-                            <th>Email</th>
+                            <th class="text-left">Nimi</th>
+                            <th class="text-left">Telefon</th>
+                            <th class="text-left">Email</th>
                             <th>Roll</th>
                             <th>Muuda</th>
                             </thead>
@@ -34,12 +41,17 @@
                             @foreach ($users as $row)
                             <tr>
                                 <td>{{$row->id}}</td>
-                                <td>{{$row->name}}</td>
-                                <td>{{$row->phone}}</td>
-                                <td>{{$row->email}}</td>
+                                <td class="text-left">{{$row->name}}</td>
+                                <td class="text-left">{{$row->phone}}</td>
+                                <td class="text-left">{{$row->email}}</td>
                                 <td>{{$row->usertype}}</td>
-                                <td class="d-flex">
-                                    <form action="/delete-role-register/{{$row->id}}" method="POST">
+                                <td class="text-center">
+
+                                    <a class="mr-2" style="color: forestgreen" href="/edit-register-user/{{ $row->id }}"><i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Muuda"></i></a>
+                                    <a style="color: red" href="/delete-register-user/{{ $row->id }}"><i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Kustuta"></i></a>
+
+
+                                    <!-- <form action="/delete-role-register/{{$row->id}}" method="POST">
                                         <a href="/edit-register-user/{{ $row->id }}" style="color: forestgreen">
                                             <i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Muuda">
 
@@ -47,14 +59,14 @@
                                         </a>
 
                                         @csrf
-                                        @method('DELETE')
+                                @method('DELETE')
 
-                                        <button type="submit" style="color: red; background-color: transparent; border: none; " >
-                                            <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Kustuta">
+                                    <button type="submit" style="color: red; background-color: transparent; border: none; " >
+                                        <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Kustuta">
 
-                                            </i>
-                                        </button>
-                                    </form>
+                                        </i>
+                                    </button>
+                                </form>-->
 
                                 </td>
                             </tr>
@@ -66,7 +78,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
 @endsection
 
 

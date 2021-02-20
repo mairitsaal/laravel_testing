@@ -1,23 +1,11 @@
-@extends('layouts.master')
+@extends('layouts.admin')
 @section('title', 'Muuda praktikaüksust')
 @section('content')
 
-<section style="padding-top:60px">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10">
-                <div class="row d-flex mb-2">
-                    <div class="col-8">
-                        <h3 class="ml-4" style="color: #E60011">MUUDA PRAKTIKAÜKSUST</h3>
-                    </div>
-                    <div class="col-4">
-                        <a href="/practiceBases" class="btn btn-outline-danger mr-4">Praktikabaasid</a>
-                        <a href="/practiceUnits" class="btn btn-outline-danger mr-4">Praktikaüksused</a>
-                    </div>
-                </div>
-                <div class="card" style="border: 1px solid #EDEDED; background-color: #F5F5F5">
-                    <div class="card-body p-4">
-
+        <div class="card col-md-12">
+            <div class="card-header">
+                <h4 class="card-title">MUUDA PRAKTIKAÜKSUST</h4>
+                <div class="card-body p-4">
                         <!--Controlleri ja route lisamine-->
                         @if(Session::has('practiceUnit_updated'))
                             <div class="alert alert-success" role="alert">
@@ -28,13 +16,13 @@
                         <form method="POST" action="{{route('practiceUnit.update')}}">
                         @csrf
 
-                            <!-- Seo praktikabaasiga-->
+                            <!-- Seo praktikabaasiga
 
-                                <div class="col-6">
+                                <div class="col-12">
                                     <h6 class="ml-2" style="color: #E60011">Vali praktikabaas</h6>
                                     <select for="dropdown" class="form-control input-sm mb-4" name="practice_base_id">
 
-                                        <option>Praktikabaas</option>
+                                        <option>{{$practiceUnit->practiceBase->nimi}}</option>
 
                                         @foreach ($practiceBaseList as $practiceBase)
                                             <option value="{{ $practiceBase->id }}">
@@ -47,9 +35,7 @@
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('dropdown') }}</strong>
                                         </span>
-                                    @endif
-
-
+                                    @endif-->
 
                             <input type="hidden" name="id" value="{{$practiceUnit->id}}" />
 
@@ -65,18 +51,16 @@
                                     <input type="text" name="nimi" id="nimi" class="form-control" aria-label="Praktikabaasi nimi" aria-describedby="basic-addon1" style="border: 1px solid #888888;" required data-toggle="tooltip" data-placement="top" title="Praktikaüksuse nimi" value="{{$practiceUnit->nimi}}">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-danger">Muuda</button>
-
-
-
-                    </div>
+                           <div>
+                               <button type="submit" class="btn btn-danger">Muuda</button>
+                               <a href="/dashboard" class="btn btn-success" style="margin-top:30px;">Tühista</a>
+                               <a href="/practiceUnits" class="btn btn-info" style="margin-top:30px;">Vaata tabelit</a>
+                           </div>
+                        </form>
                 </div>
             </div>
         </div>
-    </div>
 
-
-</section>
 <!-- Include jQuery -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
@@ -84,12 +68,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
-
-<script>
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-</script>
 
 <script>
     bootstrapValidate('#nimi', 'required:Sisesta praktikaüksuse nimi')
