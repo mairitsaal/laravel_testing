@@ -17,6 +17,11 @@
                             Registreeri uus kasutaja
                         </a>
                     </div>
+                    @if(Session::has('user_deleted'))
+                        <div class="alert alert-success" role="alert">
+                            {{Session::get('user_deleted')}}
+                        </div>
+                    @endif
 
                     <!--Controlleri ja route lisamine-->
                     @if(Session::has('user_updated'))
@@ -33,8 +38,8 @@
                             <th class="text-left">Nimi</th>
                             <th class="text-left">Telefon</th>
                             <th class="text-left">Email</th>
-                            <th>Roll</th>
-                            <th>Muuda</th>
+                            <th class="text-left">Roll</th>
+                            <th class="text-center">Muuda</th>
                             </thead>
                             <tbody>
 
@@ -44,14 +49,15 @@
                                 <td class="text-left">{{$row->name}}</td>
                                 <td class="text-left">{{$row->phone}}</td>
                                 <td class="text-left">{{$row->email}}</td>
-                                <td>{{$row->usertype}}</td>
+                                <td class="text-left">{{$row->usertype}}</td>
+
                                 <td class="text-center">
 
-                                    <a class="mr-2" style="color: forestgreen" href="/edit-register-user/{{ $row->id }}"><i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Muuda"></i></a>
+                                    <!--<a class="mr-2" style="color: forestgreen" href="/edit-register-user/{{ $row->id }}"><i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Muuda"></i></a>
                                     <a style="color: red" href="/delete-register-user/{{ $row->id }}"><i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Kustuta"></i></a>
+-->
 
-
-                                    <!-- <form action="/delete-role-register/{{$row->id}}" method="POST">
+                                     <form action="/delete-role-register/{{$row->id}}" method="POST">
                                         <a href="/edit-register-user/{{ $row->id }}" style="color: forestgreen">
                                             <i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Muuda">
 
@@ -66,7 +72,7 @@
 
                                         </i>
                                     </button>
-                                </form>-->
+                                </form>
 
                                 </td>
                             </tr>

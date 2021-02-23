@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePracticeUnitsTable extends Migration
+class CreatePracticeDepartmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreatePracticeUnitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('practice_units', function (Blueprint $table) {
+        Schema::create('practice_departments', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            // Practice base foreign key
-            $table->bigInteger('practice_base_id')->unsigned();
-            $table->foreign('practice_base_id')->references('id')->on('practice_bases')
+            // Practice unit foreign key
+            $table->bigInteger('practice_unit_id')->unsigned()->nullable();
+            $table->foreign('practice_unit_id')->references('id')->on('practice_units')
                 ->onDelete('cascade');
 
             // Instructor foreign key
@@ -26,8 +26,12 @@ class CreatePracticeUnitsTable extends Migration
             //$table->foreign('practice_instructor_id')->references('id')->on('practice_instructors')
             //    ->onDelete('cascade');
 
+            //$table->unsignedInteger('type_id');
+            //$table->foreign('type_id')->references('type_id')->on('types');
+
             $table->char('nimi', 255);
             $table->timestamps();
+
         });
     }
 
@@ -38,6 +42,6 @@ class CreatePracticeUnitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('practice_units');
+        Schema::dropIfExists('practice_departments');
     }
 }

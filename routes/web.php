@@ -6,6 +6,7 @@ use App\Http\Controllers\PracticeDepartmentController;
 use App\Http\Controllers\PracticeInstructorController;
 use App\Http\Controllers\BaseUnitsController;
 use App\Http\Controllers\BaseUnitDepartmentController;
+use App\Http\Controllers\SpecialityController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -97,6 +98,15 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/delete-unit-dep-to-base/{id}', [BaseUnitDepartmentController::class, 'deleteBaseUnitsDeps']);
     Route::get('/edit-unit-dep-to-base/{id}', [BaseUnitDepartmentController::class, 'editBaseUnitsDeps']);
     Route::post('/update-unit-dep-to-base', [BaseUnitDepartmentController::class, 'updateBaseUnitsDeps'])->name('baseUnitDep.update');
+
+    // Specialities
+    Route::get('/add-speciality', [SpecialityController::class, 'addSpeciality']);
+    Route::post('/create-speciality', [SpecialityController::class,'createSpeciality'])->name('speciality.create');
+    Route::get('/specialities', [SpecialityController::class, 'getSpeciality']);
+    Route::get('/delete-speciality/{id}', [SpecialityController::class, 'deleteSpeciality']);
+    Route::get('/edit-speciality/{id}', [SpecialityController::class, 'editSpeciality']);
+    Route::post('/update-speciality', [SpecialityController::class, 'updateSpeciality'])->name('speciality.update');
+
 });
 
 // Student access

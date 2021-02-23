@@ -52,3 +52,25 @@ thead{
 .alert .alert-success{
     color: #30a64a !important;
 }
+.required-field::after {
+    content: "*";
+    color: #E60011;
+    margin-left:2px
+}
+.footer {
+    position: absolute !important;
+    bottom: 0 !important;
+    background: #E60011 !important;
+    color: #fff !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    line-height: 50px !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+.container-fluid {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}

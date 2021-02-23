@@ -17,7 +17,7 @@
 
                     <!--Kasutaja nimi-->
                         <div class="form-group">
-                            <label for="name">Kasutaja nimi</label>
+                            <label for="name" class="required-field">Kasutaja nimi</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                            <span class="input-group-text" style="background-color:#fff; border: 1px solid #888888;" id="basic-addon1">
@@ -30,8 +30,8 @@
 
                         <!--Telefon ja email-->
                         <div class="row d-flex">
-                            <div class="form-group col-md-6">
-                                <label for="phone" >Telefon</label>
+                            <div class="form-group col-md-6" >
+                                <label for="phone" class="required-field">Telefon</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                                <span class="input-group-text" style="background-color:#ffffff; border: 1px solid #888888;" id="basic-addon1">
@@ -56,9 +56,10 @@
 
                         <!--Kasutaja roll-->
                         <div class="row d-flex">
-                            <div class="form-group col-md-6">
-                                <label for="roll">Kasutaja roll</label>
-                                <select name="usertype" class="form-control label-control">
+                            <div class="form-group col-md-3">
+                                <label for="usertype" class="required-field">Kasutaja roll</label>
+                                <select name="usertype" class="form-control label-control" style="border: 1px solid #888888;">
+                                    <option>{{ $users->usertype }}</option>
                                     <option value="admin">Administraator</option>
                                     <option value="student">Õpilane</option>
                                     <option value="practiceBaseInstructor">Praktikajuhendaja</option>
@@ -68,7 +69,11 @@
                                     <option value=""></option>
                                 </select>
                             </div>
+
+
+
                         </div>
+
                         <div>
                             <button type="submit" class="btn btn-danger">Muuda</button>
                             <a href="/dashboard" class="btn btn-success" style="margin-top:30px;">Tühista</a>

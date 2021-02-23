@@ -43,7 +43,7 @@
 
 <body class="">
 <div class="wrapper " >
-    <div class="sidebar" data-color="orange">
+    <div class="sidebar" data-color="red">
         <div class="logo">
             <a href="/dashboard" class="simple-text logo-mini">
                 <img src="/svg/heartWhite.svg">
@@ -78,9 +78,9 @@
 
                 <!--Practice Bases-->
                 <li>
-                    <a data-toggle="collapse" href="#practiceBases" >
-                        <i class="now-ui-icons design_bullet-list-67"></i>
-                        <p style="font-size: 14px;">
+                    <a data-toggle="collapse" href="#practiceBases" type="button" class="btn btn-success">
+                        <!--<i class="now-ui-icons design_bullet-list-67"></i>-->
+                        <p style="font-size: 14px; text-align: center;">
                             Praktikabaas <b class="caret"></b>
                         </p>
                     </a>
@@ -113,11 +113,11 @@
 
                 <!--Practice Units-->
                 <li>
-                    <a data-toggle="collapse" href="#practiceUnits">
+                    <a data-toggle="collapse" href="#practiceUnits" type="button" class="btn btn-success">
 
-                        <i class="now-ui-icons design_bullet-list-67"></i>
+                        <!--<i class="now-ui-icons design_bullet-list-67"></i>-->
 
-                        <p style="font-size: 14px;">
+                        <p style="font-size: 14px; text-align: center;">
                             Praktikaüksus <b class="caret"></b>
                         </p>
                     </a>
@@ -142,11 +142,11 @@
 
                 <!--Practice Departments-->
                 <li  >
-                    <a data-toggle="collapse" href="#practiceDepartment">
+                    <a data-toggle="collapse" href="#practiceDepartment" type="button" class="btn btn-success">
 
-                        <i class="now-ui-icons design_bullet-list-67"></i>
+                        <!--<i class="now-ui-icons design_bullet-list-67"></i>-->
 
-                        <p style="font-size: 14px;">
+                        <p style="font-size: 14px; text-align: center;">
                             Praktika osakond <b class="caret"></b>
                         </p>
                     </a>
@@ -183,11 +183,11 @@
 
                 <!--Practice Instructor-->
                 <li >
-                    <a data-toggle="collapse" href="#practiceInstructor" >
+                    <a data-toggle="collapse" href="#practiceInstructor" type="button" class="btn btn-success">
 
-                        <i class="now-ui-icons design_bullet-list-67"></i>
+                       <!-- <i class="now-ui-icons design_bullet-list-67"></i>-->
 
-                        <p style="font-size: 14px;">
+                        <p style="font-size: 14px; text-align: center;">
                             Praktikajuhendaja <b class="caret"></b>
                         </p>
                     </a>
@@ -204,6 +204,201 @@
                                 <a href="/add-practice-instructor">
                                     <span class="sidebar-mini-icon ml-5"></span>
                                     <span class="sidebar-normal" style="font-size: 12px;"> Lisa praktika juhendaja </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!--speciality-->
+                <li >
+                    <a data-toggle="collapse" href="#speciality" type="button" class="btn btn-warning">
+
+                        <!-- <i class="now-ui-icons design_bullet-list-67"></i>-->
+
+                        <p style="font-size: 14px; text-align: center;">
+                            Erialad <b class="caret"></b>
+                        </p>
+                    </a>
+
+                    <div id="speciality" class="collapse">
+                        <ul class="nav navbarDropdown">
+                            <li class="{{ 'specialities' == request()->path() ? 'active' : ''}}">
+                                <a href="/specialities">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal align-center" style="font-size: 12px;">Kõik erialad </span>
+                                </a>
+                            </li>
+                            <li class="{{ 'add-speciality' == request()->path() ? 'active' : ''}}">
+                                <a href="/add-speciality">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal" style="font-size: 12px;"> Lisa uus eriala </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <!--Course-->
+                <li >
+                    <a data-toggle="collapse" href="#course" type="button" class="btn btn-warning">
+
+                        <!-- <i class="now-ui-icons design_bullet-list-67"></i>-->
+
+                        <p style="font-size: 14px; text-align: center;">
+                            Kursused <b class="caret"></b>
+                        </p>
+                    </a>
+
+                    <div id="course" class="collapse">
+                        <ul class="nav navbarDropdown">
+                            <li class="{{ 'courses' == request()->path() ? 'active' : ''}}">
+                                <a href="/courses">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal align-center" style="font-size: 12px;">Kursused</span>
+                                </a>
+                            </li>
+                            <li class="{{ 'add-course' == request()->path() ? 'active' : ''}}">
+                                <a href="/add-course">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal" style="font-size: 12px;"> Lisa uus kursus</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <!--speciality-->
+                <li >
+                    <a data-toggle="collapse" href="#student" type="button" class="btn btn-warning">
+
+                        <!-- <i class="now-ui-icons design_bullet-list-67"></i>-->
+
+                        <p style="font-size: 14px; text-align: center;">
+                            Õpilased <b class="caret"></b>
+                        </p>
+                    </a>
+
+                    <div id="student" class="collapse">
+                        <ul class="nav navbarDropdown">
+                            <li class="{{ 'students' == request()->path() ? 'active' : ''}}">
+                                <a href="/students">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal align-center" style="font-size: 12px;">Õpilased</span>
+                                </a>
+                            </li>
+                            <li class="{{ 'add-student' == request()->path() ? 'active' : ''}}">
+                                <a href="/add-student">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal" style="font-size: 12px;"> Lisa uus õpilane </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <!--speciality-->
+                <li >
+                    <a data-toggle="collapse" href="#schoolInstructor" type="button" class="btn btn-warning">
+
+                        <!-- <i class="now-ui-icons design_bullet-list-67"></i>-->
+
+                        <p style="font-size: 14px; text-align: center;">
+                            Koolijuhendajad <b class="caret"></b>
+                        </p>
+                    </a>
+
+                    <div id="schoolInstructor" class="collapse">
+                        <ul class="nav navbarDropdown">
+                            <li class="{{ 'schoolInstructors' == request()->path() ? 'active' : ''}}">
+                                <a href="/schoolInstructors">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal align-center" style="font-size: 12px;">Kooli juhendajad </span>
+                                </a>
+                            </li>
+                            <li class="{{ 'add-school-instructor' == request()->path() ? 'active' : ''}}">
+                                <a href="/add-school-instructor">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal" style="font-size: 12px;"> Lisa koolijuhendaja </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <!--speciality-->
+                <li >
+                    <a data-toggle="collapse" href="#practiceGroup" type="button" class="btn btn-info">
+
+                        <!-- <i class="now-ui-icons design_bullet-list-67"></i>-->
+
+                        <p style="font-size: 14px; text-align: center;">
+                            Praktikagrupid <b class="caret"></b>
+                        </p>
+                    </a>
+
+                    <div id="practiceGroup" class="collapse">
+                        <ul class="nav navbarDropdown">
+                            <li class="{{ 'practiceGroups' == request()->path() ? 'active' : ''}}">
+                                <a href="/practiceGroups">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal align-center" style="font-size: 12px;">Praktika grupid</span>
+                                </a>
+                            </li>
+                            <li class="{{ 'add-practice-group' == request()->path() ? 'active' : ''}}">
+                                <a href="/add-practice-group">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal" style="font-size: 12px;"> Lisa praktika grupp</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li >
+                    <a data-toggle="collapse" href="#practiceDistribution" type="button" class="btn btn-info">
+
+                        <!-- <i class="now-ui-icons design_bullet-list-67"></i>-->
+
+                        <p style="font-size: 14px; text-align: center;">
+                            Pr. kohtade jaotus <b class="caret"></b>
+                        </p>
+                    </a>
+
+                    <div id="practiceDistribution" class="collapse">
+                        <ul class="nav navbarDropdown">
+                            <li class="{{ 'practiceDistributions' == request()->path() ? 'active' : ''}}">
+                                <a href="/practiceDistributions">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal align-center" style="font-size: 12px;"> Pr.kohtade jaotus</span>
+                                </a>
+                            </li>
+                            <li class="{{ 'add-practice-instructor' == request()->path() ? 'active' : ''}}">
+                                <a href="/add-practice-distribution">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal" style="font-size: 12px;"> Lisa uus jaotus</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li >
+                    <a data-toggle="collapse" href="#practice" type="button" class="btn btn-info">
+
+                        <!-- <i class="now-ui-icons design_bullet-list-67"></i>-->
+
+                        <p style="font-size: 14px; text-align: center;">
+                            Praktika <b class="caret"></b>
+                        </p>
+                    </a>
+
+                    <div id="practice" class="collapse">
+                        <ul class="nav navbarDropdown">
+                            <li class="{{ 'practices' == request()->path() ? 'active' : ''}}">
+                                <a href="/practices">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal align-center" style="font-size: 12px;">Kõik praktikad</span>
+                                </a>
+                            </li>
+                            <li class="{{ 'add-practice' == request()->path() ? 'active' : ''}}">
+                                <a href="/add-practice">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal" style="font-size: 12px;"> Lisa praktika</span>
                                 </a>
                             </li>
                         </ul>

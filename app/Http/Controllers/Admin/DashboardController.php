@@ -22,11 +22,16 @@ class DashboardController extends Controller
 
     public function updateRegisterUser(Request $request, $id)
     {
-        $users = User::find($id);
-        $users->name = $request->input('name');
-        $users->phone = $request->input('phone');
-        $users->email = $request->input('email');
-        $users->usertype = $request->input('usertype');
+        $users = User::with('practiceInstructors')->find($id);
+        $users->name = $request->name;
+        //$users->practiceInstructors->name = $request->practiceInstructors->name;
+        $users->phone = $request->phone;
+        //$users->practiceInstructors->phone = $request->practiceInstructors->phone;
+        $users->email = $request->email;
+        //$users->practiceInstructors->email = $request->practiceInstructors->email;
+        $users->usertype = $request->usertype;
+        //$users->practice_instructor_id->id = $request->practice_instructor_id->id;
+
         $users->update();
 
         return redirect('/role-register')->with('user_updated', 'Kasutaja andmed edukalt uuendatud');

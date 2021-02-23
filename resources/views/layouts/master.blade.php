@@ -39,6 +39,18 @@
 
 
 
+    <!-- CSS Files
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/now-ui-dashboard.css" rel="stylesheet" />
+
+    <link href="../assets/css/admin.css?<?php echo time(); ?>" rel="stylesheet" />
+    <link href="../assets/css/dataTables.min.css?<?php echo time(); ?>" rel="stylesheet" />-->
+
+    <style>
+        body{
+            font-family: "Helvetica" !important;
+        }
+    </style>
 
 </head>
 <body>
