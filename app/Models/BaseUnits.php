@@ -32,4 +32,5 @@ class BaseUnits extends Model
         return $this->belongsTo(PracticeUnit::class, 'practice_unit_id', 'id')
             ->withDefault();
     }
+
 }

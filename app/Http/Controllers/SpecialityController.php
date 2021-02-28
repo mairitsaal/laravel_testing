@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PracticeBase;
+use DB;
 use App\Models\Speciality;
 use Illuminate\Http\Request;
 
@@ -18,6 +18,7 @@ class SpecialityController extends Controller
         $speciality = new Speciality();
         $speciality->nimi = $request->nimi;
         $speciality->kestvus = $request->kestvus;
+        $speciality->oppekava = $request->oppekava;
         $speciality->oppevorm = $request->oppevorm;
         $speciality->save();
 
@@ -34,6 +35,14 @@ class SpecialityController extends Controller
         Speciality::where('id', $id)->delete();
         return back()->with('speciality_deleted', 'Eriala on andmebaasist kustutatud');
     }
+
+    public function deleteAllSpeciality(Request $request)
+    {
+        $ids = $request->ids;
+        DB::table("specialities")->whereIn('id',explode(",",$ids))->delete();
+        return response()->json(['success'=>"Kõik valitud kirjed kustutatud andmebaasist."]);
+    }
+
     public function editSpeciality($id)
     {
         $speciality = Speciality::find($id);
@@ -43,10 +52,11 @@ class SpecialityController extends Controller
     {
         $speciality = Speciality::find($request->id);
         $speciality->nimi = $request->nimi;
-        $speciality->kestvus = $request->kestvus;
+        $speciality->oppekava = $request->oppekava;
         $speciality->oppevorm = $request->oppevorm;
-
+        $speciality->kestvus = $request->kestvus;
         $speciality->save();
+
         return back()->with('speciality_updated', 'Eriala edukalt uuendatud');
 
     }

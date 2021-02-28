@@ -9,7 +9,7 @@ class BaseUnitDepartment extends Model
 {
     use HasFactory;
 
-    protected $tabe= "base_unit_departments";
+    protected $tabel= "base_unit_departments";
 
     public function practiceBase()
     {
@@ -25,5 +25,10 @@ class BaseUnitDepartment extends Model
     {
         return $this->belongsTo(PracticeDepartment::class, 'practice_department_id', 'id')
             ->withDefault();
+    }
+
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id')->withDefault();
     }
 }

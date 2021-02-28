@@ -1,34 +1,34 @@
 @extends('layouts.admin')
-@section('title', 'Lisa praktikaüksus baasile')
+@section('title', 'Lisa praktikaüksusele osakond')
 @section('content')
 
     <div class="row">
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Lisa praktikaüksus baasile</h4>
+                    <h4 class="card-title">Lisa praktikaüksusele osakond</h4>
 
                             <!--Controlleri ja route lisamine-->
-                            @if(Session::has('baseUnit_created'))
+                            @if(Session::has('unitDep_created'))
                                 <div class="alert alert-success" role="alert">
-                                    {{ Session::get('baseUnit_created') }}
+                                    {{ Session::get('unitDep_created') }}
                                 </div>
                             @endif
 
-                            <form method="POST" action="{{ route('baseUnit.create') }}" ><!--class="was-validated" novalidate-->
+                            <form method="POST" action="{{ route('unitDeps.create') }}" ><!--class="was-validated" novalidate-->
                             @csrf
 
                             <!--Dropdown menu getting list from db-->
                             <row class="col-10 d-flex mt-4">
                                 <div class="col-6">
-                                    <h6 class="ml-2" style="color: #000">Vali praktikabaas</h6>
-                                    <select for="dropdown" class="form-control input-sm" name="practice_base_id">
+                                    <h6 class="ml-2" style="color: #000">Vali praktikaüksus</h6>
+                                    <select for="dropdown" class="form-control input-sm" name="practice_unit_id">
 
-                                        <option>Praktikabaas</option>
+                                        <option>Vali praktikaüksus</option>
 
-                                        @foreach ($practiceBaseList as $practiceBase)
-                                            <option value="{{ $practiceBase->id }}">
-                                                {{ $practiceBase->nimi }}
+                                        @foreach ($practiceUnits as $practiceUnit)
+                                            <option value="{{ $practiceUnit->id }}">
+                                                {{ $practiceUnit->nimi }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -40,14 +40,14 @@
                                     @endif
                                 </div>
                                 <div class="col-6">
-                                    <h6 class="ml-2" style="color: #000">Vali praktikaüksus</h6>
-                                    <select class="form-control input-sm" name="practice_unit_id">
+                                    <h6 class="ml-2" style="color: #000">Vali praktika osakond</h6>
+                                    <select class="form-control input-sm" name="practice_department_id">
 
-                                        <option>Praktikaüksus</option>
+                                        <option>Vali praktika osakond</option>
 
-                                        @foreach ($practiceUnits as $practiceUnit)
-                                            <option value="{{ $practiceUnit->id }}">
-                                                {{ $practiceUnit->nimi }}
+                                        @foreach ($practiceDepartments as $practiceDepartment)
+                                            <option value="{{ $practiceDepartment->id }}">
+                                                {{ $practiceDepartment->nimi }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -56,9 +56,9 @@
 
                             <div class="mb-3">
 
-                                <button type="submit" class="btn btn-danger">Lisa üksus praktikabaasile</button>
+                                <button type="submit" class="btn btn-danger">Lisa praktikaüksusele osakond</button>
                                 <a href="/dashboard" class="btn btn-success" style="margin-top:30px;">Tühista</a>
-                                <a href="/baseUnits" class="btn btn-info" style="margin-top:30px;">Vaata tabelit</a>
+                                <a href="/unitDeps" class="btn btn-info" style="margin-top:30px;">Vaata tabelit</a>
                             </div>
 
                             </form>

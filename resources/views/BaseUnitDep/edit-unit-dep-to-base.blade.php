@@ -30,13 +30,14 @@
 
                                 <select for="dropdown" class="form-control input-sm" name="practice_base_id">
 
-                                    <option>{{$baseUnitDepartment->practiceBase->nimi}}</option>
+                                    <option value="{{$baseUnitDepartment->id}}">{{$baseUnitDepartment->practiceBase->nimi}}</option>
 
                                     @foreach ($practiceBases as $practiceBase)
                                         <option value="{{ $practiceBase->id }}">
                                             {{ $practiceBase->nimi }}
                                         </option>
                                     @endforeach
+                                        <option value=""></option>
                                 </select>
 
                                 @if ($errors->has('dropdown'))
@@ -49,13 +50,14 @@
                                 <h6 class="ml-2" style="color: #000">Vali praktikaüksus</h6>
                                 <select class="form-control input-sm" name="practice_unit_id">
 
-                                    <option>{{$baseUnitDepartment->practiceUnit->nimi}}</option>
+                                    <option value="{{$baseUnitDepartment->id}}">{{$baseUnitDepartment->practiceUnit->nimi}}</option>
 
                                     @foreach ($practiceUnits as $practiceUnit)
                                         <option value="{{ $practiceUnit->id }}">
                                             {{ $practiceUnit->nimi }}
                                         </option>
                                     @endforeach
+                                    <option value=""></option>
                                 </select>
                             </div>
                             <div class="col-4">
@@ -63,13 +65,14 @@
                                 <select class="form-control input-sm" name="practice_department_id">
 
 
-                                    <option>{{$baseUnitDepartment->practiceDepartment->nimi}}</option>
+                                    <option value="{{$baseUnitDepartment->id}}">{{$baseUnitDepartment->practiceDepartment->nimi}}</option>
 
                                     @foreach ($practiceDepartments as $practiceDepartment)
                                         <option value="{{ $practiceDepartment->id }}">
                                             {{ $practiceDepartment->nimi }}
                                         </option>
                                     @endforeach
+                                        <option value=""></option>
                                 </select>
                             </div>
                         </row>
@@ -80,7 +83,10 @@
                             <a href="/dashboard" class="btn btn-success" style="margin-top:30px;">Tühista</a>
                             <a href="/baseUnitsDeps" class="btn btn-info" style="margin-top:30px;">Vaata tabelit</a>
                         </div>
-
+                    </form>
+                </div>
+            </div>
+        </div>
 
 @endsection
 

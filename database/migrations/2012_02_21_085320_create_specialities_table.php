@@ -17,7 +17,8 @@ class CreateSpecialitiesTable extends Migration
             $table->bigIncrements('id');
             $table->char('nimi', 255);
             $table->decimal('kestvus', 4, 2);
-            $table->char('oppevorm', 25);
+            $table->char('oppevorm', 100);
+            $table->char('oppekava', 100);
 
             $table->timestamps();
         });

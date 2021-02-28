@@ -22,7 +22,7 @@
                             <row class="col-12 d-flex mt-4">
                                 <div class="col-4">
                                     <h6 class="ml-2" style="color: #000">Vali praktikabaas</h6>
-                                    <select for="dropdown" class="form-control input-sm" name="practice_base_id">
+                                <select for="dropdown" class="form-control input-sm" name="practice_base_id">
 
                                         <option></option>
 
@@ -31,7 +31,9 @@
                                                 {{ $practiceBase->nimi }}
                                             </option>
                                         @endforeach
+
                                     </select>
+
 
                                     @if ($errors->has('dropdown'))
                                         <span class="invalid-feedback" role="alert">

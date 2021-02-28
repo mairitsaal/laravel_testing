@@ -15,7 +15,7 @@
 }
 label{
     color: #000 !important;
-    font-weight: 500 !important;
+    font-weight: 600 !important;
     font-size: 1em !important;
     margin-left: 42px !important;
     opacity: 1 !important;
@@ -39,10 +39,7 @@ button{
     margin-left: 42px !important;
     margin-top: 30px !important;
 }
-.label-control{
-    margin-left: 40px !important;
 
-}
 table{
     text-align: center !important;
 }
@@ -73,4 +70,7 @@ thead{
     padding-left: 0 !important;
     margin-right: auto !important;
     margin-left: auto !important;
+}
+select{
+    border: 1px solid #888888 !important;
 }

@@ -45,6 +45,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+
                             @foreach ($baseUnits as $baseUnit)
                                 <tr>
                                     <td>{{$baseUnit->id}}</td>
@@ -60,6 +61,8 @@
                                     <!-- Unit name from practice_units table-->
 
                                     <td class="text-left"> {{$baseUnit->practiceUnit->nimi}}</td>
+
+
                                     <td>
                                         <a class="mr-2" style="color: darkorange" href="/baseUnits/{{ $baseUnit->id }}"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Vaata lähemalt"></i></a>
                                         <a class="mr-2" style="color: forestgreen" href="/edit-unit-to-base/{{ $baseUnit->id }}"><i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Muuda"></i></a>
@@ -71,6 +74,7 @@
                             </tbody>
 
                         </table>
+                            </form>
 
                     </div>
                 </div>

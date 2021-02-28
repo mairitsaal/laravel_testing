@@ -18,9 +18,12 @@
                             </div>
                         @endif
 
+                    <button style="margin-bottom: 10px" class="btn btn-warning delete_all" data-url="{{ url('deleteAll-practice-department') }}">Kustuta kõik</button>
+
                         <table id="dataTable" class="table table-striped">
                             <thead style="text-align:center;">
                                 <tr>
+                                    <th width="50px"><input type="checkbox" id="master"></th>
                                     <th class="red">Id</th>
                                     <th class="red text-left">Praktika osakond</th>
 
@@ -28,8 +31,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach ($practiceDepartments as $practiceDepartment)
-                                <tr>
+                            @if($practiceDepartments->count())
+                                @foreach($practiceDepartments as $key => $practiceDepartment)
+
+                                    <tr id="tr_{{$practiceDepartment->id}}">
+                                        <td><input type="checkbox" class="sub_chk" data-id="{{$practiceDepartment->id}}"></td>
                                     <td>{{$practiceDepartment->id}}</td>
                                     <td class="text-left">{{$practiceDepartment->nimi}}</td>
                                     <td>
@@ -40,6 +46,7 @@
                                     </td>
                                 </tr>
                                 @endforeach
+                                @endif
                             </tbody>
 
                         </table>

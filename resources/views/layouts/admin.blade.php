@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <!--<<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    link rel="icon" type="image/png" href="../assets/img/favicon.png">-->
+    <link rel="icon" type="image/svg" href="../svg/heart.svg">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         @yield('title')
@@ -24,7 +25,7 @@
     <link href="../assets/css/now-ui-dashboard.css" rel="stylesheet" />
 
     <link href="../assets/css/admin.css?<?php echo time(); ?>" rel="stylesheet" />
-    <link href="../assets/css/dataTables.min.css?<?php echo time(); ?>" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/dataTables.min.css" />
 
 
     <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js" ></script>
@@ -101,10 +102,28 @@
                                     <span class="sidebar-normal" style="font-size: 12px;"> Lisa praktikabaas </span>
                                 </a>
                             </li>
+                            <li class="{{ 'add-unit-to-base' == request()->path() ? 'active' : ''}}">
+                                <a href="/add-unit-to-base">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal" style="font-size: 12px;">Baas + üksus</span>
+                                </a>
+                            </li>
+                            <li class="{{ 'add-dep-to-unit' == request()->path() ? 'active' : ''}}">
+                                <a href="/add-dep-to-unit">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal" style="font-size: 12px;">Üksus + osakond</span>
+                                </a>
+                            </li>
                             <li class="{{ 'add-unit-dep-to-base' == request()->path() ? 'active' : ''}}">
-                                <a href="/add-unit-dep-to-base">
+                                <a href="/baseUnitsDeps">
                                     <span class="sidebar-mini-icon ml-5"></span>
                                     <span class="sidebar-normal" style="font-size: 12px;"> Lisa alamüksused </span>
+                                </a>
+                            </li>
+                            <li class="{{ 'dynamic-dropdown' == request()->path() ? 'active' : ''}}">
+                                <a href="/dynamic-dropdown">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal" style="font-size: 12px;"> dynamic-dropdown </span>
                                 </a>
                             </li>
                         </ul>
@@ -233,6 +252,12 @@
                                 <a href="/add-speciality">
                                     <span class="sidebar-mini-icon ml-5"></span>
                                     <span class="sidebar-normal" style="font-size: 12px;"> Lisa uus eriala </span>
+                                </a>
+                            </li>
+                            <li class="{{ 'specialityCourses' == request()->path() ? 'active' : ''}}">
+                                <a href="/specialityCourses">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal" style="font-size: 12px;"> eriala + kursus </span>
                                 </a>
                             </li>
                         </ul>
@@ -509,8 +534,12 @@
 <script src="../assets/js/core/jquery.min.js"></script>
 <script src="../assets/js/core/popper.min.js"></script>
 <script src="../assets/js/core/bootstrap.min.js"></script>
-    <script src="../assets/js/dataTables.min.js"></script>
 
+<script type="text/javascript" charset="utf8" src="../assets/js/dataTables.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="{{ asset('assets/js/dataTables.min.js') }}"></script>
 
 
 <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -571,6 +600,127 @@
 
         })
     </script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#master').on('click', function(e) {
+            if($(this).is(':checked',true))
+            {
+                $(".sub_chk").prop('checked', true);
+            } else {
+                $(".sub_chk").prop('checked',false);
+            }
+        });
+
+        $('.delete_all').on('click', function(e) {
+
+            var allVals = [];
+            $(".sub_chk:checked").each(function() {
+                allVals.push($(this).attr('data-id'));
+            });
+
+            if(allVals.length <=0)
+            {
+                alert("Palun vali read.");
+            }  else {
+
+                var check = confirm("Oled sa kindel, et soovid valitud ridu kustutada?");
+                if(check == true){
+
+                    var join_selected_values = allVals.join(",");
+
+                    $.ajax({
+                        url: $(this).data('url'),
+                        type: 'GET',
+                        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                        data: 'ids='+join_selected_values,
+                        success: function (data) {
+                            if (data['success']) {
+                                $(".sub_chk:checked").each(function() {
+                                    $(this).parents("tr").remove();
+                                });
+                                alert(data['success']);
+                            } else if (data['error']) {
+                                alert(data['error']);
+                            } else {
+                                alert('Whoops Something went wrong!!');
+                            }
+                        },
+                        error: function (data) {
+                            alert(data.responseText);
+                        }
+                    });
+
+                    $.each(allVals, function( index, value ) {
+                        $('table tr').filter("[data-row-id='" + value + "']").remove();
+                    });
+                }
+            }
+        });
+
+        $('[data-toggle=confirmation]').confirmation({
+            rootSelector: '[data-toggle=confirmation]',
+            onConfirm: function (event, element) {
+                element.trigger('confirm');
+            }
+        });
+
+        $(document).on('confirm', function (e) {
+            var ele = e.target;
+            e.preventDefault();
+
+            $.ajax({
+                url: ele.href,
+                type: 'GET',
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                success: function (data) {
+                    if (data['success']) {
+                        $("#" + data['tr']).slideUp("slow");
+                        alert(data['success']);
+                    } else if (data['error']) {
+                        alert(data['error']);
+                    } else {
+                        alert('Whoops Something went wrong!!');
+                    }
+                },
+                error: function (data) {
+                    alert(data.responseText);
+                }
+            });
+
+            return false;
+        });
+    });
+</script>
+<script>
+    $(document).ready(function(){
+
+        $('.dynamic').change(function(){
+            if($(this).val() != '')
+            {
+                var select =$(this).attr("id");
+                var value = $(this).val();
+                var dependent = $(this).data('dependent');
+                var _token = $('input[name="_token"]').val();
+                $.ajax({
+                    url: "{{ route('addunitdeptobase.fetch') }}",
+                    method:"POST",
+                    data: {select: select, value: value, _token: _token, dependent: dependent},
+                    success: function (result) {
+                        $('#' + dependent).html(result);
+                    }
+                });
+            }
+        });
+    });
+
+
+</script>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
 
 
 @yield('scripts')

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Register Roles | Praktika
+    Registreeritud kasutajad
 @endsection
 
 
@@ -13,7 +13,7 @@
                     <h4 class="card-title"> Registreeritud kasutajad</h4>
 
                     <div>
-                        <a href="/register" class="btn btn-danger ml-5 mb-3">
+                        <a href="/register-user" class="btn btn-danger ml-5 mb-3">
                             Registreeri uus kasutaja
                         </a>
                     </div>
@@ -31,25 +31,34 @@
                     @endif
                 </div>
                 <div class="card-body">
+
+                    <button style="margin-bottom: 10px" class="btn btn-warning delete_all" data-url="{{ url('deleteAll-users') }}">Kustuta kõik</button>
                     <table id="dataTable" class="table table-striped">
 
                             <thead class="text-primary">
+                            <th width="50px"><input type="checkbox" id="master"></th>
                             <th>Id</th>
                             <th class="text-left">Nimi</th>
                             <th class="text-left">Telefon</th>
                             <th class="text-left">Email</th>
                             <th class="text-left">Roll</th>
+                            <th class="text-left">Amet</th>
                             <th class="text-center">Muuda</th>
                             </thead>
                             <tbody>
 
-                            @foreach ($users as $row)
-                            <tr>
-                                <td>{{$row->id}}</td>
+                            @if($users->count())
+                                @foreach($users as $key => $row)
+
+                                    <tr id="tr_{{$row->id}}">
+                                        <td><input type="checkbox" class="sub_chk" data-id="{{$row->id}}"></td>
+                                        <td>{{$row->id}}</td>
+
                                 <td class="text-left">{{$row->name}}</td>
                                 <td class="text-left">{{$row->phone}}</td>
                                 <td class="text-left">{{$row->email}}</td>
                                 <td class="text-left">{{$row->usertype}}</td>
+                                <td class="text-left">{{$row->position}}</td>
 
                                 <td class="text-center">
 
@@ -78,6 +87,7 @@
                             </tr>
 
                             @endforeach
+                                @endif
                             </tbody>
                         </table>
                     </div>

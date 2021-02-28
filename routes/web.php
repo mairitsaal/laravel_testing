@@ -7,6 +7,9 @@ use App\Http\Controllers\PracticeInstructorController;
 use App\Http\Controllers\BaseUnitsController;
 use App\Http\Controllers\BaseUnitDepartmentController;
 use App\Http\Controllers\SpecialityController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\UnitDepsController;
+use App\Http\Controllers\SpecialityCourseController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -44,8 +47,17 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 // Roles and practiceBaseUserViews
     Route::get('/role-register','App\Http\Controllers\Admin\DashboardController@registeredUser');
     Route::get('/edit-register-user/{id}', 'App\Http\Controllers\Admin\DashboardController@editRegisterUser');
+    //Route::get('/edit-register-user/{id}', 'App\Http\Controllers\Admin\DashboardController@dynamicDropdown2');
+    //Route::post('/edit-register-user/fetch', 'App\Http\Controllers\Admin\DashboardController@fetch')->name('addunitdeptobase4.fetch');
+
     Route::post('/update-role-register/{id}', 'App\Http\Controllers\Admin\DashboardController@updateRegisterUser');
     Route::delete('/delete-role-register/{id}', 'App\Http\Controllers\Admin\DashboardController@deleteRegisterUser');
+    Route::get('/deleteAll-users', [DashboardController::class, 'deleteAllUsers']);
+
+    //Route::get('/role-register', 'App\Http\Controllers\Admin\DashboardController@dynamicDropdown');
+    Route::get('/register-user', 'App\Http\Controllers\Auth\RegisterController@dynamicDropdown');
+    Route::post('/register-user/fetch', 'App\Http\Controllers\Auth\RegisterController@fetch')->name('addunitdeptobase3.fetch');
+
 
     // Practice Base
     Route::get('/add-practice-base', [PracticeBaseController::class, 'addPracticeBase']);
@@ -53,6 +65,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/practiceBases', [PracticeBaseController::class, 'getPracticeBases']);
     Route::get('/practiceBases/{id}', [PracticeBaseController::class, 'getPracticeBaseById']);
     Route::get('/delete-practice-base/{id}', [PracticeBaseController::class, 'deletePracticeBase']);
+    Route::get('/deleteAll-practice-base', [PracticeBaseController::class, 'deleteAllPracticeBase']);
     Route::get('/edit-practice-base/{id}', [PracticeBaseController::class, 'editPracticeBase']);
     Route::post('/update-practice-base', [PracticeBaseController::class, 'updatePracticeBase'])->name('practiceBase.update');
 
@@ -62,6 +75,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/practiceUnits', [PracticeUnitController::class, 'getPracticeUnit']);
     Route::get('/practiceUnits/{id}', [PracticeUnitController::class, 'getPracticeUnitById']);
     Route::get('/delete-practice-unit/{id}', [PracticeUnitController::class, 'deletePracticeUnit']);
+    Route::get('/deleteAll-practice-unit', [PracticeUnitController::class, 'deleteAllPracticeUnit']);
     Route::get('/edit-practice-unit/{id}', [PracticeUnitController::class, 'editPracticeUnit']);
     Route::post('/update-practice-unit', [PracticeUnitController::class, 'updatePracticeUnit'])->name('practiceUnit.update');
 
@@ -72,6 +86,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/practiceDepartments', [PracticeDepartmentController::class, 'getPracticeDepartment']);
     Route::get('/practiceDepartments/{id}', [PracticeDepartmentController::class, 'getPracticeDepartmentById']);
     Route::get('/delete-practice-department/{id}', [PracticeDepartmentController::class, 'deletePracticeDepartment']);
+    Route::get('/deleteAll-practice-department', [PracticeDepartmentController::class, 'deleteAllPracticeDepartment']);
     Route::get('/edit-practice-department/{id}', [PracticeDepartmentController::class, 'editPracticeDepartment']);
     Route::post('/update-practice-department', [PracticeDepartmentController::class, 'updatePracticeDepartment'])->name('practiceDepartment.update');
 
@@ -80,6 +95,9 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/add-practice-instructor', [PracticeInstructorController::class, 'addPracticeInstructor']);
     Route::post('/create-practice-instructor', [PracticeInstructorController::class, 'createPracticeInstructor'])->name('practiceInstructor.create');
     Route::get('/practiceInstructors', [PracticeInstructorController::class, 'getPracticeInstructor']);
+
+    Route::get('/add-practice-instructor', 'App\Http\Controllers\PracticeInstructorController@dynamicDropdown');
+    Route::post('/add-practice-instructor/fetch', 'App\Http\Controllers\PracticeInstructorController@fetch')->name('addunitdeptobase2.fetch');
 
 
     // BaseUnits (mixed table, base and unit)
@@ -91,11 +109,27 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/edit-unit-to-base/{id}', [BaseUnitsController::class, 'editBaseUnits']);
     Route::post('/update-unit-to-base', [BaseUnitsController::class, 'updateBaseUnits'])->name('baseUnits.update');
 
+    // UnitDeps (mixed table, unit and departments)
+    Route::get('/add-dep-to-unit', [UnitDepsController::class, 'addUnitDeps']);
+    Route::post('/create-dep-to-unit', [UnitDepsController::class,'createUnitDeps'])->name('unitDeps.create');
+    Route::get('/unitDeps', [UnitDepsController::class, 'getUnitDeps']);
+    Route::get('/delete-dep-to-unit/{id}', [UnitDepsController::class, 'deleteUnitDeps']);
+    Route::get('/edit-dep-to-unit/{id}', [UnitDepsController::class, 'editUnitDeps']);
+    Route::post('/update-dep-to-unit', [UnitDepsController::class, 'updateUnitDeps'])->name('unitDep.update');
+
+
     // BaseUnitDepartment (mixed table, base and unit and department)
     Route::get('/add-unit-dep-to-base', 'App\Http\Controllers\BaseUnitDepartmentController@addBaseUnitDep');
+    Route::get('/dynamic-dropdown', 'App\Http\Controllers\BaseUnitDepartmentController@dynamicDropdown');
+    Route::post('/dynamic-dropdown/fetch', 'App\Http\Controllers\BaseUnitDepartmentController@fetch')->name('addunitdeptobase.fetch');
+
+
     Route::post('/create-unit-dep-to-base', [BaseUnitDepartmentController::class,'createBaseUnitDep'])->name('baseUnitDep.create');
     Route::get('/baseUnitsDeps', [BaseUnitDepartmentController::class, 'getBaseUnitsDeps']);
     Route::get('/delete-unit-dep-to-base/{id}', [BaseUnitDepartmentController::class, 'deleteBaseUnitsDeps']);
+
+    Route::get('/deleteAll-unit-dep-to-base', [BaseUnitDepartmentController::class, 'deleteAllBaseUnitsDeps']);
+
     Route::get('/edit-unit-dep-to-base/{id}', [BaseUnitDepartmentController::class, 'editBaseUnitsDeps']);
     Route::post('/update-unit-dep-to-base', [BaseUnitDepartmentController::class, 'updateBaseUnitsDeps'])->name('baseUnitDep.update');
 
@@ -104,11 +138,37 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::post('/create-speciality', [SpecialityController::class,'createSpeciality'])->name('speciality.create');
     Route::get('/specialities', [SpecialityController::class, 'getSpeciality']);
     Route::get('/delete-speciality/{id}', [SpecialityController::class, 'deleteSpeciality']);
+    Route::get('/deleteAll-speciality', [SpecialityController::class, 'deleteAllSpeciality']);
     Route::get('/edit-speciality/{id}', [SpecialityController::class, 'editSpeciality']);
     Route::post('/update-speciality', [SpecialityController::class, 'updateSpeciality'])->name('speciality.update');
 
-});
+    // Courses
+    Route::get('/add-course', [CourseController::class, 'addCourse']);
+    Route::post('/create-course', [CourseController::class,'createCourse'])->name('course.create');
+    Route::get('/courses', [CourseController::class, 'getCourse']);
+    Route::get('/delete-course/{id}', [CourseController::class, 'deleteCourse']);
+    Route::get('/deleteAll-course', [CourseController::class, 'deleteAllCourse']);
+    Route::get('/edit-course/{id}', [CourseController::class, 'editCourse']);
+    Route::post('/update-course', [CourseController::class, 'updateCourse'])->name('course.update');
 
+    // SpecialityCourse (mixed table, speciality and course)
+    Route::get('/add-course-to-speciality', 'App\Http\Controllers\SpecialityCourseController@addSpecialityCourse');
+
+    //Route::get('/dynamic-dropdown', 'App\Http\Controllers\BaseUnitDepartmentController@dynamicDropdown');
+    //Route::post('/dynamic-dropdown/fetch', 'App\Http\Controllers\BaseUnitDepartmentController@fetch')->name('addunitdeptobase.fetch');
+
+    Route::post('/create-course-to-speciality', [SpecialityCourseController::class,'createSpecialityCourse'])->name('specialityCourse.create');
+    Route::get('/specialityCourses', [SpecialityCourseController::class, 'getSpecialityCourse']);
+    Route::get('/delete-course-to-speciality/{id}', [SpecialityCourseController::class, 'deletespecialityCourse']);
+
+    Route::get('/deleteAll-course-to-speciality', [SpecialityCourseController::class, 'deleteAllSpecialityCourse']);
+
+    Route::get('/edit-course-to-speciality/{id}', [SpecialityCourseController::class, 'editSpecialityCourse']);
+    Route::post('/update-course-to-speciality', [SpecialityCourseController::class, 'updateSpecialityCourse'])->name('specialityCourse.update');
+
+
+
+});
 // Student access
 Route::group(['middleware' => ['auth', 'student']], function () {
 

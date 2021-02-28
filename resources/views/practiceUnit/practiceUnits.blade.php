@@ -20,21 +20,25 @@
                             </div>
                         @endif
 
+                            <button style="margin-bottom: 10px" class="btn btn-warning delete_all" data-url="{{ url('deleteAll-practice-unit') }}">Kustuta kõik</button>
+
                         <table id="dataTable" class="table table-striped" style="text-align:center;">
                             <thead>
                                 <tr>
-                                    <th class="red">Id</th>
-                                    <th class="darkerRed text-left">Praktikabaas</th>
-                                    <th class="red text-left">Praktikaüksus</th>
-
-                                    <th class="darkerRed">Muuda</th>
+                                    <th width="50px"><input type="checkbox" id="master"></th>
+                                    <th class="text-center">Id</th>
+                                    <th class="text-left">Praktikaüksus</th>
+                                    <th class="text-center">Muuda</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach ($practiceUnits as $practiceUnit)
-                                <tr>
+                            @if($practiceUnits->count())
+                                @foreach($practiceUnits as $key => $practiceUnit)
+
+                                    <tr id="tr_{{$practiceUnit->id}}">
+                                        <td><input type="checkbox" class="sub_chk" data-id="{{$practiceUnit->id}}"></td>
                                     <td>{{$practiceUnit->id}}</td>
-                                    <td class="text-left">{{$practiceUnit->practiceBase->nimi}}</td>
+
                                     <td class="text-left">{{$practiceUnit->nimi}}</td>
                                     <td>
 
@@ -45,6 +49,7 @@
                                     </td>
                                 </tr>
                                 @endforeach
+                            @endif
                             </tbody>
 
                         </table>
@@ -53,8 +58,101 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                $('#master').on('click', function(e) {
+                    if($(this).is(':checked',true))
+                    {
+                        $(".sub_chk").prop('checked', true);
+                    } else {
+                        $(".sub_chk").prop('checked',false);
+                    }
+                });
+
+                $('.delete_all').on('click', function(e) {
+
+                    var allVals = [];
+                    $(".sub_chk:checked").each(function() {
+                        allVals.push($(this).attr('data-id'));
+                    });
+
+                    if(allVals.length <=0)
+                    {
+                        alert("Palun vali read.");
+                    }  else {
+
+                        var check = confirm("Oled sa kindel, et soovid valitud ridu kustutada?");
+                        if(check == true){
+
+                            var join_selected_values = allVals.join(",");
+
+                            $.ajax({
+                                url: $(this).data('url'),
+                                type: 'GET',
+                                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                                data: 'ids='+join_selected_values,
+                                success: function (data) {
+                                    if (data['success']) {
+                                        $(".sub_chk:checked").each(function() {
+                                            $(this).parents("tr").remove();
+                                        });
+                                        alert(data['success']);
+                                    } else if (data['error']) {
+                                        alert(data['error']);
+                                    } else {
+                                        alert('Midagi läks viltu!');
+                                    }
+                                },
+                                error: function (data) {
+                                    alert(data.responseText);
+                                }
+                            });
+
+                            $.each(allVals, function( index, value ) {
+                                $('table tr').filter("[data-row-id='" + value + "']").remove();
+                            });
+                        }
+                    }
+                });
+
+                $('[data-toggle=confirmation]').confirmation({
+                    rootSelector: '[data-toggle=confirmation]',
+                    onConfirm: function (event, element) {
+                        element.trigger('confirm');
+                    }
+                });
+
+                $(document).on('confirm', function (e) {
+                    var ele = e.target;
+                    e.preventDefault();
+
+                    $.ajax({
+                        url: ele.href,
+                        type: 'GET',
+                        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                        success: function (data) {
+                            if (data['success']) {
+                                $("#" + data['tr']).slideUp("slow");
+                                alert(data['success']);
+                            } else if (data['error']) {
+                                alert(data['error']);
+                            } else {
+                                alert('Whoops Something went wrong!!');
+                            }
+                        },
+                        error: function (data) {
+                            alert(data.responseText);
+                        }
+                    });
+
+                    return false;
+                });
+            });
+        </script>
+@endsection
+
+@section('scripts')
 
 @endsection
 

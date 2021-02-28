@@ -8,6 +8,7 @@ use App\Models\PracticeBase;
 use App\Models\PracticeUnit;
 use App\Models\PracticeDepartment;
 use Illuminate\Http\Request;
+use DB;
 
 class BaseUnitDepartmentController extends Controller
 {
@@ -15,9 +16,10 @@ class BaseUnitDepartmentController extends Controller
     {
         $practiceBases = PracticeBase::select('id', 'nimi')->get();
         $practiceUnits = PracticeUnit::select('id', 'nimi')->get();
+        //$baseUnits = BaseUnits::select('practice_base_id','practice_unit_id')->get();
         $practiceDepartments = PracticeDepartment::select('id', 'nimi')->get();
 
-        return view('BaseUnitDep.add-unit-dep-to-base', compact('practiceBases', 'practiceUnits', 'practiceDepartments'));
+        return view('BaseUnitDep.add-unit-dep-to-base', compact('practiceUnits','practiceBases', 'practiceDepartments'));
     }
     public function createBaseUnitDep(Request $request)
     {
@@ -46,7 +48,14 @@ class BaseUnitDepartmentController extends Controller
         return back()->with('baseUnitsDeps_deleted', 'Seos praktikabaasiga kustutatud');
     }
 
-public function editBaseUnitsDeps($id)
+    public function deleteAllBaseUnitsDeps(Request $request)
+    {
+        $ids = $request->ids;
+        DB::table("base_unit_departments")->whereIn('id',explode(",",$ids))->delete();
+        return response()->json(['success'=>"Kõik valitud kirjed kustutatud andmebaasist."]);
+    }
+
+    public function editBaseUnitsDeps($id)
     {
         $baseUnitDepartment = BaseUnitDepartment::find($id);
         $practiceBases = PracticeBase::select('id', 'nimi')->get();
@@ -65,4 +74,39 @@ public function editBaseUnitsDeps($id)
 
         return back()->with('baseUnitsDeps_updated', 'Praktikabaas on edukalt uuendatud');
     }
+
+    public function dynamicDropdown()
+    {
+        //$practiceBases = PracticeBase::select('id', 'nimi')->get();
+        $practiceBases = PracticeBase::pluck('nimi', 'id');
+        $practiceUnits = PracticeUnit::pluck('nimi', 'id');
+        $practiceDepartments = PracticeDepartment::pluck('nimi', 'id');
+        //$baseUnitdepartments = BaseUnitDepartment::select('id', 'nimi')->get();
+
+        $holeList = DB::table('base_unit_departments')
+            ->groupBy('practice_base_id')
+            ->get();
+
+        //return view('BaseUnitDep.add-unit-dep-to-base')->with('holeList', $holeList);
+        return view('BaseUnitDep.dynamic-dropdown', compact('practiceBases', 'practiceUnits', 'practiceDepartments'))->with('holeList', $holeList);
+    }
+
+    public function fetch(Request $request)
+    {
+        $select = $request->get('select');
+        $value = $request->get('value');
+        $dependent = $request->get('dependent');
+        $data = DB::table('base_unit_departments')
+            ->where($select, $value)
+            ->groupBy($dependent)
+            ->get();
+        $output = '<option value="">Vali '.ucfirst($dependent).'</option>';
+        foreach ($data as $row)
+        {
+            $output .= '<option value="'.$row->$dependent.'">'.$row->$dependent.'</option>';
+        }
+        echo $output;
+    }
+
+
 }

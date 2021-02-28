@@ -46,6 +46,16 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        /* New guards*/
+        'users' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+        'practiceInstructor' => [
+            'driver' => 'session',
+            'provider' => 'practiceInstructor',
+        ],
+
     ],
 
     /*
@@ -75,6 +85,12 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+        //'practiceInstructor' => [
+        //    'driver' => 'eloquent',
+        //    'model' => App\Models\PracticeInstructor::class,
+
+        //],
     ],
 
     /*

@@ -21,11 +21,6 @@ class CreateRequirementsTable extends Migration
             $table->foreign('course_id')->references('id')->on('courses')
                 ->onDelete('cascade');
 
-            // Kursus/speciality table foreig key
-            $table->bigInteger('student_id')->unsigned()->nullable();
-            $table->foreign('student_id')->references('id')->on('students')
-                ->onDelete('cascade');
-
             $table->char('nimi', 255);
             $table->integer('maht', );
             $table->char('kirjeldus', 255);

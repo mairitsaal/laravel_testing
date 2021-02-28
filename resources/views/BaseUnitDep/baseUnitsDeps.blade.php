@@ -18,9 +18,12 @@
                             </div>
                         @endif
 
+                    <button style="margin-bottom: 10px" class="btn btn-warning delete_all" data-url="{{ url('deleteAll-unit-dep-to-base') }}">Kustuta kõik</button>
+
                         <table id="dataTable" class="table table-striped">
                             <thead style="text-align:left;">
                                 <tr>
+                                    <th width="50px"><input type="checkbox" id="master"></th>
                                     <th class="red">Id</th>
                                     <th class="darkerRed">Praktikabaas</th>
                                     <th class="red">Praktikaüksus</th>
@@ -30,9 +33,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach ($baseUnitDepartments as $baseUnitDepartment)
-                                <tr>
-                                    <td>{{$baseUnitDepartment->id}}</td>
+                            @if($baseUnitDepartments->count())
+                                @foreach($baseUnitDepartments as $key => $baseUnitDepartment)
+
+                                    <tr id="tr_{{$baseUnitDepartment->id}}">
+                                        <td><input type="checkbox" class="sub_chk" data-id="{{$baseUnitDepartment->id}}"></td>
+
+                                        <td class="text-left">{{$baseUnitDepartment->id}}</td>
                                     <td class="text-left">{{$baseUnitDepartment->practiceBase->nimi}}</td>
 
                                     <!-- Name from primary table-->
@@ -49,6 +56,7 @@
                                     </td>
                                 </tr>
                             @endforeach
+                                @endif
                             </tbody>
 
                         </table>
@@ -57,6 +65,9 @@
                 </div>
             </div>
         </div>
+
+
+
 
 
 @endsection

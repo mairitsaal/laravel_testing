@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\PracticeBase;
 use App\Models\PracticeUnit;
 use App\Models\BaseUnits;
+use DB;
 
 class PracticeBaseController extends Controller
 {
@@ -50,6 +51,13 @@ class PracticeBaseController extends Controller
     {
         PracticeBase::where('id', $id)->delete();
         return back()->with('practiceBase_deleted', 'Praktikabaas on andmebaasist kustutatud');
+    }
+
+    public function deleteAllPracticeBase(Request $request)
+    {
+        $ids = $request->ids;
+        DB::table("practice_bases")->whereIn('id',explode(",",$ids))->delete();
+        return response()->json(['success'=>"Kõik valitud kirjed kustutatud andmebaasist."]);
     }
 
     public function editPracticeBase($id)

@@ -23,7 +23,16 @@ class PracticeDepartment extends Model
     }
     public function baseUnitDepartment()
     {
-        return $this->hasMany(baseUnits::class, 'base_unit_department_id', 'id')->withDefault();
+        return $this->hasMany(BaseUnitDepartment::class, 'base_unit_department_id', 'id')->withDefault();
 
+    }
+    public function unitDeps()
+    {
+        return $this->hasMany(BaseUnits::class, 'base_units_id', 'id')->withDefault();
+
+    }
+    public function users()
+    {
+        return $this->hasMany(User::class, 'user_id', 'id')->withDefault();
     }
 }

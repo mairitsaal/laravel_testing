@@ -19,7 +19,7 @@
                             <input type="hidden" name="id" value="{{$speciality->id}}" />
 
                             <!--Eriala nimi-->
-                            <div class="form-group col-md-8">
+                            <div class="form-group col-md-12">
                                 <label for="nimi" class="required-field">Eriala nimi</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -30,35 +30,67 @@
                                     <input type="text" name="nimi" id="nimi" class="form-control" aria-label="Eriala nimi" aria-describedby="basic-addon1" style="border: 1px solid #888888;" required data-toggle="tooltip" rel="tooltip" data-placement="top" title="Eriala nimi" value="{{$speciality->nimi}}">
                                 </div>
                             </div>
-                            <!--Kasutaja roll-->
-                            <div class="row d-flex">
-                                <div class="form-group col-md-3">
-                                    <label for="kestvus" class="required-field">Kestvus</label>
-                                    <select name="kestvus" class="form-control label-control" style="border: 1px solid #888888;">
-                                        <option>{{$speciality->kestvus}}</option>
-                                        <option value="0.6">6 kuud</option>
-                                        <option value="1">1 aasta</option>
-                                        <option value="1.6">1 aasta ja 6 kuud</option>
-                                        <option value="2">2 aastat</option>
-                                        <option value="2.6">2 aastat ja 6 kuud</option>
-                                        <option></option>
-
-                                    </select>
+                            <div class="row d-flex m-0 p-0">
+                                <div class="form-group col-md-4">
+                                    <label for="oppekava">Õppekava</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                               <span class="input-group-text" style="border: 1px solid #888888;" id="basic-addon1">
+                                                   <i class="fas fa-school fa-sm" style="color: #E60011;"></i>
+                                               </span>
+                                        </div>
+                                        <select name="oppekava" class="form-control label-control custom-select custom-select-lg">
+                                            <option value="{{ $speciality->oppekava }}">{{ $speciality->oppekava }}</option>
+                                            <option value="Rakenduskõrgharides">Rakenduskõrgharidus</option>
+                                            <option value="Kutseõpe">Kutseõpe</option>
+                                            <option value="Magistriõpe">Magistriõpe</option>
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
                                 </div>
-
-                                <div class="form-group col-md-3">
-                                    <label for="oppevorm" class="required-field">Õppevorm</label>
-                                    <select name="oppevorm" class="form-control label-control" style="border: 1px solid #888888;">
-                                        <option>{{$speciality->oppevorm}}</option>
-                                        <option>Statsionaar</option>
-                                        <option>Sessioonõpe</option>
-                                        <option>Töökohapõhine õpe</option>
-                                        <option>Osakoormusega</option>
-                                        <option></option>
-
-                                    </select>
+                                <div class="form-group col-md-4">
+                                    <label for="oppevorm">Õppevorm</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                               <span class="input-group-text" style="border: 1px solid #888888;" id="basic-addon1">
+                                                   <i class="fas fa-graduation-cap fa-sm" style="color: #E60011;"></i>
+                                               </span>
+                                        </div>
+                                        <select name="oppevorm" class="form-control label-control custom-select custom-select-lg">
+                                            <option value="{{ $speciality->oppevorm }}">{{ $speciality->oppevorm }}</option>
+                                            <option value="Sessioonõpe">Sessioonõpe</option>
+                                            <option value="Töökohapõhine">Töökohapõhine õpe</option>
+                                            <option value="Statsionaarne">Statsionaarne õpe</option>
+                                            <option value="Osakoormusega">Osakoormusega õpe</option>
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="kestvus">Õppetöö kestvus</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                               <span class="input-group-text" style="border: 1px solid #888888;" id="basic-addon1">
+                                                   <i class="fas fa-hourglass-half fa-sm" style="color: #E60011;"></i>
+                                               </span>
+                                        </div>
+                                        <select name="kestvus" class="form-control label-control custom-select custom-select-lg">
+                                            <option value="{{ $speciality->kestvus }}">{{ $speciality->kestvus }}</option>
+                                            <option value="0.6">Pool aastat</option>
+                                            <option value="1.0">Üks aasta</option>
+                                            <option value="1.6">Poolteist aastat</option>
+                                            <option value="2.0">Kaks aastat</option>
+                                            <option value="2.6">Kaks ja pool aastat</option>
+                                            <option value="3.0">Kolm aastat</option>
+                                            <option value="3.6">Kolm ja pool aastat</option>
+                                            <option value="4.0">Neli aastat</option>
+                                            <option value="4.6">Neli ja pool aastat</option>
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
+
 
 
                             <div>
@@ -83,49 +115,18 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
-<script>
-    $(document).ready(function(){
-        var date_input=$('input[name="lepinguAlgus"]'); //our date input has the name "date"
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-        date_input.datepicker({
-            format: 'yyyy/mm/dd',
-            container: container,
-            todayHighlight: true,
-            autoclose: true,
-        })
-    })
-</script>
-<script>
-    $(document).ready(function(){
-        var date_input=$('input[name="lepinguLopp"]'); //our date input has the name "date"
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-        date_input.datepicker({
-            format: 'yyyy/mm/dd',
-            container: container,
-            todayHighlight: true,
-            autoclose: true,
-        })
-    })
-</script>
-<script>
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-</script>
-
-<script>
-    bootstrapValidate('#nimi', 'required:Sisesta praktikabaasi nimi')
-    bootstrapValidate('#lepinguNr', 'required:Sisesta lepingu number')
-    bootstrapValidate('#registriNr', 'integer:Sisesta ainult numbrid')
-    bootstrapValidate('#aadress', 'required:Sisesta praktikabaasi aadress')
-    bootstrapValidate('#email', 'email:Sisesta korrektne email, näiteks mari@nooruse.ee')
-    bootstrapValidate('#telefon', 'numeric:Sisesta telefoninumbrer')
-    bootstrapValidate('#date', 'ISO8601:Sisesta kuupäev YYYY-MM-DD')
-    //bootstrapValidate('#date', 'ISO8601:Sisesta kuupäev YYYY-MM-DD')
-    bootstrapValidate('#allkirjastaja', 'required:Sisesta praktikabaasi poolne allkirjastaja')
 
 
+
+<script>
+    bootstrapValidate('#nimi', 'required:Sisesta eriala nimi')
+    bootstrapValidate('#oppekava', 'required:Sisesta praktikabaasi aadress')
+    bootstrapValidate('#oppetoo', 'required:Sisesta praktikabaasi aadress')
+    bootstrapValidate('#kestvus', 'numeric:Sisesta telefoninumbrer')
 </script>
 
+
+@endsection
+@section('scripts')
 
 @endsection

@@ -11,12 +11,15 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    protected $table = "users";
+    //protected $table = "users";
+    protected $guard = "users";
+
     protected $fillable = [
         'name',
         'phone',
         'email',
         'usertype',
+        'position',
         'password',
     ];
     protected $hidden = [
@@ -36,5 +39,24 @@ class User extends Authenticatable
         return $this->belongsTo(PracticeInstructor::class, 'practice_instructor_id', 'id')
             ->withDefault();
     }
+    public function practiceBases()
+    {
+        return $this->belongsTo(PracticeBase::class, 'practice_base_id', 'id')
+            ->withDefault();
+    }
+    public function practiceUnits()
+    {
+        return $this->belongsTo(PracticeUnit::class, 'practice_unit_id', 'id')
+            ->withDefault();
+    }
+    public function practiceDepartments()
+    {
+        return $this->belongsTo(PracticeDepartment::class, 'practice_department_id', 'id')
+            ->withDefault();
+    }
+    public function baseUnitDepartments()
+    {
+        return $this->belongsTo(BaseUnitDepartment::class, 'base_unit_department_id', 'id')->withDefault();
 
+    }
 }
