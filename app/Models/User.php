@@ -59,4 +59,19 @@ class User extends Authenticatable
         return $this->belongsTo(BaseUnitDepartment::class, 'base_unit_department_id', 'id')->withDefault();
 
     }
+    public function specialities()
+    {
+        return $this->belongsTo(Speciality::class, 'speciality_id', 'id')->withDefault();
+
+    }
+    public function courses()
+    {
+        return $this->belongsTo(Course::class, 'course_id', 'id')->withDefault();
+
+    }
+    public function specialityCourses()
+    {
+        return $this->belongsTo(SpecialityCourse::class, 'speciality_course_id', 'id')->withDefault();
+
+    }
 }

@@ -43,19 +43,12 @@
                                 </div>
                                 <div class="col-4">
                                     <h6 class="ml-2" style="color: #000">Vali kursus</h6>
-                                    <select for="dropdown" class="form-control input-sm custom-select custom-select-lg" name="course">
-
-                                        <option></option>
-
-                                        @foreach ($courses as $course)
-                                            <option value="{{ $course->id }}">
-                                                {{ $course->nimi }}
-                                            </option>
-                                        @endforeach
+                                    <select for="dropdown" class="form-control input-sm custom-select custom-select-lg" name="course" id="course">
 
                                     </select>
                                 </div>
                             </row>
+
 
                             <div class="mb-3">
 
@@ -71,7 +64,31 @@
             </div>
 
 @endsection
-
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $(document).ready(function () {
+        $('#speciality').on('change',function(e) {
+            var speciality_id = e.target.value;
+            $.ajax({
+                url:"{{ route('sub-cat') }}",
+                type:"POST",
+                data: {
+                    speciality_id: speciality_id
+                },
+                success:function (data) {
+                    $('#course').empty();
+                    $.each(data.courses[0].courses,function(index,course){
+                        $('#course').append('<option value="'+course.id+'">'+course.name+'</option>');
+                    })
+                }
+            })
+        });
+    });
+</script>
 
 @section('scripts')
 

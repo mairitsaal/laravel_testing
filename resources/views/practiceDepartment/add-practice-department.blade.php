@@ -18,7 +18,7 @@
                                @csrf
 
                                <!--Praktikaüksuse nimi-->
-                               <div class="form-group">
+                               <div class="form-group col-md-12">
                                    <label for="nimi" class="required-field">Praktika osakonna nimi</label>
                                    <div class="input-group">
                                        <div class="input-group-prepend">
@@ -27,6 +27,26 @@
                                            </span>
                                        </div>
                                        <input type="text" name="nimi" id="nimi" class="form-control" aria-label="Praktika osakonna nimi" aria-describedby="basic-addon1" style="border: 1px solid #888888;" required data-toggle="tooltip" rel="tooltip" data-placement="top" title="Praktika osakonna nimi">
+                                   </div>
+                               </div>
+                               <div class="form-group col-md-6">
+                                   <label class="mt-3">Lisa praktika osakond praktikaüksusega</label>
+                                   <div class="input-group">
+                                       <div class="input-group-prepend">
+                                               <span class="input-group-text" id="basic-addon1" style="border: 1px solid #888888;">
+                                                   <i class="fas fa-graduation-cap fa-sm" style="color: #E60011;"></i>
+                                               </span>
+                                       </div>
+                                       <select for="dropdown" class="form-control input-sm custom-select custom-select-lg" name="practice_unit_id">
+                                           <option selected>Leia praktikaüksus</option>
+                                           <option value=""></option>
+                                           @foreach ($practiceUnit as $unit)
+                                               <option value="{{ $unit->id }}">
+                                                   {{ $unit->nimi }}
+                                               </option>
+                                           @endforeach
+
+                                       </select>
                                    </div>
                                </div>
                                <div>

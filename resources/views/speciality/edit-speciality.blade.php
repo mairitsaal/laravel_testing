@@ -16,7 +16,7 @@
 
                         <form method="POST" action="{{route('speciality.update')}}">
                         @csrf
-                            <input type="hidden" name="id" value="{{$speciality->id}}" />
+                            <input type="hidden" name="id" value="{{$speciality->id}}"/>
 
                             <!--Eriala nimi-->
                             <div class="form-group col-md-12">
@@ -89,6 +89,7 @@
                                         </select>
                                     </div>
                                 </div>
+
                             </div>
 
 

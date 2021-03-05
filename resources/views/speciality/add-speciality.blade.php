@@ -73,20 +73,31 @@
                                                </span>
                                                </div>
                                                <select name="kestvus" class="form-control label-contro custom-select custom-select-lgl">
-                                                   <option value="0.6">Pool aastat</option>
+                                                   <option value="0.5">Pool aastat</option>
                                                    <option value="1.0">Üks aasta</option>
-                                                   <option value="1.6">Poolteist aastat</option>
+                                                   <option value="1.5">Poolteist aastat</option>
                                                    <option value="2.0">Kaks aastat</option>
-                                                   <option value="2.6">Kaks ja pool aastat</option>
+                                                   <option value="2.5">Kaks ja pool aastat</option>
                                                    <option value="3.0">Kolm aastat</option>
-                                                   <option value="3.6">Kolm ja pool aastat</option>
+                                                   <option value="3.5">Kolm ja pool aastat</option>
                                                    <option value="4.0">Neli aastat</option>
-                                                   <option value="4.6">Neli ja pool aastat</option>
+                                                   <option value="4.5">Neli ja pool aastat</option>
                                                    <option value=""></option>
                                                </select>
                                            </div>
                                        </div>
+
                                     </div>
+
+
+
+
+                                   @if ($errors->has('dropdown'))
+                                       <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('dropdown') }}</strong>
+                                        </span>
+                                   @endif
+                               </div>
 
                                <div>
                                    <button type="submit" class="btn btn-danger">Lisa eriala</button>

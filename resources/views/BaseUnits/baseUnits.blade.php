@@ -8,7 +8,7 @@
             <div class="card-body p-4">
                 <div>
                     <div>
-                        <a href="/add-unit-to-base" class="btn btn-danger ml-5 mb-3">
+                        <a href="/add-unit-to-base" class="btn btn-danger ml-5">
                             Lisa uus praktikabaas
                         </a>
                     </div>

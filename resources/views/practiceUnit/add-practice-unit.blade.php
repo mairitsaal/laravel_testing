@@ -18,7 +18,7 @@
                                @csrf
 
                                <!--Praktikaüksuse nimi-->
-                               <div class="form-group col-md-6">
+                               <div class="form-group col-md-12">
                                    <label for="nimi" class="required-field">Praktikaüksuse nimi</label>
                                    <div class="input-group">
                                        <div class="input-group-prepend">
@@ -27,6 +27,26 @@
                                            </span>
                                        </div>
                                        <input type="text" name="nimi" id="nimi" class="form-control" aria-label="Praktikaüksuse nimi" aria-describedby="basic-addon1" style="border: 1px solid #888888;" required data-toggle="tooltip" rel="tooltip" data-placement="top" title="Praktikaüksuse nimi">
+                                   </div>
+                               </div>
+                               <div class="form-group col-md-6">
+                                   <label>Lisa praktikaüksus praktikabaasiga</label>
+                                   <div class="input-group">
+                                       <div class="input-group-prepend">
+                                               <span class="input-group-text" id="basic-addon1" style="border: 1px solid #888888;">
+                                                   <i class="fas fa-graduation-cap fa-sm" style="color: #E60011;"></i>
+                                               </span>
+                                       </div>
+                                       <select for="dropdown" class="form-control input-sm custom-select custom-select-lg" name="practice_base_id">
+                                           <option selected>Leia praktikabaas</option>
+                                           <option value=""></option>
+                                           @foreach ($practiceBase as $base)
+                                               <option value="{{ $base->id }}">
+                                                   {{ $base->nimi }}
+                                               </option>
+                                           @endforeach
+
+                                       </select>
                                    </div>
                                </div>
                                <div>

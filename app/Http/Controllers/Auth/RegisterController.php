@@ -8,6 +8,9 @@ use App\Models\PracticeDepartment;
 use App\Models\PracticeUnit;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Speciality;
+use App\Models\Course;
+use App\Models\SpecialityCourse;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -62,6 +65,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'position' => ['required', 'string',  'max:255'],
             'usertype' => ['required', 'string', 'max:100'],
+            //'course_id' => ['string', 'max:100'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -80,40 +84,10 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'position' => $data['position'],
             'usertype' => $data['usertype'],
+            //'course_id' => $data['course_id'],
             'password' => Hash::make($data['password']),
         ]);
 
     }
-    public function dynamicDropdown()
-    {
-        //$practiceBases = PracticeBase::select('id', 'nimi')->get();
-        $practiceBases = PracticeBase::pluck('nimi', 'id');
-        $practiceUnits = PracticeUnit::pluck('nimi', 'id');
-        $practiceDepartments = PracticeDepartment::pluck('nimi', 'id');
-        //$baseUnitdepartments = BaseUnitDepartment::select('id', 'nimi')->get();
 
-        $holeList = DB::table('base_unit_departments')
-            ->groupBy('practice_base_id')
-            ->get();
-
-        //return view('BaseUnitDep.add-unit-dep-to-base')->with('holeList', $holeList);
-        return view('auth.register', compact('practiceBases', 'practiceUnits', 'practiceDepartments'))->with('holeList', $holeList);
-    }
-
-    public function fetch(Request $request)
-    {
-        $select = $request->get('select');
-        $value = $request->get('value');
-        $dependent = $request->get('dependent');
-        $data = DB::table('base_unit_departments')
-            ->where($select, $value)
-            ->groupBy($dependent)
-            ->get();
-        $output = '<option value="">Vali '.ucfirst($dependent).'</option>';
-        foreach ($data as $row)
-        {
-            $output .= '<option value="'.$row->$dependent.'">'.$row->$dependent.'</option>';
-        }
-        echo $output;
-    }
 }

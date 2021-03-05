@@ -11,7 +11,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\UnitDepsController;
 use App\Http\Controllers\SpecialityCourseController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\DropdownController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,18 +45,28 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
         return view('admin.dashboard');
     });
 // Roles and practiceBaseUserViews
-    Route::get('/role-register','App\Http\Controllers\Admin\DashboardController@registeredUser');
+    Route::get('/role-register', 'App\Http\Controllers\Admin\DashboardController@registeredUser');
     Route::get('/edit-register-user/{id}', 'App\Http\Controllers\Admin\DashboardController@editRegisterUser');
-    //Route::get('/edit-register-user/{id}', 'App\Http\Controllers\Admin\DashboardController@dynamicDropdown2');
+    //Route::get('/edit-register-user/{id}', 'App\Http\Controllers\Admin\DashboardController@editRegisterUser');
     //Route::post('/edit-register-user/fetch', 'App\Http\Controllers\Admin\DashboardController@fetch')->name('addunitdeptobase4.fetch');
 
     Route::post('/update-role-register/{id}', 'App\Http\Controllers\Admin\DashboardController@updateRegisterUser');
     Route::delete('/delete-role-register/{id}', 'App\Http\Controllers\Admin\DashboardController@deleteRegisterUser');
     Route::get('/deleteAll-users', [DashboardController::class, 'deleteAllUsers']);
 
+    // Proovimaks dunamic dropdown ajax
+    Route::get('/dropdown','App\Http\Controllers\Admin\DashboardController@speciality');
+    //Route::get('/dropdown','App\Http\Controllers\Admin\DashboardController@speciality');
+    Route::get('/course/{id}','App\Http\Controllers\Admin\DashboardController@course');
+
+
     //Route::get('/role-register', 'App\Http\Controllers\Admin\DashboardController@dynamicDropdown');
-    Route::get('/register-user', 'App\Http\Controllers\Auth\RegisterController@dynamicDropdown');
-    Route::post('/register-user/fetch', 'App\Http\Controllers\Auth\RegisterController@fetch')->name('addunitdeptobase3.fetch');
+    //Route::get('/register-user', 'App\Http\Controllers\Auth\RegisterController@dynamicDropdown');
+    //Route::post('/register-user/fetch', 'App\Http\Controllers\Auth\RegisterController@fetch')->name('addunitdeptobase3.fetch');
+
+    // Dynamic dropdown for speciality-course
+    //Route::get('/register-user', 'App\Http\Controllers\Auth\RegisterController@dynamicDropdownSpeciality');
+    //Route::post('/register-user/fetch3', 'App\Http\Controllers\Auth\RegisterController@fetch3')->name('addcoursetospeciality.fetch');
 
 
     // Practice Base
@@ -91,11 +101,9 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::post('/update-practice-department', [PracticeDepartmentController::class, 'updatePracticeDepartment'])->name('practiceDepartment.update');
 
     // Practice Instructor
-
     Route::get('/add-practice-instructor', [PracticeInstructorController::class, 'addPracticeInstructor']);
     Route::post('/create-practice-instructor', [PracticeInstructorController::class, 'createPracticeInstructor'])->name('practiceInstructor.create');
     Route::get('/practiceInstructors', [PracticeInstructorController::class, 'getPracticeInstructor']);
-
     Route::get('/add-practice-instructor', 'App\Http\Controllers\PracticeInstructorController@dynamicDropdown');
     Route::post('/add-practice-instructor/fetch', 'App\Http\Controllers\PracticeInstructorController@fetch')->name('addunitdeptobase2.fetch');
 
@@ -120,8 +128,8 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     // BaseUnitDepartment (mixed table, base and unit and department)
     Route::get('/add-unit-dep-to-base', 'App\Http\Controllers\BaseUnitDepartmentController@addBaseUnitDep');
-    Route::get('/dynamic-dropdown', 'App\Http\Controllers\BaseUnitDepartmentController@dynamicDropdown');
-    Route::post('/dynamic-dropdown/fetch', 'App\Http\Controllers\BaseUnitDepartmentController@fetch')->name('addunitdeptobase.fetch');
+    //Route::get('/dynamic-dropdown', 'App\Http\Controllers\BaseUnitDepartmentController@dynamicDropdown');
+    //Route::post('/dynamic-dropdown/fetch', 'App\Http\Controllers\BaseUnitDepartmentController@fetch')->name('addunitdeptobase.fetch');
 
 
     Route::post('/create-unit-dep-to-base', [BaseUnitDepartmentController::class,'createBaseUnitDep'])->name('baseUnitDep.create');
@@ -150,19 +158,8 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/deleteAll-course', [CourseController::class, 'deleteAllCourse']);
     Route::get('/edit-course/{id}', [CourseController::class, 'editCourse']);
     Route::post('/update-course', [CourseController::class, 'updateCourse'])->name('course.update');
-
-    // SpecialityCourse (mixed table, speciality and course)
-    Route::get('/add-course-to-speciality', 'App\Http\Controllers\SpecialityCourseController@addSpecialityCourse');
-
-    //Route::get('/dynamic-dropdown', 'App\Http\Controllers\BaseUnitDepartmentController@dynamicDropdown');
-    //Route::post('/dynamic-dropdown/fetch', 'App\Http\Controllers\BaseUnitDepartmentController@fetch')->name('addunitdeptobase.fetch');
-
-    Route::post('/create-course-to-speciality', [SpecialityCourseController::class,'createSpecialityCourse'])->name('specialityCourse.create');
-    Route::get('/specialityCourses', [SpecialityCourseController::class, 'getSpecialityCourse']);
     Route::get('/delete-course-to-speciality/{id}', [SpecialityCourseController::class, 'deletespecialityCourse']);
-
     Route::get('/deleteAll-course-to-speciality', [SpecialityCourseController::class, 'deleteAllSpecialityCourse']);
-
     Route::get('/edit-course-to-speciality/{id}', [SpecialityCourseController::class, 'editSpecialityCourse']);
     Route::post('/update-course-to-speciality', [SpecialityCourseController::class, 'updateSpecialityCourse'])->name('specialityCourse.update');
 

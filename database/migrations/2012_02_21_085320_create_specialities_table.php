@@ -15,6 +15,7 @@ class CreateSpecialitiesTable extends Migration
     {
         Schema::create('specialities', function (Blueprint $table) {
             $table->bigIncrements('id');
+
             $table->char('nimi', 255);
             $table->decimal('kestvus', 4, 2);
             $table->char('oppevorm', 100);

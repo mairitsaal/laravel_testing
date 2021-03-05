@@ -8,7 +8,7 @@
             <h4 class="card-title">Erialad</h4>
             <div class="card-body">
                 <div>
-                    <a href="/add-speciality" class="btn btn-danger ml-5 mb-3">
+                    <a href="/add-speciality" class="btn btn-danger ml-5">
                          Lisa uus eriala
                     </a>
                 </div>
@@ -19,7 +19,7 @@
                             </div>
                         @endif
 
-                <button style="margin-bottom: 10px" class="btn btn-warning delete_all" data-url="{{ url('deleteAll-speciality') }}">Kustuta kõik</button>
+                <button style="margin-bottom: 10px" class="btn btn-warning delete_all mb-3 mt-0 ml-5" data-url="{{ url('deleteAll-speciality') }}">Kustuta kõik</button>
 
                         <table id="dataTable" class="table table-striped">
                             <thead style="text-align:center;">
@@ -54,15 +54,15 @@
                                 @endforeach
                                 @endif
                             </tbody>
-
                         </table>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
+</div>
+
+
 
 @endsection
 

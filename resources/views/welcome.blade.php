@@ -58,7 +58,11 @@
 
                  </div>
 
+                <div class="welcome">
 
+                    @yield('welcome')
+
+                </div>
 
 
 

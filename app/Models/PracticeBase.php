@@ -10,6 +10,7 @@ class PracticeBase extends Model
     use HasFactory;
 
     protected $table ="practice_bases";
+    protected $fillable = ['nimi'];
 
     public function practiceUnits()
     {

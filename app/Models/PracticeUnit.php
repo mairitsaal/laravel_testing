@@ -11,6 +11,7 @@ class PracticeUnit extends Model
     use HasFactory;
 
     protected $table = "practice_units";
+    protected $fillable = ['practice_base_id', 'nimi'];
 
     public function practiceBase()
     {

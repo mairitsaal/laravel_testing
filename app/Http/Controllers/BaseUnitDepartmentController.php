@@ -75,38 +75,35 @@ class BaseUnitDepartmentController extends Controller
         return back()->with('baseUnitsDeps_updated', 'Praktikabaas on edukalt uuendatud');
     }
 
-    public function dynamicDropdown()
+
+    public function index()
     {
-        //$practiceBases = PracticeBase::select('id', 'nimi')->get();
-        $practiceBases = PracticeBase::pluck('nimi', 'id');
-        $practiceUnits = PracticeUnit::pluck('nimi', 'id');
-        $practiceDepartments = PracticeDepartment::pluck('nimi', 'id');
-        //$baseUnitdepartments = BaseUnitDepartment::select('id', 'nimi')->get();
-
-        $holeList = DB::table('base_unit_departments')
-            ->groupBy('practice_base_id')
-            ->get();
-
-        //return view('BaseUnitDep.add-unit-dep-to-base')->with('holeList', $holeList);
-        return view('BaseUnitDep.dynamic-dropdown', compact('practiceBases', 'practiceUnits', 'practiceDepartments'))->with('holeList', $holeList);
+        $practiceBase = PracticeBase::select('id', 'nimi')->get();
+        $practiceBase_list = DB::table('practice_base_units')
+                            ->groupBy('practice_base_id')
+                            ->get();
+        return view('BaseUnitDep.dynamic-dropdown')->with('practiceBase_list', $practiceBase_list);
     }
 
-    public function fetch(Request $request)
-    {
-        $select = $request->get('select');
-        $value = $request->get('value');
-        $dependent = $request->get('dependent');
-        $data = DB::table('base_unit_departments')
-            ->where($select, $value)
-            ->groupBy($dependent)
-            ->get();
-        $output = '<option value="">Vali '.ucfirst($dependent).'</option>';
-        foreach ($data as $row)
-        {
-            $output .= '<option value="'.$row->$dependent.'">'.$row->$dependent.'</option>';
-        }
-        echo $output;
-    }
+
+    //public function index()
+    //{
+    //    $practice_bases = DB::table("practice_bases")->pluck("nimi", "id");
+    //    return view('BaseUnitDep.dynamic-dropdown', compact('practice_bases'));
+    //}
+
+    //public function getUnits(Request $request)
+    //{
+    //    $practice_units = DB::table("practice_units")->pluck("nimi", "id");
+    //    return response()->json($practice_units);
+    //}
+
+    //public function getDepartments(Request $request)
+    //{
+    //    $practice_departments = DB::table("practice_departments")->where("practice_unit_id", $request->practice_unit_id)
+    //        ->pluck("nimi", "id");
+    //    return response()->json($practice_departments);
+    //}
 
 
 }

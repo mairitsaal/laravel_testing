@@ -3,13 +3,13 @@
 @section('content')
 
 
-    <div class="row">
+<div class="row">
     <div class="card col-md-12">
         <div class="card-header">
             <h4 class="card-title"> PRAKTIKABAASID</h4>
             <div class="card-body">
                 <div>
-                    <a href="/add-practice-base" class="btn btn-danger ml-5 mb-3">
+                    <a href="/add-practice-base" class="btn btn-danger ml-5">
                          Lisa uus praktikabaas
                     </a>
                 </div>
@@ -20,9 +20,9 @@
                             </div>
                         @endif
 
-                <button style="margin-bottom: 10px" class="btn btn-warning delete_all" data-url="{{ url('deleteAll-practice-base') }}">Kustuta kõik</button>
+                <button style="margin-bottom: 10px" class="btn btn-warning delete_all mb-3 mt-0 ml-5" data-url="{{ url('deleteAll-practice-base') }}">Kustuta kõik</button>
 
-                        <table id="datatable" class="table table-striped display">
+                        <table id="dataTable" class="table table-striped display">
                             <thead style="text-align:center;">
                                 <tr>
                                     <th width="50px"><input type="checkbox" id="master"></th>
@@ -81,7 +81,7 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
 
 @endsection
 

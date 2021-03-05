@@ -3,7 +3,7 @@
 @section('content')
 
     <<div class="row">
-        <div class="card col-sm-8">
+        <div class="card col-md-12">
             <div class="card-header">
                 <h4 class="card-title">MUUDA PRAKTIKA OSAKONDA</h4>
                 <div class="card-body p-4">
@@ -18,23 +18,12 @@
                         <form method="POST" action="{{route('practiceDepartment.update')}}">
                         @csrf
 
-                            <!-- Practice unit-->
-                            <h6 class="ml-2" style="color: #E60011">Vali praktikaüksus</h6>
-                            <select class="form-control input-sm mb-4" name="practice_unit_id">
 
-                                <option>Praktikaüksus</option>
-
-                                @foreach ($practiceUnits as $practiceUnit)
-                                    <option value="{{ $practiceUnit->id }}">
-                                        {{ $practiceUnit->nimi }}
-                                    </option>
-                                @endforeach
-                            </select>
 
                             <input type="hidden" name="id" value="{{$practiceDepartment->id}}" />
 
                             <!--Praktikabaasi nimi-->
-                            <div class="form-group">
+                            <div class="form-group col-md-12">
                                 <label for="nimi" class="required-field">Praktika osakonna nimi</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -45,9 +34,33 @@
                                     <input type="text" name="nimi" id="nimi" class="form-control" aria-label="Praktikaosakonna nimi" aria-describedby="basic-addon1" style="border: 1px solid #888888;" required data-toggle="tooltip" data-placement="top" title="Praktikaüksuse nimi" value="{{$practiceDepartment->nimi}}">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-danger">Muuda praktika osakonda</button>
-                            <a href="/dashboard" class="btn btn-success" style="margin-top:30px;">Tühista</a>
-                            <a href="/practiceDepartments" class="btn btn-info" style="margin-top:30px;">Vaata tabelit</a>
+                                <!-- Practice unit-->
+                            <div class="form-group col-md-6">
+                                <label class="mt-3">Lisa praktika osakond praktikaüksusega</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                               <span class="input-group-text" id="basic-addon1" style="border: 1px solid #888888;">
+                                                   <i class="fas fa-graduation-cap fa-sm" style="color: #E60011;"></i>
+                                               </span>
+                                    </div>
+                                    <select for="dropdown" class="form-control input-sm custom-select custom-select-lg" name="practice_unit_id">
+                                        <option value="{{ $practiceDepartment->practiceUnit->id }}">{{ $practiceDepartment->practiceUnit->nimi }}</option>
+                                        <option value=""></option>
+                                        @foreach ($practiceUnits as $practiceUnit)
+                                            <option value="{{ $practiceUnit->id }}">
+                                                {{ $practiceUnit->nimi }}
+                                            </option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <button type="submit" class="btn btn-danger">Muuda praktika osakonda</button>
+                                <a href="/dashboard" class="btn btn-success" style="margin-top:30px;">Tühista</a>
+                                <a href="/practiceDepartments" class="btn btn-info" style="margin-top:30px;">Vaata tabelit</a>
+                            </div>
                         </form>
 
 

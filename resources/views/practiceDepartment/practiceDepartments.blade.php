@@ -18,16 +18,17 @@
                             </div>
                         @endif
 
-                    <button style="margin-bottom: 10px" class="btn btn-warning delete_all" data-url="{{ url('deleteAll-practice-department') }}">Kustuta kõik</button>
+                    <button style="margin-bottom: 10px" class="btn btn-warning delete_all mb-3 mt-0 ml-5" data-url="{{ url('deleteAll-practice-department') }}">Kustuta kõik</button>
 
                         <table id="dataTable" class="table table-striped">
                             <thead style="text-align:center;">
                                 <tr>
                                     <th width="50px"><input type="checkbox" id="master"></th>
-                                    <th class="red">Id</th>
-                                    <th class="red text-left">Praktika osakond</th>
+                                    <th class="text-center">Id</th>
+                                    <th class="text-left">Praktikaüksus</th>
+                                    <th class="text-left">Praktika osakond</th>
 
-                                    <th class="darkerRed">Muuda</th>
+                                    <th class="tecxt-center">Muuda</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,6 +38,7 @@
                                     <tr id="tr_{{$practiceDepartment->id}}">
                                         <td><input type="checkbox" class="sub_chk" data-id="{{$practiceDepartment->id}}"></td>
                                     <td>{{$practiceDepartment->id}}</td>
+                                    <td class="text-left">{{$practiceDepartment->practiceUnit->nimi}}</td>
                                     <td class="text-left">{{$practiceDepartment->nimi}}</td>
                                     <td>
 
@@ -56,7 +58,8 @@
             </div>
         </div>
     </div>
-</section>
+@endsection
+@section('scripts')
 
 @endsection
 

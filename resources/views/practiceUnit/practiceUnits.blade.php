@@ -7,12 +7,10 @@
                 <h4 class="card-title"> PRAKTIKAÜKSUSED</h4>
                 <div class="card-body">
                     <div>
-                        <a href="/add-practice-unit" class="btn btn-danger ml-5 mb-3">
+                        <a href="/add-practice-unit" class="btn btn-danger ml-5">
                             Lisa uus praktikaüksus
                         </a>
                     </div>
-                    </div>
-                    <div class="card-body">
 
                         @if(Session::has('practiceUnit_deleted'))
                             <div class="alert alert-success" role="alert">
@@ -20,13 +18,14 @@
                             </div>
                         @endif
 
-                            <button style="margin-bottom: 10px" class="btn btn-warning delete_all" data-url="{{ url('deleteAll-practice-unit') }}">Kustuta kõik</button>
+                            <button style="margin-bottom: 10px" class="btn btn-warning delete_all mb-3 mt-0 ml-5" data-url="{{ url('deleteAll-practice-unit') }}">Kustuta kõik</button>
 
                         <table id="dataTable" class="table table-striped" style="text-align:center;">
                             <thead>
                                 <tr>
                                     <th width="50px"><input type="checkbox" id="master"></th>
                                     <th class="text-center">Id</th>
+                                    <th class="text-left">Praktikabaas</th>
                                     <th class="text-left">Praktikaüksus</th>
                                     <th class="text-center">Muuda</th>
                                 </tr>
@@ -39,6 +38,7 @@
                                         <td><input type="checkbox" class="sub_chk" data-id="{{$practiceUnit->id}}"></td>
                                     <td>{{$practiceUnit->id}}</td>
 
+                                    <td class="text-left">{{$practiceUnit->practiceBase->nimi}}</td>
                                     <td class="text-left">{{$practiceUnit->nimi}}</td>
                                     <td>
 

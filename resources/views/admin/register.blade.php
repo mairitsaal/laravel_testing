@@ -7,13 +7,13 @@
 
 @section('content')
 
-        <div class="col-md-12">
+        <div class="col-md-12 m-0 p-0">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title"> Registreeritud kasutajad</h4>
 
                     <div>
-                        <a href="/register-user" class="btn btn-danger ml-5 mb-3">
+                        <a href="/register" class="btn btn-danger ml-5">
                             Registreeri uus kasutaja
                         </a>
                     </div>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="card-body">
 
-                    <button style="margin-bottom: 10px" class="btn btn-warning delete_all" data-url="{{ url('deleteAll-users') }}">Kustuta kõik</button>
+                    <button style="margin-bottom: 10px" class="btn btn-warning delete_all mb-3 mt-0 ml-5" data-url="{{ url('deleteAll-users') }}">Kustuta kõik</button>
                     <table id="dataTable" class="table table-striped">
 
                             <thead class="text-primary">
@@ -43,6 +43,7 @@
                             <th class="text-left">Email</th>
                             <th class="text-left">Roll</th>
                             <th class="text-left">Amet</th>
+                            <th class="text-left">Eriala</th>
                             <th class="text-center">Muuda</th>
                             </thead>
                             <tbody>
@@ -59,30 +60,26 @@
                                 <td class="text-left">{{$row->email}}</td>
                                 <td class="text-left">{{$row->usertype}}</td>
                                 <td class="text-left">{{$row->position}}</td>
+                                <td class="text-left">{{$row->course_id}}</td>
 
-                                <td class="text-center">
+                                <td class="m-0 p-0">
 
                                     <!--<a class="mr-2" style="color: forestgreen" href="/edit-register-user/{{ $row->id }}"><i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Muuda"></i></a>
                                     <a style="color: red" href="/delete-register-user/{{ $row->id }}"><i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Kustuta"></i></a>
 -->
 
                                      <form action="/delete-role-register/{{$row->id}}" method="POST">
-                                        <a href="/edit-register-user/{{ $row->id }}" style="color: forestgreen">
-                                            <i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Muuda">
-
-                                            </i>
+                                        <a href="/edit-register-user/{{ $row->id }}" style="color: forestgreen;">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Muuda"></i>
                                         </a>
 
                                         @csrf
-                                @method('DELETE')
+                                        @method('DELETE')
 
-                                    <button type="submit" style="color: red; background-color: transparent; border: none; " >
-                                        <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Kustuta">
-
-                                        </i>
-                                    </button>
-                                </form>
-
+                                        <button class="m-0 p-0" type="submit" style="color: red; background-color: transparent; border: none;" >
+                                            <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Kustuta"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
 

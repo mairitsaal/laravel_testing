@@ -18,7 +18,12 @@ class Course extends Model
     }
     public function speciality()
     {
-        return $this->hasMany(Speciality::class, 'speciality_id', 'id')->withDefault();
+        return $this->belongsTo(Speciality::class, 'speciality_id', 'id')->withDefault();
+
+    }
+    public function user()
+    {
+        return $this->hasMany(User::class, 'user_id', 'id')->withDefault();
 
     }
 }

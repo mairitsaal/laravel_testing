@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\PracticeBase;
-use App\Models\PracticeDepartment;
-use App\Models\PracticeUnit;
+use App\Models\Course;
+use App\Models\Speciality;
 use DB;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,10 +15,12 @@ class DashboardController extends Controller
     public function registeredUser()
     {
         $users = User::all();
-        return view('admin.register')->with('users', $users);
+        $courses = Course::all();
+        $specialities = Speciality::all();
+        return view('admin.register')->with('users', $users)->with('courses', $courses)->with('specialities', $specialities);
     }
 
-    public function editRegisterUser(Request $request, $id)
+        public function editRegisterUser(Request $request, $id)
     {
         $users= User::findOrFail($id);
         return view('admin.edit-register-user')->with('users', $users);
@@ -26,12 +28,13 @@ class DashboardController extends Controller
 
     public function updateRegisterUser(Request $request, $id)
     {
-        $users = User::with('practiceBases', 'practiceUnits', 'practiceDepartments', 'baseUnitDepartments')->find($id);
+        $users = User::with('practiceBases', 'practiceUnits', 'practiceDepartments', 'baseUnitDepartments', 'specialities', 'courses')->find($id);
         $users->name = $request->name;
         $users->phone = $request->phone;
         $users->email = $request->email;
         $users->usertype = $request->usertype;
         $users->position = $request->position;
+        $users->course_id = $request->course_id;
 
         $users->update();
 
@@ -51,53 +54,23 @@ class DashboardController extends Controller
         DB::table("users")->whereIn('id',explode(",",$ids))->delete();
         return response()->json(['success'=>"Kõik valitud kirjed kustutatud andmebaasist."]);
     }
-    public function dynamicDropdown()
+
+    public function speciality()
     {
-        //$practiceBases = PracticeBase::select('id', 'nimi')->get();
-        //$practiceBases = PracticeBase::pluck('nimi', 'id');
-        $practiceBases = PracticeBase::select('id', 'nimi')->get();
-        $practiceUnits = PracticeUnit::select('id', 'nimi')->get();
-        $practiceDepartments = PracticeDepartment::select('id', 'nimi')->get();
-        //$baseUnitdepartments = BaseUnitDepartment::select('id', 'nimi')->get();
 
-        $holeList = DB::table('base_unit_departments')
-            ->groupBy('practice_base_id')
-            ->get();
-
-        //return view('BaseUnitDep.add-unit-dep-to-base')->with('holeList', $holeList);
-        return view('auth.register', compact('practiceBases', 'practiceUnits', 'practiceDepartments'))->with('holeList', $holeList);
-    }
-    public function dynamicDropdown2()
-    {
-        //$practiceBases = PracticeBase::select('id', 'nimi')->get();
-        $practiceBases = PracticeBase::pluck('nimi', 'id');
-        $practiceUnits = PracticeUnit::pluck('nimi', 'id');
-        $practiceDepartments = PracticeDepartment::pluck('nimi', 'id');
-        //$baseUnitdepartments = BaseUnitDepartment::select('id', 'nimi')->get();
-
-        $holeList = DB::table('base_unit_departments')
-            ->groupBy('practice_base_id')
-            ->get();
-
-        //return view('BaseUnitDep.add-unit-dep-to-base')->with('holeList', $holeList);
-        return view('admin.edit-register-user', compact('practiceBases', 'practiceUnits', 'practiceDepartments'))->with('holeList', $holeList);
+        $specialities = DB::table("specialities")->pluck('nimi','id');
+        return view('auth.index',compact('specialities'));
     }
 
-    public function fetch(Request $request)
+    public function course($id)
     {
-        $select = $request->get('select');
-        $value = $request->get('value');
-        $dependent = $request->get('dependent');
-        $data = DB::table('base_unit_departments')
-            ->where($select, $value)
-            ->groupBy($dependent)
-            ->get();
-        $output = '<option value="">Vali '.ucfirst($dependent).'</option>';
-        foreach ($data as $row)
-        {
-            $output .= '<option value="'.$row->$dependent.'">'.$row->$dependent.'</option>';
-        }
-        echo $output;
+        $courses = DB::table("courses")
+            ->where("speciality_id",$id)
+            ->pluck('nimi','id');
+        return json_encode($courses);
     }
+
+
+
 
 }

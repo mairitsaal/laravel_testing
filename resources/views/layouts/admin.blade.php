@@ -3,8 +3,6 @@
 
 <head>
     <meta charset="utf-8" />
-    <!--<<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-    link rel="icon" type="image/png" href="../assets/img/favicon.png">-->
     <link rel="icon" type="image/svg" href="../svg/heart.svg">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
@@ -12,8 +10,11 @@
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+
 
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -25,7 +26,9 @@
     <link href="../assets/css/now-ui-dashboard.css" rel="stylesheet" />
 
     <link href="../assets/css/admin.css?<?php echo time(); ?>" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/dataTables.min.css" />
+    <!--<link rel="stylesheet" type="text/css" href="../assets/css/dataTables.min.css" />-->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
 
 
     <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js" ></script>
@@ -34,16 +37,20 @@
     <script src="https://kit.fontawesome.com/a8018f10c4.js" crossorigin="anonymous"></script>
     <script src="bootstrap-validate.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
     <!--Style
     <link rel="stylesheet" type="text/css" href="/css/app.css?<?php echo time(); ?>" />
     <link rel="stylesheet" type="text/css" href="/css/style.css?<?php echo time(); ?>" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/js/dataTables.min.css') }}"/>-->
+    -->
+
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 </head>
 
 <body class="">
-<div class="wrapper " >
+
+
+<div class="wrapper" >
     <div class="sidebar" data-color="red">
         <div class="logo">
             <a href="/dashboard" class="simple-text logo-mini">
@@ -200,34 +207,7 @@
                     </div>
                 </li>
 
-                <!--Practice Instructor-->
-                <li >
-                    <a data-toggle="collapse" href="#practiceInstructor" type="button" class="btn btn-success">
 
-                       <!-- <i class="now-ui-icons design_bullet-list-67"></i>-->
-
-                        <p style="font-size: 14px; text-align: center;">
-                            Praktikajuhendaja <b class="caret"></b>
-                        </p>
-                    </a>
-
-                    <div id="practiceInstructor" class="collapse">
-                        <ul class="nav navbarDropdown">
-                            <li class="{{ 'practiceInstructors' == request()->path() ? 'active' : ''}}">
-                                <a href="/practiceInstructors">
-                                    <span class="sidebar-mini-icon ml-5"></span>
-                                    <span class="sidebar-normal align-center" style="font-size: 12px;"> Praktika juhendajad </span>
-                                </a>
-                            </li>
-                            <li class="{{ 'add-practice-instructor' == request()->path() ? 'active' : ''}}">
-                                <a href="/add-practice-instructor">
-                                    <span class="sidebar-mini-icon ml-5"></span>
-                                    <span class="sidebar-normal" style="font-size: 12px;"> Lisa praktika juhendaja </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
 
                 <!--speciality-->
                 <li >
@@ -260,6 +240,14 @@
                                     <span class="sidebar-normal" style="font-size: 12px;"> eriala + kursus </span>
                                 </a>
                             </li>
+                            <li class="{{ 'dropdown' == request()->path() ? 'active' : ''}}">
+                                <a href="/dropdown">
+
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal" style="font-size: 12px;"> dynamic-dropdown </span>
+                                </a>
+
+                            </li>
                         </ul>
                     </div>
                 </li>
@@ -291,62 +279,8 @@
                         </ul>
                     </div>
                 </li>
-                <!--speciality-->
-                <li >
-                    <a data-toggle="collapse" href="#student" type="button" class="btn btn-warning">
 
-                        <!-- <i class="now-ui-icons design_bullet-list-67"></i>-->
 
-                        <p style="font-size: 14px; text-align: center;">
-                            Õpilased <b class="caret"></b>
-                        </p>
-                    </a>
-
-                    <div id="student" class="collapse">
-                        <ul class="nav navbarDropdown">
-                            <li class="{{ 'students' == request()->path() ? 'active' : ''}}">
-                                <a href="/students">
-                                    <span class="sidebar-mini-icon ml-5"></span>
-                                    <span class="sidebar-normal align-center" style="font-size: 12px;">Õpilased</span>
-                                </a>
-                            </li>
-                            <li class="{{ 'add-student' == request()->path() ? 'active' : ''}}">
-                                <a href="/add-student">
-                                    <span class="sidebar-mini-icon ml-5"></span>
-                                    <span class="sidebar-normal" style="font-size: 12px;"> Lisa uus õpilane </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <!--speciality-->
-                <li >
-                    <a data-toggle="collapse" href="#schoolInstructor" type="button" class="btn btn-warning">
-
-                        <!-- <i class="now-ui-icons design_bullet-list-67"></i>-->
-
-                        <p style="font-size: 14px; text-align: center;">
-                            Koolijuhendajad <b class="caret"></b>
-                        </p>
-                    </a>
-
-                    <div id="schoolInstructor" class="collapse">
-                        <ul class="nav navbarDropdown">
-                            <li class="{{ 'schoolInstructors' == request()->path() ? 'active' : ''}}">
-                                <a href="/schoolInstructors">
-                                    <span class="sidebar-mini-icon ml-5"></span>
-                                    <span class="sidebar-normal align-center" style="font-size: 12px;">Kooli juhendajad </span>
-                                </a>
-                            </li>
-                            <li class="{{ 'add-school-instructor' == request()->path() ? 'active' : ''}}">
-                                <a href="/add-school-instructor">
-                                    <span class="sidebar-mini-icon ml-5"></span>
-                                    <span class="sidebar-normal" style="font-size: 12px;"> Lisa koolijuhendaja </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
                 <!--speciality-->
                 <li >
                     <a data-toggle="collapse" href="#practiceGroup" type="button" class="btn btn-info">
@@ -530,6 +464,8 @@
 
 </div>
 
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+
 <!--   Core JS Files   -->
 <script src="../assets/js/core/jquery.min.js"></script>
 <script src="../assets/js/core/popper.min.js"></script>
@@ -539,7 +475,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="{{ asset('assets/js/dataTables.min.js') }}"></script>
+
 
 
 <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -553,15 +489,38 @@
 <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
 
 
+<script  type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+
     <!--  jQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
     <!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
     <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
     <!-- Bootstrap Date-Picker Plugin -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-    <!--Js-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    $(document).ready( function ()
+    {
+        $('#dataTable').DataTable( {
+            //"scrollX": true
+            "language": {
+                "paginate": {
+                    "first": "Esimene",
+                    "last": "Viimane",
+                    "previous": "Eelmine",
+                    "next": "Järgmine"
+                },
+                "search": "Otsi",
+                "lengthMenu": "Näita _MENU_ rida",
+                "info": "Näitab ridu _START_ kuni _END_, kokku tabelis _TOTAL_ rida"
+            }
+        });
+    } );
+</script>
+
     <script>
         $(document).ready(function(){
             var date_input=$('input[name="lepinguAlgus"]'); //our date input has the name "date"
@@ -691,39 +650,38 @@
             return false;
         });
     });
-</script>
-<script>
-    $(document).ready(function(){
 
-        $('.dynamic').change(function(){
-            if($(this).val() != '')
-            {
-                var select =$(this).attr("id");
-                var value = $(this).val();
-                var dependent = $(this).data('dependent');
-                var _token = $('input[name="_token"]').val();
-                $.ajax({
-                    url: "{{ route('addunitdeptobase.fetch') }}",
-                    method:"POST",
-                    data: {select: select, value: value, _token: _token, dependent: dependent},
-                    success: function (result) {
-                        $('#' + dependent).html(result);
-                    }
-                });
-            }
-        });
-    });
-
-
-</script>
-<script>
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
 </script>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('select[name="speciality"]').on('change', function() {
+            var speciality_id = $(this).val();
+            if(speciality_id) {
+                $.ajax({
+                    url: '/course/'+speciality_id,
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {
+                        $('select[name="course"]').empty();
+                        $.each(data, function(key, value) {
+                            $('select[name="course"]').append('<option value="'+ key +'">'+ value +'</option>');
+                        });
+                    }
+                });
+            }else{
+                $('select[name="course"]').empty();
+            }
+        });
+    });
+</script>
+
 
 @yield('scripts')
+
 </body>
 
 </html>

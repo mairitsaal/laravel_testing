@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use DB;
+use App\Models\Course;
 use App\Models\Speciality;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SpecialityController extends Controller
 {
@@ -13,6 +14,8 @@ class SpecialityController extends Controller
     {
         return view('speciality.add-speciality');
     }
+
+
     public function createSpeciality(Request $request)
     {
         $speciality = new Speciality();
@@ -20,6 +23,7 @@ class SpecialityController extends Controller
         $speciality->kestvus = $request->kestvus;
         $speciality->oppekava = $request->oppekava;
         $speciality->oppevorm = $request->oppevorm;
+
         $speciality->save();
 
         return back()->with('speciality_created', 'Uus eriala on sisestatud andmebaasi');
@@ -35,6 +39,7 @@ class SpecialityController extends Controller
         Speciality::where('id', $id)->delete();
         return back()->with('speciality_deleted', 'Eriala on andmebaasist kustutatud');
     }
+
 
     public function deleteAllSpeciality(Request $request)
     {
@@ -55,9 +60,11 @@ class SpecialityController extends Controller
         $speciality->oppekava = $request->oppekava;
         $speciality->oppevorm = $request->oppevorm;
         $speciality->kestvus = $request->kestvus;
+
         $speciality->save();
 
         return back()->with('speciality_updated', 'Eriala edukalt uuendatud');
 
     }
+
 }

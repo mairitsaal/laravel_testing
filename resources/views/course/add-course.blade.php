@@ -42,6 +42,34 @@
                                            <input type="text" name="opilasteArv" id="opilasteArv" class="form-control" aria-label="Õpilaste arv" aria-describedby="basic-addon1" style="border: 1px solid #888888;" required data-toggle="tooltip" data-placement="top" title="Õpilaste arv">
                                        </div>
                                    </div>
+
+                                   <div class="form-group col-md-6">
+                                       <label>Lisa kursusele eriala</label>
+                                       <div class="input-group">
+                                           <div class="input-group-prepend">
+                                               <span class="input-group-text" id="basic-addon1" style="border: 1px solid #888888;">
+                                                   <i class="fas fa-graduation-cap fa-sm" style="color: #E60011;"></i>
+                                               </span>
+                                           </div>
+                                           <select for="dropdown" class="form-control input-sm custom-select custom-select-lg" name="speciality_id">
+                                               <option selected>Leia eriala</option>
+                                               @foreach ($specialities as $speciality)
+                                                   <option value="{{ $speciality->id }}">
+                                                       {{ $speciality->nimi }}
+                                                   </option>
+                                               @endforeach
+                                               <option value=""></option>
+                                           </select>
+                                       </div>
+                                   </div>
+
+
+
+
+
+
+
+
                                </div>
 
                                <div>
@@ -54,6 +82,7 @@
                  </div>
              </div>
          </div>
+
      </div>
 
     <!--layouts.app-->
@@ -70,4 +99,7 @@
 
 @endsection
 
+@section('scripts')
+
+@endsection
 
