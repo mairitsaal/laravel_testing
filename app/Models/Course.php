@@ -26,4 +26,9 @@ class Course extends Model
         return $this->hasMany(User::class, 'user_id', 'id')->withDefault();
 
     }
+    public function requirements()
+    {
+        return $this->hasMany(PracticeRequirement::class, 'requirement_id', 'id')->withDefault();
+
+    }
 }

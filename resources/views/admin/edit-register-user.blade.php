@@ -94,9 +94,26 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group col-md-6 pl-0">
+                            <label>Lisa Eriala</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1" style="border: 1px solid #888888;">
+                                        <i class="fas fa-graduation-cap fa-sm" style="color: #E60011;"></i>
+                                    </span>
+                                </div>
+                                <select for="dropdown" class="form-control input-sm custom-select custom-select-lg" name="course_id">
+                                    <option value="{{ $users->courses->id }}">{{ $users->courses->nimi }}}</option>
+                                    <option value=""></option>
+                                    @foreach ($courses as $course)
+                                        <option value="{{ $course->id }}">
+                                            {{ $course->nimi }}
+                                        </option>
+                                    @endforeach
 
-
-                </div>
+                                </select>
+                            </div>
+                        </div>
 
                         <div>
                             <button type="submit" class="btn btn-danger">Muuda</button>

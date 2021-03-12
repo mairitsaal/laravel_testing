@@ -5,53 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="476fc6f8-db5a-4630-b3a0-370d82bfe2f8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/speciality/specialityCourses.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/practiceRequirement/add-practice-requirement.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/practiceRequirement/edit-practice-requirement.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/practiceRequirement/practiceReqs.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/practiceRequirement/singlePracticeReq.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../techworld-js-docker-demo-app/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/laravelui.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravelui.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DashboardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BaseUnitDepartmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BaseUnitDepartmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PracticeDepartmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PracticeDepartmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PracticeUnitController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PracticeUnitController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SpecialityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SpecialityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/BaseUnitDepartment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/BaseUnitDepartment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DropdownController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DropdownController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PracticeRequirementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PracticeRequirementController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Course.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/PracticeBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/PracticeBase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/PracticeDepartment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/PracticeDepartment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/PracticeUnit.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/PracticeUnit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Speciality.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Requirement.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/PracticeRequirement.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2011_02_27_213755_create_speciality_courses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_27_213755_create_speciality_courses_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2012_02_21_085320_create_specialities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2012_02_21_085320_create_specialities_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2013_02_16_005318_create_practice_departments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2013_02_16_005318_create_practice_departments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2013_02_16_083200_create_requirements_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_02_16_083200_create_requirements_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/BaseUnitDep/dynamic-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/BaseUnitDep/dynamic-dropdown.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/BaseUnits/baseUnits.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/BaseUnits/baseUnits.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2013_02_16_083200_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2013_02_16_083200_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_02_16_083200_create_requirements_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_02_16_083200_create_requirements_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/BaseUnits/add-unit-to-base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/BaseUnits/add-unit-to-base.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/edit-register-user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/edit-register-user.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/course/add-course.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/course/add-course.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/course/courses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/course/courses.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/course/edit-course.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/course/edit-course.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/practiceBase/practiceBases.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/practiceBase/practiceBases.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/practiceDepartment/add-practice-department.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/practiceDepartment/add-practice-department.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/practiceDepartment/edit-practice-department.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/practiceDepartment/edit-practice-department.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/practiceDepartment/practiceDepartments.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/practiceDepartment/practiceDepartments.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/practiceUnit/add-practice-unit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/practiceUnit/add-practice-unit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/practiceUnit/edit-practice-unit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/practiceUnit/edit-practice-unit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/practiceUnit/practiceUnits.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/practiceUnit/practiceUnits.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/speciality/add-speciality.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/speciality/add-speciality.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/speciality/edit-speciality.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/speciality/edit-speciality.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/speciality/specialities.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/speciality/specialities.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/specialityCourses/add-course-to-speciality.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/specialityCourses/add-course-to-speciality.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -200,26 +177,26 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/speciality" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/practiceRequirement" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/practiceRequirement" />
+      <recent name="$PROJECT_DIR$/resources/views/speciality" />
+      <recent name="$PROJECT_DIR$/resources/views/specialityCourses" />
+      <recent name="$PROJECT_DIR$/resources/views/BaseUnitDep" />
+      <recent name="$PROJECT_DIR$/resources/views/UnitDeps" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/auth" />
       <recent name="$PROJECT_DIR$/resources/views/BaseUnitDep" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/resources/views/practiceDepartment" />
       <recent name="$PROJECT_DIR$/resources/views" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/speciality" />
-      <recent name="$PROJECT_DIR$/resources/views/specialityCourses" />
-      <recent name="$PROJECT_DIR$/resources/views/BaseUnitDep" />
-      <recent name="$PROJECT_DIR$/resources/views/UnitDeps" />
-      <recent name="$PROJECT_DIR$/resources/views/course" />
     </key>
   </component>
   <component name="RunManager">
@@ -245,7 +222,9 @@
       <workItem from="1613424174538" duration="69971000" />
       <workItem from="1613715487932" duration="54005000" />
       <workItem from="1613975501226" duration="126149000" />
-      <workItem from="1614513072438" duration="99585000" />
+      <workItem from="1614513072438" duration="120106000" />
+      <workItem from="1615270396469" duration="20171000" />
+      <workItem from="1615532371652" duration="449000" />
     </task>
     <servers />
   </component>
@@ -265,18 +244,18 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="392" y="259" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1612946731032" />
-    <state x="525" y="232" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1614065726317">
+    <state x="525" y="232" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1615276401570">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="525" y="232" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.900@0.0.1440.900" timestamp="1614065726317" />
+    <state x="525" y="232" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.900@0.0.1440.900" timestamp="1615276401570" />
     <state x="563" y="169" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1612438467695">
       <screen x="0" y="23" width="1440" height="785" />
     </state>
     <state x="563" y="169" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.785@0.23.1440.785" timestamp="1612438467695" />
-    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614668359778">
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1615281143027">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1614668359778" />
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1615281143027" />
     <state x="539" y="380" key="NewPhpFileDialog" timestamp="1614591783034">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -289,14 +268,14 @@
       <screen x="0" y="23" width="1440" height="785" />
     </state>
     <state x="619" y="153" key="ftp.server.browser/0.23.1440.785@0.23.1440.785" timestamp="1611903285058" />
-    <state x="592" y="349" key="publish.login" timestamp="1614513395392">
+    <state x="592" y="349" key="publish.login" timestamp="1615532478594">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="592" y="349" key="publish.login/0.0.1440.900@0.0.1440.900" timestamp="1614513395392" />
-    <state x="377" y="125" width="670" height="776" key="search.everywhere.popup" timestamp="1614768642273">
+    <state x="592" y="349" key="publish.login/0.0.1440.900@0.0.1440.900" timestamp="1615532478594" />
+    <state x="377" y="125" width="670" height="776" key="search.everywhere.popup" timestamp="1615285146567">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="377" y="125" width="670" height="776" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1614768642273" />
+    <state x="377" y="125" width="670" height="776" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1615285146567" />
     <state x="377" y="132" width="670" height="676" key="search.everywhere.popup/0.23.1440.785@0.23.1440.785" timestamp="1612707341374" />
   </component>
 </project>

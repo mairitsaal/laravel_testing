@@ -23,8 +23,9 @@ class CreateRequirementsTable extends Migration
 
             $table->char('nimi', 255);
             $table->integer('maht', );
-            $table->char('kirjeldus', 255);
-            $table->char('esimenePaevKaasa', 255);
+            // fail
+            $table->char('kirjeldus', 255)->nullable();
+            $table->char('esimenePaevKaasa', 255)->nullable();
             $table->timestamps();
         });
     }

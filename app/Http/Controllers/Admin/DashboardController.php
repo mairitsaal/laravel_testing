@@ -23,7 +23,11 @@ class DashboardController extends Controller
         public function editRegisterUser(Request $request, $id)
     {
         $users= User::findOrFail($id);
-        return view('admin.edit-register-user')->with('users', $users);
+        $courses = Course::select('id', 'nimi')->get();
+        //$courses = Course::select('id', 'nimi')->get();
+        $specialities = Speciality::select('id', 'nimi')->get();
+        //return view('admin.edit-register-user', compact('users', 'specialities', 'courses'));
+        return view('admin.edit-register-user')->with('users', $users)->with('courses', $courses)->with('specialities', $specialities);
     }
 
     public function updateRegisterUser(Request $request, $id)
@@ -57,9 +61,10 @@ class DashboardController extends Controller
 
     public function speciality()
     {
-
+        $users = User::all();
         $specialities = DB::table("specialities")->pluck('nimi','id');
-        return view('auth.index',compact('specialities'));
+        //return back()->with('courseSpeciality.dropdown',compact('specialities', 'users'));
+        return view('auth.index',compact('specialities')); // Juhul kui panna lisa function register blade'i
     }
 
     public function course($id)
@@ -69,7 +74,6 @@ class DashboardController extends Controller
             ->pluck('nimi','id');
         return json_encode($courses);
     }
-
 
 
 

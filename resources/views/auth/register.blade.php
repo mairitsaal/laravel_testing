@@ -10,7 +10,6 @@
                 @csrf
 
                 <!--Kasutaja nimi-->
-                    <form>
                         <div class="form-group">
                             <label for="name" class="required-field">{{ __('Ees- ja perkonnanimi') }}</label>
                             <div class="input-group">
@@ -134,44 +133,29 @@
                                                 @enderror
                                 </div>
                             </div>
-
-
-
-                                <label for="" class="mt-2">Lisa seos kursusega</label>
-                                <div class="form-group col-md-6">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                            <span class="input-group-text" style="border: 1px solid #888888;" id="basic-addon1">
-                                <i class="fas fa-school fa-sm" style="color: #E60011;"></i>
-                            </span>
-                                        </div>
-                                        <select name="speciality" class="custom-select custom-select-lg form-control input-lg">
-                                            <option value="">Vali eriala</option>
-
-                                            @foreach ($specialities as $key => $speciality)
-                                                <option value="{{ $key }}">{{ $speciality }}</option>
-                                            @endforeach
-
-                                        </select>
+                            <div class="form-group col-md-6 pl-0">
+                                <label>Lisa Eriala</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1" style="border: 1px solid #888888;">
+                                        <i class="fas fa-graduation-cap fa-sm" style="color: #E60011;"></i>
+                                    </span>
                                     </div>
+                                    <select for="dropdown" class="form-control input-sm custom-select custom-select-lg" name="course_id">
+                                        <option selected>Leia eriala</option>
+                                        <option value=""></option>
+                                        @foreach ($courses as $course)
+                                            <option value="{{ $course->id }}">
+                                                {{ $course->nimi }}
+                                            </option>
+                                        @endforeach
+
+                                    </select>
                                 </div>
-
-                                <div class="form-group col-md-6">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                            <span class="input-group-text" style="border: 1px solid #888888;" id="basic-addon1">
-                                <i class="fas fa-school fa-sm" style="color: #E60011;"></i>
-                            </span>
-                                        </div>
-                                        <select name="course" class="custom-select custom-select-lg form-control input-lg">
-                                            <option value="">Vali kursus</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-
+                            </div>
 
                         </div>
+
 
 
                         <div class="form-group row mb-0">
@@ -184,7 +168,6 @@
                             </div>
                         </div>
                     </form>
-                </form>
             </div>
         </div>
 

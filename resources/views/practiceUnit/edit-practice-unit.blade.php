@@ -40,7 +40,7 @@
                                                </span>
                                        </div>
                                        <select for="dropdown" class="form-control input-sm custom-select custom-select-lg" name="practice_base_id">
-                                           <option value="p{{$practiceUnit->practiceBase->id}}">{{ $practiceUnit->practiceBase->nimi }}</option>
+                                           <option value="{{$practiceUnit->practiceBase->id}}">{{ $practiceUnit->practiceBase->nimi }}</option>
                                            @foreach ($practiceBase as $base)
                                                <option value="{{ $base->id }}">
                                                    {{ $base->nimi }}

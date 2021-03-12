@@ -49,7 +49,7 @@
                                        </select>
                                    </div>
                                </div>
-                               <div>
+
                                    <button type="submit" class="btn btn-danger">Lisa praktikaüksus</button>
                                    <a href="/dashboard" class="btn btn-success" style="margin-top:30px;">Tühista</a>
                                    <a href="/practiceUnits" class="btn btn-info" style="margin-top:30px;">Vaata tabelit</a>

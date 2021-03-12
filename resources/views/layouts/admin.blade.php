@@ -279,6 +279,34 @@
                         </ul>
                     </div>
                 </li>
+                <!--Requirements-->
+                <li >
+                    <a data-toggle="collapse" href="#requirement" type="button" class="btn btn-warning">
+
+                        <!-- <i class="now-ui-icons design_bullet-list-67"></i>-->
+
+                        <p style="font-size: 14px; text-align: center;">
+                            Praktikanõuded <b class="caret"></b>
+                        </p>
+                    </a>
+
+                    <div id="requirement" class="collapse">
+                        <ul class="nav navbarDropdown">
+                            <li class="{{ 'requirement' == request()->path() ? 'active' : ''}}">
+                                <a href="/practiceReqs">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal align-center" style="font-size: 12px;">Praktikanõuded</span>
+                                </a>
+                            </li>
+                            <li class="{{ 'add-practice-requirement' == request()->path() ? 'active' : ''}}">
+                                <a href="/add-practice-requirement">
+                                    <span class="sidebar-mini-icon ml-5"></span>
+                                    <span class="sidebar-normal" style="font-size: 12px;"> Lisa praktikanõue</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
 
 
                 <!--speciality-->

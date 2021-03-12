@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('position', 255)->nullable();
 
+            //$table->mediumText('file')->nullable();
+
             $table->bigInteger('base_unit_department_id')->unsigned()->nullable();
             $table->foreign('base_unit_department_id')->references('id')->on('base_unit_departments')
                 ->onDelete('cascade');

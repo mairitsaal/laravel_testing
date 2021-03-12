@@ -11,7 +11,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\UnitDepsController;
 use App\Http\Controllers\SpecialityCourseController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\DropdownController;
+use App\Http\Controllers\PracticeRequirementController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,8 +55,10 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/deleteAll-users', [DashboardController::class, 'deleteAllUsers']);
 
     // Proovimaks dunamic dropdown ajax
+    //Route::get('/dropdown','App\Http\Controllers\Admin\DashboardController@speciality')->name('courseSpeciality.dropdown');
+    //Route::get('/dropdown','App\Http\Controllers\Admin\DashboardController@speciality')->name('courseSpeciality.dropdown');
     Route::get('/dropdown','App\Http\Controllers\Admin\DashboardController@speciality');
-    //Route::get('/dropdown','App\Http\Controllers\Admin\DashboardController@speciality');
+    //Route::get('/course/{id}','App\Http\Controllers\Admin\DashboardController@course')->name('course.get');
     Route::get('/course/{id}','App\Http\Controllers\Admin\DashboardController@course');
 
 
@@ -163,6 +165,15 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/edit-course-to-speciality/{id}', [SpecialityCourseController::class, 'editSpecialityCourse']);
     Route::post('/update-course-to-speciality', [SpecialityCourseController::class, 'updateSpecialityCourse'])->name('specialityCourse.update');
 
+    // Requirements
+    Route::get('/add-practice-requirement', [PracticeRequirementController::class, 'addPracticeReq']);
+    Route::post('/create-practice-requirement', [PracticeRequirementController::class,'createPracticeReq'])->name('practiceReq.create');
+    Route::get('/practiceReqs', [PracticeRequirementController::class, 'getPracticeReq']);
+    Route::get('/practiceReqs/{id}', [PracticeRequirementController::class, 'getPracticeReqById']);
+    Route::get('/delete-practice-requirement/{id}', [PracticeRequirementController::class, 'deletePracticeReq']);
+    Route::get('/deleteAll-practice-requirements', [PracticeRequirementController::class, 'deleteAllPracticeReqs']);
+    Route::get('/edit-practice-requirement/{id}', [PracticeRequirementController::class, 'editPracticeReq']);
+    Route::post('/update-practice-requirement', [PracticeRequirementController::class, 'updatePracticeReq'])->name('practiceReq.update');
 
 
 });

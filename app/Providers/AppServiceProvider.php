@@ -29,10 +29,14 @@ class AppServiceProvider extends ServiceProvider
             $view->with('specialities', Auth::user());
         });
 
-        //view()->composer('auth.register', function ($view)
-        //{
-        //    $view->with('courses', Auth::user());
-        //});
+        view()->composer('auth.register', function ($view)
+        {
+            $view->with('courses', Auth::user());
+        });
+        view()->composer('admin.register', function ($view)
+        {
+            $view->with('courses', Auth::user());
+        });
 
 
         //Schema::defaultStringLength(191);

@@ -25,4 +25,23 @@ class DropdownController extends Controller
             ->pluck("nimi", "id");
         return response()->json($practice_departments);
     }
+    public function speciality()
+    {
+
+        $specialities = DB::table("specialities")->pluck('nimi','id');
+        return view('auth.index',compact('specialities'));
+    }
+
+    public function course($id)
+    {
+        $courses = DB::table("courses")
+            ->where("speciality_id",$id)
+            ->pluck('nimi','id');
+        return json_encode($courses);
+    }
+
+
+
+
+
 }

@@ -35,6 +35,17 @@
                     <button style="margin-bottom: 10px" class="btn btn-warning delete_all mb-3 mt-0 ml-5" data-url="{{ url('deleteAll-users') }}">Kustuta kõik</button>
                     <table id="dataTable" class="table table-striped">
 
+                        <!-- Excel
+
+                                    <form  method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="file" name="file" class="form-control">
+                                        <br>
+                                        <button class="btn btn-success">Import User Data</button>
+                                        <a class="btn btn-warning" >Export User Data</a>
+                                    </form>-->
+
+
                             <thead class="text-primary">
                             <th width="50px"><input type="checkbox" id="master"></th>
                             <th>Id</th>
@@ -60,7 +71,7 @@
                                 <td class="text-left">{{$row->email}}</td>
                                 <td class="text-left">{{$row->usertype}}</td>
                                 <td class="text-left">{{$row->position}}</td>
-                                <td class="text-left">{{$row->course_id}}</td>
+                                <td class="text-left">{{$row->courses->nimi}}</td>
 
                                 <td class="m-0 p-0">
 

@@ -39,7 +39,7 @@
                                         </span>
                                     @endif
                                 </div>
-                                <div class="col-6">
+                                <div class="col-md-6">
                                     <h6 class="ml-2" style="color: #000">Vali praktikaüksus</h6>
                                     <select class="form-control input-sm" name="practice_unit_id">
 
