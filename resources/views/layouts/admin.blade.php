@@ -12,21 +12,18 @@
     <!--     Fonts and icons     -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-
-
-
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
     <!-- CSS Files -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../assets/css/now-ui-dashboard.css" rel="stylesheet" />
 
     <link href="../assets/css/admin.css?<?php echo time(); ?>" rel="stylesheet" />
-    <!--<link rel="stylesheet" type="text/css" href="../assets/css/dataTables.min.css" />-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/dataTables.min.css" />
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">-->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
 
@@ -38,12 +35,10 @@
     <script src="bootstrap-validate.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
-    <!--Style
-    <link rel="stylesheet" type="text/css" href="/css/app.css?<?php echo time(); ?>" />
-    <link rel="stylesheet" type="text/css" href="/css/style.css?<?php echo time(); ?>" />
-    -->
 
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
+
 
 </head>
 
@@ -53,11 +48,9 @@
 <div class="wrapper" >
     <div class="sidebar" data-color="red">
         <div class="logo">
-            <a href="/dashboard" class="simple-text logo-mini">
-                <img src="/svg/heartWhite.svg">
-            </a>
-            <a href="/dashboard" class="simple-text logo-normal">
-                Praktika
+
+            <a href="/dashboard" class="simple-text logo-normal" style="text-align: center; font-size: 1.2em;">
+                Praktika korraldus
             </a>
         </div>
         <div class="sidebar-wrapper" id="sidebar-wrapper">
@@ -412,7 +405,15 @@
                             <span class="navbar-toggler-bar bar3"></span>
                         </button>
                     </div>
-                    <a class="navbar-brand" href="#pablo">Tabelid</a>
+                    <a class="navbar-brand" href="#pablo">
+
+                        <div class="logo">
+                            <a href="/dashboard" class="simple-text logo-mini">
+                                <img src="/svg/heartWhite.svg" style="width: 50px;">
+                            </a>
+                        </div>
+
+                    </a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -509,15 +510,25 @@
 <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
 <!--  Google Maps Plugin    -->
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+<!-- dropdownlist-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+
+
+
 <!-- Chart JS -->
 <script src="../assets/js/plugins/chartjs.min.js"></script>
 <!--  Notifications Plugin    -->
 <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
 
 
 <script  type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
 
@@ -533,7 +544,7 @@
     $(document).ready( function ()
     {
         $('#dataTable').DataTable( {
-            //"scrollX": true
+            //"scrollX": true,
             "language": {
                 "paginate": {
                     "first": "Esimene",
@@ -548,6 +559,7 @@
         });
     } );
 </script>
+
 
     <script>
         $(document).ready(function(){
@@ -694,18 +706,20 @@
                     type: "GET",
                     dataType: "json",
                     success:function(data) {
-                        $('select[name="course"]').empty();
+                        $('select[name="course_id"]').empty();
                         $.each(data, function(key, value) {
-                            $('select[name="course"]').append('<option value="'+ key +'">'+ value +'</option>');
+                            $('select[name="course_id"]').append('<option value="'+ key +'">'+ value +'</option>');
                         });
                     }
                 });
             }else{
-                $('select[name="course"]').empty();
+                $('select[name="course_id"]').empty();
             }
         });
     });
 </script>
+
+
 
 
 @yield('scripts')

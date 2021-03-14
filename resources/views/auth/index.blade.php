@@ -34,7 +34,7 @@
                                 <i class="fas fa-school fa-sm" style="color: #E60011;"></i>
                             </span>
                         </div>
-                        <select name="course" class="custom-select custom-select-lg form-control input-lg">
+                        <select name="course_id" class="custom-select custom-select-lg form-control input-lg">
                             <option value="">Vali kursus</option>
                         </select>
                     </div>

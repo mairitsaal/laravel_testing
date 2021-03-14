@@ -23,7 +23,7 @@ class StudentMiddleware
         }
         else
             {
-            return redirect('/home')->with('status', 'Õigused õpilase vaatele puuduvad');
+            return redirect('/home-student')->with('status', 'Õigused õpilase vaatele puuduvad');
         }
 
     }

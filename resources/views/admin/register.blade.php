@@ -54,7 +54,7 @@
                             <th class="text-left">Email</th>
                             <th class="text-left">Roll</th>
                             <th class="text-left">Amet</th>
-                            <th class="text-left">Eriala</th>
+                            <th class="text-left">Kursus</th>
                             <th class="text-center">Muuda</th>
                             </thead>
                             <tbody>
@@ -80,6 +80,7 @@
 -->
 
                                      <form action="/delete-role-register/{{$row->id}}" method="POST">
+                                         <a class="mr-1" style="color: #ff8c00;" href="/role-register/{{ $row->id }}"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Vaata lähemalt"></i></a>
                                         <a href="/edit-register-user/{{ $row->id }}" style="color: forestgreen;">
                                             <i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Muuda"></i>
                                         </a>
@@ -87,7 +88,7 @@
                                         @csrf
                                         @method('DELETE')
 
-                                        <button class="m-0 p-0" type="submit" style="color: red; background-color: transparent; border: none;" >
+                                        <button class="m-0 p-0 ml-1" type="submit" style="color: red; background-color: transparent; border: none;" >
                                             <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Kustuta"></i>
                                         </button>
                                     </form>

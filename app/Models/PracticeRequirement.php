@@ -23,4 +23,5 @@ class PracticeRequirement extends Model
         return $this->belongsTo(Course::class, 'course_id', 'id')->withDefault();
 
     }
+
 }

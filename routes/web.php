@@ -12,6 +12,9 @@ use App\Http\Controllers\UnitDepsController;
 use App\Http\Controllers\SpecialityCourseController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\PracticeRequirementController;
+use App\Http\Controllers\PracticeGroupController;
+use App\Http\Controllers\FrameworkController;
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,8 +49,12 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     });
 // Roles and practiceBaseUserViews
     Route::get('/role-register', 'App\Http\Controllers\Admin\DashboardController@registeredUser');
+    Route::get('/role-register/{id}', [DashboardController::class, 'getUserById']);
     Route::get('/edit-register-user/{id}', 'App\Http\Controllers\Admin\DashboardController@editRegisterUser');
-    //Route::get('/edit-register-user/{id}', 'App\Http\Controllers\Admin\DashboardController@editRegisterUser');
+
+
+    Route::get('/dashboard', 'App\Http\Controllers\Admin\DashboardController@admin');
+    //Route::get('/dashboard/bases', 'App\Http\Controllers\Admin\DashboardController@basesCount');
     //Route::post('/edit-register-user/fetch', 'App\Http\Controllers\Admin\DashboardController@fetch')->name('addunitdeptobase4.fetch');
 
     Route::post('/update-role-register/{id}', 'App\Http\Controllers\Admin\DashboardController@updateRegisterUser');
@@ -59,7 +66,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     //Route::get('/dropdown','App\Http\Controllers\Admin\DashboardController@speciality')->name('courseSpeciality.dropdown');
     Route::get('/dropdown','App\Http\Controllers\Admin\DashboardController@speciality');
     //Route::get('/course/{id}','App\Http\Controllers\Admin\DashboardController@course')->name('course.get');
-    Route::get('/course/{id}','App\Http\Controllers\Admin\DashboardController@course');
+    Route::get('/course/{id}','App\Http\Controllers\Admin\DashboardController@course_id');
 
 
     //Route::get('/role-register', 'App\Http\Controllers\Admin\DashboardController@dynamicDropdown');
@@ -175,14 +182,24 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/edit-practice-requirement/{id}', [PracticeRequirementController::class, 'editPracticeReq']);
     Route::post('/update-practice-requirement', [PracticeRequirementController::class, 'updatePracticeReq'])->name('practiceReq.update');
 
+    // PracticeGroup
+    Route::get('/add-practice-group', [PracticeGroupController::class, 'addPracticeGroup']);
+    Route::post('/create-practice-group', [PracticeGroupController::class,'createPracticeGroup'])->name('practiceGroup.create');
+    Route::get('/practiceGroups', [PracticeGroupController::class, 'getPracticeGroup']);
+    Route::get('/practiceGroups/{id}', [PracticeGroupController::class, 'getPracticeGroupById']);
+
+    Route::get('frameworks',[FrameworkController::class, 'index']);
+    Route::post('frameworks',[FrameworkController::class, 'store'])->name('frameworks.store');
 
 });
 // Student access
 Route::group(['middleware' => ['auth', 'student']], function () {
 
-    Route::get('/home-student', function () {
-        return view('student.home-student');
-    });
+
+    Route::get('/home-student', [DashboardController::class, 'student']);
+    //Route::get('/home-student', function () {
+    //    return view('student.home-student');
+    //});
 });
 
 // Practice Base Instructor access

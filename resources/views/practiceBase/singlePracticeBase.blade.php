@@ -1,36 +1,81 @@
-@extends('layouts.master')
+@extends('layouts.admin')
 @section('title', 'Praktikabaas täpsemalt')
 @section('content')
-<section style="padding-top:20px">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10">
-               <div class="row mb-2">
-                   <div class="col-10">
-                       <h3 style="color: #E60011">{{$practiceBase->nimi}}</h3>
-                   </div>
-                   <div class="col-2">
-                       <a href="/practiceBases" class="btn btn-danger mr-4">Praktikabaasid</a>
-                   </div>
-               </div>
-                <div class="card" style="border: 1px solid #EDEDED; background-color: #F5F5F5">
-                    <div class="card-body p-4">
-                        <p>{{$practiceBase->lepinguNr}}</p>
-                        <p>{{$practiceBase->registriNr}}</p>
-                        <p>{{$practiceBase->aadress}}</p>
-                        <p>{{$practiceBase->telefon}}</p>
-                        <p>{{$practiceBase->email}}</p>
-                        <p>{{$practiceBase->lepinguAlgus}}</p>
-                        <p>{{$practiceBase->lepinguLopp}}</p>
-                        <p>{{$practiceBase->tunniHind}}</p>
-                        <p>{{$practiceBase->allkirjastaja}}</p>
-                        <p>{{$practiceBase->kontaktBaasis}}</p>
-                        <p>{{$practiceBase->markused}}</p>
 
+    <div class="row">
+        <div class="card col-md-12">
+            <div class="card-header">
+                <div class="title mt-4 ml-4" style="color: #E60011;"><h3>{{$practiceBase->nimi}}</h3></div>
+                <div class="card-body">
+                    <table class="table table-striped display">
+                        <tbody>
+                        <tr>
+                            <th class="text-left pl-4">Lepingu number</th>
+                            <td class="text-left">{{$practiceBase->lepinguNr}}</td>
+
+                        </tr>
+                        <tr>
+                            <th class="text-left pl-4">Registri number</th>
+                            <td class="text-left">{{$practiceBase->registriNr}}</td>
+
+                        </tr>
+                        <tr>
+                            <th class="text-left pl-4">Praktikabaasi aadress</th>
+                            <td class="text-left">{{$practiceBase->aadress}}</td>
+
+                        </tr>
+                        <tr>
+                            <th class="text-left pl-4">Kontakttelefon</th>
+                            <td class="text-left">{{$practiceBase->telefon}}</td>
+
+                        </tr>
+                        <tr>
+                            <th class="text-left pl-4">Telefon</th>
+                            <td class="text-left">{{$practiceBase->email}}</td>
+
+                        </tr>
+                        <tr>
+                            <th class="text-left pl-4">Lepingu alguskuupäev</th>
+                            <td class="text-left">{{$practiceBase->lepinguAlgus}}</td>
+
+                        </tr>
+                        <tr>
+                            <th class="text-left pl-4">Lepingu lõppkuupäev</th>
+                            <td class="text-left">{{$practiceBase->lepinguLopp}}</td>
+
+                        </tr>
+                        <tr>
+                            <th class="text-left pl-4">Tunnihind</th>
+                            <td class="text-left">{{$practiceBase->tunniHind}}</td>
+
+                        </tr>
+                        <tr>
+                            <th class="text-left pl-4">Praktikabaasi allkirjastaja</th>
+                            <td class="text-left">{{$practiceBase->allkirjastaja}}</td>
+
+                        </tr>
+                        <tr>
+                            <th class="text-left pl-4">Kontakt praktikabaasis</th>
+                            <td class="text-left">{{$practiceBase->kontaktBaasis}}</td>
+
+                        </tr>
+                        <tr>
+                            <th class="text-left pl-4">Lisamärkused</th>
+                            <td class="text-left">{{$practiceBase->markused}}</td>
+
+                        </tr>
+                        </tbody>
+
+                    </table>
+                    <div>
+                        <a href="/practiceBases" class="btn btn-info" style="margin-top:30px;">Vaata tabelit</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+
+@endsection
+
+@section('scripts')
 @endsection

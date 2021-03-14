@@ -1,3 +1,4 @@
+
 .input-group-text{
     border-radius: 5px !important;
     margin: 0px;
@@ -88,4 +89,36 @@ select{
 
 .table-striped tbody tr:nth-of-type(odd) {
     background-color: rgba(0,0,0,.05) !important;
+}
+
+.nav-link {
+    margin-top: 20px;
+}
+.navbar .input-group {
+    margin-top: 20px !important;
+}
+body {
+    list-style-type: none !important;
+}
+.logo {
+    margin-top: 20px !important;
+}
+table.dataTable.no-footer {
+    border-bottom: transparent !important;
+}
+tbody, td, tfoot, th, thead, tr{
+    border-bottom: transparent !important;
+}
+.dataTables_wrapper .dataTables_length select{
+    width: 70px !important;
+}
+.sorting{
+color: #E60011 !important;
+font-size: 1.25em !important;
+font-weight: 300 !important;
+}
+.stats-title{
+    margin-top: 17px !important;
+    margin-left: 5px !important;
+    margin-right: 0 !important;
 }

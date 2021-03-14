@@ -50,6 +50,14 @@ class RegisterController extends Controller
         //$this->middleware('guest');
         $this->middleware('admin');
     }
+    public function showRegistrationForm() {
+        $peoples = DB::table("specialities")->get();
+        //dd($peoples);
+        return view('auth.register', compact('peoples'));
+
+    }
+
+
 
     /**
      * Get a validator for an incoming registration request.
@@ -65,7 +73,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'position' => ['required', 'string',  'max:255'],
             'usertype' => ['required', 'string', 'max:100'],
-            //'course_id' => ['string', 'max:100'],
+            'course_id' => ['string', 'max:100'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }

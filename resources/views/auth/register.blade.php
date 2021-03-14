@@ -133,27 +133,40 @@
                                                 @enderror
                                 </div>
                             </div>
-                            <div class="form-group col-md-6 pl-0">
-                                <label>Lisa Eriala</label>
+                        </div>
+                        <!--Dropdown for speciality and course-->
+                        <div class="row d-flex" >
+                            <label for="" class="mt-2">Lisa seos erialaga</label>
+                            <div class="form-group col-md-6">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1" style="border: 1px solid #888888;">
-                                        <i class="fas fa-graduation-cap fa-sm" style="color: #E60011;"></i>
-                                    </span>
+                                <span class="input-group-text" style="border: 1px solid #888888;" id="basic-addon1">
+                                    <i class="fas fa-school fa-sm" style="color: #E60011;"></i>
+                                </span>
                                     </div>
-                                    <select for="dropdown" class="form-control input-sm custom-select custom-select-lg" name="course_id">
-                                        <option selected>Leia eriala</option>
-                                        <option value=""></option>
-                                        @foreach ($courses as $course)
-                                            <option value="{{ $course->id }}">
-                                                {{ $course->nimi }}
-                                            </option>
+                                    <select name="speciality" class="custom-select custom-select-lg form-control input-lg">
+                                        <option value="">Vali eriala</option>
+
+                                        @foreach ($peoples as $people)
+                                            <option value="{{ $people->id }}">{{ $people->nimi }}</option>
                                         @endforeach
 
                                     </select>
                                 </div>
                             </div>
 
+                            <div class="form-group col-md-6">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                <span class="input-group-text" style="border: 1px solid #888888;" id="basic-addon1">
+                                    <i class="fas fa-school fa-sm" style="color: #E60011;"></i>
+                                </span>
+                                    </div>
+                                    <select name="course_id" class="custom-select custom-select-lg form-control input-lg">
+                                        <option selected value="">Vali kursus</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
 
 

@@ -75,4 +75,11 @@ class User extends Authenticatable
         return $this->belongsTo(SpecialityCourse::class, 'speciality_course_id', 'id')->withDefault();
 
     }
+    public function practiceGroup()
+    {
+        return $this->belongsTo(PracticeGroup::class, 'practice_group_id', 'id')
+            ->withDefault();
+    }
+    
+
 }
